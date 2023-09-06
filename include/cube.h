@@ -6,7 +6,12 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/06 15:20:40 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/06 15:25:42 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../library/libft/include/libft.h"
+
+
+
 
