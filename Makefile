@@ -1,82 +1,81 @@
-NAME=so_long
+NAME			=cub3d
 
-NAME_BONUS=so_long_bonus
+CC				= cc
 
-CC=@cc
+CFLAGS			= -Wall -Wextra -Werror -g3
 
-CFLAGS= -Wall -Wextra -Werror -g3
+MFLAGS 			= -L -lft -lXext -lX11 -lm -lbsd
 
-MFLAGS = -L -lft -lXext -lX11 -lm -lbsd
+PATH_MLX 		= library/minilibx-linux
+LIBX 			= -L library/minilibx-linux -lmlx_Linux
+LIBXFLAGS 		= -lmlx -lXext -lX11
 
-PATH_SRC = src
-PATH_SRC_BONUS = src_bonus
-SRC= $(PATH_SRC)/ft_check_map_utils.c\
-	 $(PATH_SRC)/ft_check_map.c\
-	 $(PATH_SRC)/ft_check_path.c\
-	 $(PATH_SRC)/ft_gestion_error.c\
-	 $(PATH_SRC)/ft_gestion_init.c\
-	 $(PATH_SRC)/ft_hook.c\
-	 $(PATH_SRC)/ft_moves.c\
-	 $(PATH_SRC)/ft_put_map.c\
-	 $(PATH_SRC)/ft_read_map_utils.c\
-	 $(PATH_SRC)/ft_read_map.c\
-	 $(PATH_SRC)/main.c\
+PATH_LIBFT		= library/libft
+LIBFT 			= library/libft/libft.a
 
-SRC_BONUS = $(PATH_SRC_BONUS)/ft_check_map_utils_bonus.c\
-			$(PATH_SRC_BONUS)/ft_check_map_bonus.c\
-			$(PATH_SRC_BONUS)/ft_check_path_bonus.c\
-			$(PATH_SRC_BONUS)/ft_gestion_error_bonus.c\
-			$(PATH_SRC_BONUS)/ft_gestion_init_bonus.c\
-			$(PATH_SRC_BONUS)/ft_hook_bonus.c\
-			$(PATH_SRC_BONUS)/ft_moves_bonus.c\
-			$(PATH_SRC_BONUS)/ft_put_map_bonus.c\
-			$(PATH_SRC_BONUS)/ft_read_map_utils_bonus.c\
-			$(PATH_SRC_BONUS)/ft_read_map_bonus.c\
-			$(PATH_SRC_BONUS)/ft_string_window.c\
-			$(PATH_SRC_BONUS)/main_bonus.c\
+OBJDIR	= obj/
+OBJFILE = $(SRCFILE:.c=.o)
+OBJS	= $(addprefix $(OBJDIR), $(OBJFILE))
+SRCDIR	= src/
+SRCS	= $(addprefix $(SRCDIR), $(SRCFILE))
 
-PATH_MLX = mlx_linux
+SRCFILE	= main.c
 
-LIBX = -L mlx_linux -lmlx_Linux
-LIBXFLAGS = -lmlx -lXext -lX11
+GREEN		=	\e[92;5;118m
+HGRN 		=	\e[1;92m
+GRAY		=	\e[33;2;37m
+RESET		=	\e[0m
+PURPLE		= 	\e[4;35m
+CYAN		=	\e[0;36m
+CURSIVE		=	\e[33;3m
 
-PATH_LIB = lib_dil
-LIB = $(PATH_LIB)/libft.a
+USAGE		= @printf "$(CURSIVE)$(CYAN) use $(PURPLE)./$(NAME) [maps name]$(CYAN) to start the program \n"
+#--------------------------------------------------------------------------#
 
-OBJ = $(SRC:.c=.o)
 
-OBJ_BONUS = $(SRC_BONUS:.c=.o)
-
-all:  $(NAME) $(NAME_BONUS)
-
-bonus:  $(NAME_BONUS)
-
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJS)
+	@printf "$(CURSIVE)$(GRAY) 	- [Compiling] minilibx object ... $(RESET)"
 	@make -s -C $(PATH_MLX)
-	@make -s -C $(PATH_LIB)
-	$(CC) $(CFLAGS) $(OBJ) $(LIB) $(LIBX) $(LIBXFLAGS) -o $(NAME) -g
-	@echo "\nCompilation OK\n"
+	@printf "$(CURSIVE)$(GREEN)\t done\n$(RESET)"
+	@printf "$(CURSIVE)$(GRAY) 	- [Compiling] libft object... $(RESET)"
+	@make -s -C $(PATH_LIBFT)
+	@printf "$(CURSIVE)$(GREEN)\t done\n$(RESET)"
+	@printf "$(CURSIVE)$(GRAY) 	- [Compiling] $(NAME) object ... $(RESET)"
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBX) $(LIBXFLAGS) -o $(NAME) -g
+	@printf "$(CURSIVE)$(GREEN)\t done\n$(RESET)"
+	@$(USAGE)
 
-$(NAME_BONUS) : $(OBJ_BONUS)
-	@make -s -C $(PATH_MLX)
-	@make -s -C $(PATH_LIB)
-	$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIB) $(LIBX) $(LIBXFLAGS) -o $(NAME_BONUS) -g
-	@echo "\nCompilation Bonus OK\n"
 
-.c.o:
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(PATH_MLX)
+$(OBJDIR)%.o: $(SRCDIR)%.c
+	@$(CC) $(CFLAGS) -c $< -o $@ -I $(PATH_MLX)
+
+
+all:  $(NAME)
 
 clean:
-	make -C $(PATH_MLX) clean
-	make -C $(PATH_LIB) clean
-	rm -f $(OBJ)
-	rm -f $(OBJ_BONUS)
+	@printf "$(CURSIVE)$(GRAY) 	- [Removing] minilibx object ... $(RESET)"
+	@make -s -C $(PATH_MLX) clean
+	@printf "$(CURSIVE)$(GREEN) done\n$(RESET)"
+	@printf "$(CURSIVE)$(GRAY) 	- [Removing] libft object ... $(RESET)"
+	@make -s -C $(PATH_LIBFT) clean
+	@printf "$(CURSIVE)$(GREEN) done\n$(RESET)"
+	@printf "$(CURSIVE)$(GRAY) 	- [Removing] $(NAME) object ... $(RESET)"
+	@rm -f $(OBJS)
+	@printf "$(CURSIVE)$(GREEN) done\n$(RESET)"
+	@printf "\t$(HGRN) $(NAME) \t object removed successfuly !\n$(RESET)\n" 
 
 fclean: clean
-	make -C $(PATH_LIB) fclean
-	make -C $(PATH_MLX) clean
-	rm -f $(NAME)
-	rm -f $(NAME_BONUS)
+	@printf "$(CURSIVE)$(GRAY) 	- [Removing] $(NAME) library ... $(RESET)"
+	@make -s -C $(PATH_LIBFT) fclean
+	@printf "$(CURSIVE)$(GREEN) \t done\n$(RESET)"
+	@printf "$(CURSIVE)$(GRAY) 	- [Removing] $(NAME) library ... $(RESET)"
+	@make -s -C $(PATH_MLX) clean
+	@printf "$(CURSIVE)$(GREEN)\t done\n$(RESET)"
+	@printf "$(CURSIVE)$(GRAY) 	- [Removing] $(NAME) executable ... $(RESET)"
+	@rm -f $(NAME)
+	@printf "$(CURSIVE)$(GREEN)\t done\n$(RESET)\n"
+	@printf "\t$(HGRN) $(NAME) \t everything removed successfuly !\n$(RESET)" 
+
 
 re: fclean all
 
