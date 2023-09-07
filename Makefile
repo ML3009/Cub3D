@@ -19,7 +19,9 @@ OBJS	= $(addprefix $(OBJDIR), $(OBJFILE))
 SRCDIR	= src/
 SRCS	= $(addprefix $(SRCDIR), $(SRCFILE))
 
-SRCFILE	= main.c
+SRCFILE	= 	main.c \
+			parsing.c \
+			init.c \
 
 GREEN		=	\e[92;5;118m
 HGRN 		=	\e[1;92m

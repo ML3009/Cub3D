@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:14 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/07 12:18:06 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/07 14:11:02 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ int main(int ac, char **av)
 		ft_perror("Too many arguments.");
 	check_map = parsing(ac, av, &map);
 	if (check_map)
-		game_start();
-
+	{
+		printf("GAME START\n");
+		//game_start();
+	}
 	return (0);
 }
