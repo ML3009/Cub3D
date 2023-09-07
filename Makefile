@@ -21,6 +21,7 @@ SRCS	= $(addprefix $(SRCDIR), $(SRCFILE))
 
 SRCFILE	= 	main.c \
 			parsing/parsing.c \
+			parsing/parsing_utils.c \
 			init/init.c \
 
 GREEN		=	\e[92;5;118m
@@ -78,6 +79,6 @@ fclean: clean
 
 
 re: fclean all
-	
+
 
 .PHONY:	all clean fclean re

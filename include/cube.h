@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/07 14:21:58 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/07 16:30:44 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@
 /*----[ PARSING ]----*/
 
 int		parsing(int ac, char **av, t_map *map);
-int		name_file(char *file);
+int		file_extension(char *file);
 void	init_map(t_map *map);
 int		open_file(char *file, t_map *map);
+void	count_row(char *file, t_map *map);
+void	count_col(char *file, t_map *map);
 
 
