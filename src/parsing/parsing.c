@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:46:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/07 16:08:39 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/07 16:09:59 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@ static int	count_line(char *file);
 
 int	parsing(int ac, char **av, t_map *map)
 {
-	(void)ac;
+	if (ac > 2)
+		send_error("Too many arguments.\n");
+	else if (ac < 2)
+		send_error("Too few arguments.\n");
 	init_map(map);
 	if (name_file(av[1]) < 0)
 		return (WRONG_FILE);
 	if (open_file(av[1], map) < 0)
 		return (BAD_ACCESS);
-
 
 	return (0);
 }
@@ -47,7 +49,6 @@ int	open_file(char *file, t_map *map)
 	char	*line;
 	int	i;
 
-	//(void)map;
 	i = 0;
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
@@ -58,9 +59,6 @@ int	open_file(char *file, t_map *map)
 	{
 		map->map[i++] = ft_strdup(line);
 		line = get_next_line(fd);
-		//if (line == NULL)
-		//	break ;
-		//printf ("line : %s\n", line);
 	}
 	map->map[i] = NULL;
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:14 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/07 15:24:57 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/07 16:09:51 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@ int main(int ac, char **av)
 	t_map	map;
 
 	check_map = 0;
-	if (ac > 2)
-		send_error("Too many arguments.\n");
-	else if (ac < 2)
-		send_error("Too few arguments.\n");
 	check_map = parsing(ac, av, &map);
 	if (check_map >= 0)
 	{
