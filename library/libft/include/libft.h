@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmessmer <wmessmer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:22:58 by wmessmer          #+#    #+#             */
-/*   Updated: 2023/07/26 17:11:30 by wmessmer         ###   ########.fr       */
+/*   Updated: 2023/09/07 11:44:43 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,4 +128,6 @@ char		*ft_limited_strdup(char *str, int begin, int end);
 void		ft_perror(char *str);
 void		ft_free_tab(char **tab);
 bool		ft_d_strchr(char *str, char *chr);
+
+
 #endif

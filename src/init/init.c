@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.h                                           :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/07 11:50:16 by mvautrot         ###   ########.fr       */
+/*   Created: 2023/09/07 12:14:04 by mvautrot          #+#    #+#             */
+/*   Updated: 2023/09/07 12:18:19 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../include/cube.h"
 
-typedef struct s_vector
+void	init_map(t_map *map)
 {
-	int	x;
-	int	y;
-}	t_vector;
-
-
-typedef struct s_player
-{
-	t_vector	pos;
-}	t_player;
-
-
-
-typedef struct s_map
-{
-	char	**map;
-	t_player	player;
-
-}	t_map;
-
-
-
+	map->map = NULL;
+}
