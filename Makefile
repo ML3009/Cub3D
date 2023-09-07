@@ -20,8 +20,8 @@ SRCDIR	= src/
 SRCS	= $(addprefix $(SRCDIR), $(SRCFILE))
 
 SRCFILE	= 	main.c \
-			parsing.c \
-			init.c \
+			parsing/parsing.c \
+			init/init.c \
 
 GREEN		=	\e[92;5;118m
 HGRN 		=	\e[1;92m
@@ -41,10 +41,10 @@ $(NAME) : $(OBJS)
 	@printf "$(CURSIVE)$(GREEN)\t done\n$(RESET)"
 	@printf "$(CURSIVE)$(GRAY) 	- [Compiling] libft object... $(RESET)"
 	@make -s -C $(PATH_LIBFT)
-	@printf "$(CURSIVE)$(GREEN)\t done\n$(RESET)"
+	@printf "$(CURSIVE)$(GREEN)\t\t done\n$(RESET)"
 	@printf "$(CURSIVE)$(GRAY) 	- [Compiling] $(NAME) object ... $(RESET)"
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBX) $(LIBXFLAGS) -o $(NAME) -g
-	@printf "$(CURSIVE)$(GREEN)\t done\n$(RESET)"
+	@printf "$(CURSIVE)$(GREEN)\t\t done\n$(RESET)"
 	@$(USAGE)
 
 
@@ -57,13 +57,13 @@ all:  $(NAME)
 clean:
 	@printf "$(CURSIVE)$(GRAY) 	- [Removing] minilibx object ... $(RESET)"
 	@make -s -C $(PATH_MLX) clean
-	@printf "$(CURSIVE)$(GREEN) done\n$(RESET)"
+	@printf "$(CURSIVE)$(GREEN)\t done\n$(RESET)"
 	@printf "$(CURSIVE)$(GRAY) 	- [Removing] libft object ... $(RESET)"
 	@make -s -C $(PATH_LIBFT) clean
-	@printf "$(CURSIVE)$(GREEN) done\n$(RESET)"
+	@printf "$(CURSIVE)$(GREEN) \t\t done\n$(RESET)"
 	@printf "$(CURSIVE)$(GRAY) 	- [Removing] $(NAME) object ... $(RESET)"
 	@rm -f $(OBJS)
-	@printf "$(CURSIVE)$(GREEN) done\n$(RESET)"
+	@printf "$(CURSIVE)$(GREEN)\t\t done\n$(RESET)"
 
 fclean: clean
 	@printf "$(CURSIVE)$(GRAY) 	- [Removing] $(NAME) library ... $(RESET)"
@@ -71,7 +71,7 @@ fclean: clean
 	@printf "$(CURSIVE)$(GREEN) \t done\n$(RESET)"
 	@printf "$(CURSIVE)$(GRAY) 	- [Removing] $(NAME) library ... $(RESET)"
 	@make -s -C $(PATH_MLX) clean
-	@printf "$(CURSIVE)$(GREEN)\t done\n$(RESET)"
+	@printf "$(CURSIVE)$(GREEN)\t\t done\n$(RESET)"
 	@printf "$(CURSIVE)$(GRAY) 	- [Removing] $(NAME) executable ... $(RESET)"
 	@rm -f $(NAME)
 	@printf "$(CURSIVE)$(GREEN)\t done\n$(RESET)\n"
