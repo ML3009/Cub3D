@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:46:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/07 14:34:16 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/07 15:18:21 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,11 @@ int	open_file(char *file, t_map *map)
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return (printf("File does not exist.\n"), EMPTY_FILE);
+	map->map = malloc(sizeof(char*));
 	while (1)
 	{
 		line = get_next_line(fd);
-		printf("line : %s\n", line);
-		//if (line[0] == '1')
-		//	map->map[i++] = ft_strdup(line);
+		map->map[i++] = ft_strdup(line);
 		if (line == NULL)
 			break ;
 	}
