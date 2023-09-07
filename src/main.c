@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:14 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/07 16:11:31 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/07 16:58:11 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int main(int ac, char **av)
 		printf("GAME START\n");
 		//game_start();
 	}
+	ft_free_tab(map.map);
 	return (0);
 }

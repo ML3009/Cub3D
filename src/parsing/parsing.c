@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:46:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/07 16:37:29 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/07 17:05:12 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,17 @@ int	open_file(char *file, t_map *map)
 	count_col(file, map); // x
 	if (fd < 0)
 		return (printf("File does not exist.\n"), EMPTY_FILE);
-	map->map = malloc(sizeof(char *) * map->row);
+	map->map = malloc(sizeof(char *) * (map->row + 1));
 	line = get_next_line(fd);
 	while (line)
 	{
 		map->map[i++] = ft_strdup(line);
+		free(line);
 		line = get_next_line(fd);
 	}
 	map->map[i] = NULL;
+	close(fd);
+
 	printf ("row : %i\n", map->row);
 	printf ("col : %i\n", map->col);
 	for (int k = 0; map->map[k]; k++)
