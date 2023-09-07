@@ -66,10 +66,10 @@ clean:
 	@printf "$(CURSIVE)$(GREEN)\t\t done\n$(RESET)"
 
 fclean: clean
-	@printf "$(CURSIVE)$(GRAY) 	- [Removing] $(NAME) library ... $(RESET)"
+	@printf "$(CURSIVE)$(GRAY) 	- [Removing] libft library ... $(RESET)"
 	@make -s -C $(PATH_LIBFT) fclean
 	@printf "$(CURSIVE)$(GREEN) \t done\n$(RESET)"
-	@printf "$(CURSIVE)$(GRAY) 	- [Removing] $(NAME) library ... $(RESET)"
+	@printf "$(CURSIVE)$(GRAY) 	- [Removing] mlx library ... $(RESET)"
 	@make -s -C $(PATH_MLX) clean
 	@printf "$(CURSIVE)$(GREEN)\t\t done\n$(RESET)"
 	@printf "$(CURSIVE)$(GRAY) 	- [Removing] $(NAME) executable ... $(RESET)"
