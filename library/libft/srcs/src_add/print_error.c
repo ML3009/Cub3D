@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 13:27:07 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/07/22 13:27:11 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/07 14:25:12 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void	send_error(char *s)
 		write(2, &s[i], 1);
 		i++;
 	}
+	exit(EXIT_FAILURE);
 }
