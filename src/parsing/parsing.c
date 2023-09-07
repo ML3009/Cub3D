@@ -3,18 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:46:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/07 15:18:21 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/07 16:08:39 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
 
+static int	count_line(char *file);
+
 int	parsing(int ac, char **av, t_map *map)
 {
 	(void)ac;
+	init_map(map);
 	if (name_file(av[1]) < 0)
 		return (WRONG_FILE);
 	if (open_file(av[1], map) < 0)
@@ -44,19 +47,51 @@ int	open_file(char *file, t_map *map)
 	char	*line;
 	int	i;
 
-	(void)map;
+	//(void)map;
 	i = 0;
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return (printf("File does not exist.\n"), EMPTY_FILE);
-	map->map = malloc(sizeof(char*));
-	while (1)
+	map->map = malloc(sizeof(char *) * count_line(file));
+	line = get_next_line(fd);
+	while (line)
 	{
-		line = get_next_line(fd);
 		map->map[i++] = ft_strdup(line);
-		if (line == NULL)
-			break ;
+		line = get_next_line(fd);
+		//if (line == NULL)
+		//	break ;
+		//printf ("line : %s\n", line);
+	}
+	map->map[i] = NULL;
+	i = 0;
+	while (map->map && map->map[i])
+	{
+		printf("map : %s\n", map->map[i]);
+		i++;
 	}
 	return (0);
 
 }
+
+static int	count_line(char *file)
+{
+	int	fd;
+	char	*line;
+	int	i;
+
+	i = 0;
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		return (printf("File does not exist.\n"), EMPTY_FILE);
+	line = get_next_line(fd);
+	while (line)
+	{
+		free(line);
+		i++;
+		line = get_next_line(fd);
+	}
+	free(line);
+	close(fd);
+	return (i);
+}
+
