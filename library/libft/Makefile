@@ -85,14 +85,12 @@ all:	${NAME}
 
 $(NAME) : ${OBJ}
 		@ ar rc ${NAME} ${OBJ}
-		@echo "\n LIBFT - [COMPILATION DONE]"
 
 clean :
 	@ rm -rf $(OBJ)
 
 fclean : clean
 	@ rm -rf $(NAME)
-		@echo "\n LIBFT - [REMOVING DONE]"
 
 re : fclean all
 

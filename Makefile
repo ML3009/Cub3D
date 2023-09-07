@@ -64,7 +64,6 @@ clean:
 	@printf "$(CURSIVE)$(GRAY) 	- [Removing] $(NAME) object ... $(RESET)"
 	@rm -f $(OBJS)
 	@printf "$(CURSIVE)$(GREEN) done\n$(RESET)"
-	@printf "\t$(HGRN) $(NAME) \t object removed successfuly !\n$(RESET)\n" 
 
 fclean: clean
 	@printf "$(CURSIVE)$(GRAY) 	- [Removing] $(NAME) library ... $(RESET)"
@@ -76,9 +75,9 @@ fclean: clean
 	@printf "$(CURSIVE)$(GRAY) 	- [Removing] $(NAME) executable ... $(RESET)"
 	@rm -f $(NAME)
 	@printf "$(CURSIVE)$(GREEN)\t done\n$(RESET)\n"
-	@printf "\t$(HGRN) $(NAME) \t everything removed successfuly !\n$(RESET)" 
 
 
 re: fclean all
+	
 
 .PHONY:	all clean fclean re
