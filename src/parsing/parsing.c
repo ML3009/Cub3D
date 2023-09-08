@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:46:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/07 16:37:29 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/08 11:38:15 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
 
-static int	mapsing(char **av, t_map *map);
+static int	mapsing(char **av, t_data *map);
 
-int	parsing(int ac, char **av, t_map *map)
+int	parsing(int ac, char **av, t_data *map)
 {
 	int	check_map;
 
@@ -26,7 +26,7 @@ int	parsing(int ac, char **av, t_map *map)
 	return (check_map);
 }
 
-static int	mapsing(char **av, t_map *map)
+static int	mapsing(char **av, t_data *map)
 {
 	init_map(map);
 	if (file_extension(av[1]) < 0)
@@ -50,7 +50,7 @@ int	file_extension(char *file)
 	return (0);
 }
 
-int	open_file(char *file, t_map *map)
+int	open_file(char *file, t_data *map)
 {
 	int	fd;
 	char	*line;

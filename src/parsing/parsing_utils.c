@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 16:24:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/07 16:37:56 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/08 11:38:08 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
 
-void	count_row(char *file, t_map *map)
+void	count_row(char *file, t_data *map)
 {
 	int	fd;
 	char	*line;
@@ -35,7 +35,7 @@ void	count_row(char *file, t_map *map)
 	return ;
 }
 
-void	count_col(char *file, t_map *map)
+void	count_col(char *file, t_data *map)
 {
 	int	fd;
 	char	*line;

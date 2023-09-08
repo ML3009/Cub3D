@@ -23,6 +23,11 @@ SRCFILE	= 	main.c \
 			parsing/parsing.c \
 			parsing/parsing_utils.c \
 			init/init.c \
+			init/game_init.c \
+			init/mlx_init.c \
+			game/game.c \
+			game/menu.c \
+			
 
 GREEN		=	\e[92;5;118m
 HGRN 		=	\e[1;92m

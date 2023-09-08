@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/07 12:14:04 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/08 11:38:01 by purple           ###   ########.fr       */
+/*   Created: 2023/09/08 10:47:04 by purple            #+#    #+#             */
+/*   Updated: 2023/09/08 16:17:57 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
 
-void	init_map(t_data *map)
+void game_start(t_data *data)
 {
-	map->map = NULL;
-	map->row = 0;
-	map->col = 0;
+	if (init_the_game(data) < 0)
+		return ;
+	//if (launch_menu(data) < 0)
+	//	return ;
+	
+	mlx_loop(data->mlx.mlx_id);
 }

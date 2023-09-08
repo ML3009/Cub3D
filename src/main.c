@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:14 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/07 16:11:31 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/08 11:06:08 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 int main(int ac, char **av)
 {
 	int		check_map;
-	t_map	map;
+	t_data	data;
 
 	check_map = 0;
-	check_map = parsing(ac, av, &map);
+	check_map = parsing(ac, av, &data);
 	if (check_map >= 0)
 	{
 		printf("GAME START\n");
-		//game_start();
+		game_start(&data);
 	}
 	return (0);
 }
