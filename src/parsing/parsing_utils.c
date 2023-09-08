@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 16:24:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/08 15:15:28 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/08 16:59:42 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,30 +62,34 @@ void	count_col(char *file, t_data *map)
 }
 
 
-int	check_wall(char *file)
+int	check_wall(t_data *map)
 {
-	int		fd;
-	char	*line;
-	char	*bf_line;
-	//int		i;
+	int	i;
+	int	j;
 
-	fd = open(file, O_RDONLY);
-	if (fd < 0)
-		return (printf("File does not exist.\n"), EMPTY_FILE);
-	line = get_next_line(fd);
-	bf_line = ft_strdup(line);
-	while (line)
+	i = 0;
+	while (map->map[i])
 	{
-		if (search_wall(line) == false && search_map(line) == true)
-			break ;
-		free(bf_line);
-		bf_line = ft_strdup(line);
-		free(line);
-		line = get_next_line(fd);
+		j = 0;
+		while (map->map[i][j])
+		{
+			if ((map->map[0][j] != '1' && map->map[0][j] != ' ')
+				&& (map->map[map->row - 1][j] != '1' && map->map[map->row - 1][j] != ' '))
+				printf("test0\n");
+			if ((map->map[i][0] != '1' && map->map[i][0] != ' ')
+				&& (map->map[i][map->col - 1] != '1' && map->map[i][map->col - 1] != ' '))
+				printf("test\n");
+			j++;
+		}
+		i++;
 	}
-	if (search_wall(line) == false)
-		return(free(line), free(bf_line), ERROR_WALL);
-		//printf ("YOUHOU!\n");
+
+	printf ("row : %i\n", map->row);
+	printf ("col : %i\n", map->col);
+	for (int k = 0; map->map[k]; k++)
+		printf("map : %s\n", map->map[k]);
+
+
 	return (0);
 
 }

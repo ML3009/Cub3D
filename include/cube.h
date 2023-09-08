@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/08 14:54:59 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/08 16:02:08 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void	count_col(char *file, t_data *map);
 bool	search_map(char *line);
 bool	search_wall(char *line);
 int		open_map(char *file, t_data *map, int fd);
-int		check_wall(char *file);
+int		check_wall(t_data *map);
 
 
