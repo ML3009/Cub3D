@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/08 17:33:04 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/11 10:41:13 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_vector
 typedef struct s_player
 {
 	t_vector	pos;
+	t_vector	direction; 
 }	t_player;
 
 typedef struct s_mlx
@@ -32,16 +33,17 @@ typedef struct s_mlx
 
 typedef struct s_data
 {
-	char	**map;
-	char	*SO;
-	char	*NO;
-	char	*EA;
-	char	*WE;
-	char	*F;
-	char	*C;
-	int		row;
-	int		col;
+	char		**map;
+	char		*SO;
+	char		*NO;
+	char		*EA;
+	char		*WE;
+	char		*F;
+	char		*C;
+	int			row;
+	int			col;
 	t_player	player;
+	t_mlx		mlx;
 
 }	t_data;
 

@@ -6,14 +6,13 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:46:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/11 08:19:46 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/11 08:27:50 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
 
 static int	mapsing(char **av, t_data *map);
-
 
 int	parsing(int ac, char **av, t_data *map)
 {
