@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:46:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/11 08:27:50 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/11 14:25:28 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,13 @@ int	open_map(char *file, t_data *map, int fd)
 
 	count_row(file, map); // y
 	count_col(file, map); // x
-	map->map = malloc(sizeof(char *) * (map->row + 1));
+	map->map = malloc(sizeof(char *) * (map->row + 2));
 	line = get_next_line(fd);
 	bf_line = ft_strdup(line);
 	while (line)
 	{
 		if (search_map(bf_line) == true && search_map(line) == true)
-			map->map[i++] = ft_strdup(bf_line);
+				map->map[i++] = ft_strdup(bf_line);
 		free(bf_line);
 		bf_line = ft_strdup(line);
 		free(line);
@@ -91,8 +91,12 @@ int	open_map(char *file, t_data *map, int fd)
 	free(bf_line);
 	map->map[i] = NULL;
 	close(fd);
-	if (check_wall(map) == ERROR_WALL)
-		return (printf("Wall does not ok.\n"), ERROR_WALL);
+		printf ("row : %i\n", map->row);
+	printf ("col : %i\n", map->col);
+	for (int k = 0; map->map[k]; k++)
+		printf("map : %s\n", map->map[k]);
+	//if (check_wall(map) == ERROR_WALL)
+	//	return (printf("Wall does not ok.\n"), ERROR_WALL);
 	return (0);
 
 }

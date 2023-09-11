@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 16:24:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/08 17:33:42 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/11 14:24:08 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,6 @@ int	check_wall(t_data *map)
 		}
 		i++;
 	}
-
-	printf ("row : %i\n", map->row);
-	printf ("col : %i\n", map->col);
-	for (int k = 0; map->map[k]; k++)
-		printf("map : %s\n", map->map[k]);
 
 
 	return (0);
