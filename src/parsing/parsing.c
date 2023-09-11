@@ -6,13 +6,14 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:46:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/08 11:38:15 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/11 08:19:46 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
 
 static int	mapsing(char **av, t_data *map);
+
 
 int	parsing(int ac, char **av, t_data *map)
 {
@@ -53,29 +54,88 @@ int	file_extension(char *file)
 int	open_file(char *file, t_data *map)
 {
 	int	fd;
+
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		return (printf("File does not exist.\n"), EMPTY_FILE);
+	if (open_map(file, map, fd) < 0)
+		return (WRONG_MAP);
+	return (GOOD_ACCESS);
+}
+
+int	open_map(char *file, t_data *map, int fd)
+{
 	char	*line;
+	char	*bf_line;
 	int	i;
 
 	i = 0;
-	fd = open(file, O_RDONLY);
+	line = NULL;
+	bf_line = NULL;
+
 	count_row(file, map); // y
 	count_col(file, map); // x
-	if (fd < 0)
-		return (printf("File does not exist.\n"), EMPTY_FILE);
-	map->map = malloc(sizeof(char *) * map->row);
+	map->map = malloc(sizeof(char *) * (map->row + 1));
 	line = get_next_line(fd);
+	bf_line = ft_strdup(line);
 	while (line)
 	{
-		map->map[i++] = ft_strdup(line);
+		if (search_map(bf_line) == true && search_map(line) == true)
+			map->map[i++] = ft_strdup(bf_line);
+		free(bf_line);
+		bf_line = ft_strdup(line);
+		free(line);
 		line = get_next_line(fd);
 	}
+	if (search_map(bf_line) == true)
+		map->map[i++] = ft_strdup(bf_line);
+	free(bf_line);
 	map->map[i] = NULL;
-	printf ("row : %i\n", map->row);
-	printf ("col : %i\n", map->col);
-	for (int k = 0; map->map[k]; k++)
-		printf("map : %s\n", map->map[k]);
+	close(fd);
+	if (check_wall(map) == ERROR_WALL)
+		return (printf("Wall does not ok.\n"), ERROR_WALL);
 	return (0);
 
 }
 
+bool	search_map(char *line)
+{
+	int	i;
 
+	i = 0;
+	while (line && line[i] != '1' && line[i] != '\0')
+		i++;
+	if (line[i] == '1')
+	{
+		while (line[i])
+		{
+			if (line[i] != '1' && line[i] != '0'&& line[i] != 'N'
+			&& line[i] != 'E' && line[i] != 'S' && line[i] != 'W' && line[i] != '\n' && line[i] != ' ')
+				return (false);
+			i++;
+		}
+		return (true);
+	}
+	return (false);
+}
+
+bool	search_wall(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (line && line[i] != '1' && line[i] != '\0')
+		i++;
+	if (line[i] == '1')
+	{
+		//printf ("test\n");
+		while (line && line[i] != '\0')
+		{
+			if (line[i] != '1' && line[i] != '\n' && line[i] != ' ')
+				return (false);
+			i++;
+		}
+		return (true);
+	}
+	return (false);
+}
