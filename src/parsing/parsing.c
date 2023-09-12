@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:46:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/11 14:25:28 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/12 10:46:33 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,12 @@ int	open_map(char *file, t_data *map, int fd)
 	free(bf_line);
 	map->map[i] = NULL;
 	close(fd);
-		printf ("row : %i\n", map->row);
+	printf ("row : %i\n", map->row);
 	printf ("col : %i\n", map->col);
 	for (int k = 0; map->map[k]; k++)
 		printf("map : %s\n", map->map[k]);
-	//if (check_wall(map) == ERROR_WALL)
-	//	return (printf("Wall does not ok.\n"), ERROR_WALL);
+	if (check_wall(map) == ERROR_WALL)
+		return (printf("Wall does not ok.\n"), ERROR_WALL);
 	return (0);
 
 }

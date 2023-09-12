@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 16:24:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/11 14:24:08 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/12 15:06:10 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,27 +64,32 @@ void	count_col(char *file, t_data *map)
 
 int	check_wall(t_data *map)
 {
-	int	i;
 	int	j;
 
-	i = 0;
-	while (map->map[i])
+	j = -1;
+	while (map->map[0][++j])
+			if (map->map[0][j] != ' ' && map->map[0][j] != '1' && map->map[0][j] != '\n')
+				printf ("ERROR_MAP_ROW_FIRST\n");
+	j = -1;
+	while (map->map[map->row - 1][++j])
+		if (map->map[map->row - 1][j] != ' ' && map->map[map->row - 1][j] != '1' && map->map[map->row - 1][j] != '\n')
+				printf ("ERROR_ROW_LAST\n");
+	j = -1;
+	while (++j < (map->row))
 	{
-		j = 0;
-		while (map->map[i][j])
-		{
-			if ((map->map[0][j] != '1' && map->map[0][j] != ' ')
-				&& (map->map[map->row - 1][j] != '1' && map->map[map->row - 1][j] != ' '))
-				printf("test0\n");
-			if ((map->map[i][0] != '1' && map->map[i][0] != ' ')
-				&& (map->map[i][map->col - 1] != '1' && map->map[i][map->col - 1] != ' '))
-				printf("test\n");
-			j++;
-		}
-		i++;
+		if (map->map[j][0] != ' ' && map->map[j][0] != '1' && map->map[j][0] != '\n')
+			printf("ERROR_MAP_COL_FIRST\n");
+
 	}
-
-
+	j = -1;
+	printf (" MAP COL %c\n", map->map[0][map->col - 1]);
+	while (++j < (map->row -1))
+	{
+		if (map->map[j][map->row -1] != '1')
+			break;
+	}
+			printf("ERROR_MAP_COL_LAST\n");
 	return (0);
 
+		//if (map->map[j][map->col - 1] && map->map[j][map->col - 1] != ' ' && map->map[j][map->col - 1] != '1' && map->map[j][map->col - 1] != '\n')
 }
