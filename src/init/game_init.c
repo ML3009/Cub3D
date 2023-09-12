@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:10:05 by purple            #+#    #+#             */
-/*   Updated: 2023/09/11 14:23:29 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/12 11:34:01 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 void init_orientation(t_data *data);
 void screen_size(t_data *data);
+void init_struct(t_data *data);
 
 int init_the_game(t_data *data)
 {
-	ft_memset(&data->mlx, 0, sizeof(data->mlx));
+	init_struct(data);
+	init_orientation(data);
 	if (!(data->mlx.mlx_id = mlx_init()))
 		return (MLX_ERROR);
 	screen_size(data);
-	init_orientation(data);
 	if (!(data->mlx.mlx_window = mlx_new_window(data->mlx.mlx_id, data->mlx.size.x,  data->mlx.size.y, "Cub3D")))
 		return (MLX_ERROR);
+	data->image = mlx_new_image(data->mlx.mlx_id,data->mlx.size.x, data->mlx.size.y);
+	data->adress = mlx_get_data_addr(data->image, &data->bpp, &data->line_lenght, &data->endian);
 	return (0);
 		
 }
@@ -62,4 +65,12 @@ void init_orientation(t_data *data)
 		else
 			data->player.direction[0] = 1;
 	}
+}
+
+void init_struct(t_data *data)
+{
+	ft_memset(&data->mlx, 0, sizeof(data->mlx));
+	ft_memset(&data->key, 0, sizeof(t_key));
+	ft_memset(&data->mlx.size, 0, sizeof(t_vector));
+	ft_memset(&data->player, 0, sizeof(t_player));
 }
