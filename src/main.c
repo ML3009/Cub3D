@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:14 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/11 08:20:56 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/14 14:20:02 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ int main(int ac, char **av)
 	check_map = 0;
 	check_map = parsing(ac, av, &map);
 	if (check_map >= 0)
-	{
-		printf("GAME START\n");
 		game_start(&map);
-	}
 	ft_free_tab(map.map);
 	return (0);
 }
