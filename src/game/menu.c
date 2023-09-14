@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 14:30:32 by purple            #+#    #+#             */
-/*   Updated: 2023/09/08 16:15:04 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/13 13:45:24 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int mouse_click(int button, int x, int y, void *param) {
     if (button == 1) 
 	{
         if (x >= tmp->mlx.size.x / 2 && y <= tmp->mlx.size.y / 2 ) {
-			printf ("JEUX LANCER\n");
+			printf ("JEUX LANCE\n");
         } else if (x >= tmp->mlx.size.x && y >= tmp->mlx.size.y / 2 ) {
             printf ("JEUX QUITTER\n");
         }

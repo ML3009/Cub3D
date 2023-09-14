@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/12 11:30:37 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/13 15:08:48 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,16 @@ typedef	struct s_key
 	int up;
 	int down;
 	int left;
+	int vleft;
 	int right;
+	int vright;
 	int esc;	
 }	t_key;
 
 typedef struct s_player
 {
 	t_vector	pos;
-	double	direction[2]; //
+	double	direction[2]; // 0->x | 1->y
 }	t_player;
 
 typedef struct s_mlx

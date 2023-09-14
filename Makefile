@@ -27,6 +27,10 @@ SRCFILE	= 	main.c \
 			init/mlx_init.c \
 			game/game.c \
 			game/menu.c \
+			game/key_utils.c \
+			game/movement.c \
+			game/extra_key.c \
+			game/raycasting.c \
 			
 
 GREEN		=	\e[92;5;118m
