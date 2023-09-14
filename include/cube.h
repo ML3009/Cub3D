@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/14 14:30:56 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/14 14:43:34 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,14 @@
 
 int		parsing(int ac, char **av, t_data *map);
 int		file_extension(char *file);
-void	init_map(t_data *map);
-int		check_wall(t_data *map);
-int		open_map(char *file, t_data *map, int fd);
-bool	search_map(char *line);
 int		open_file(char *file, t_data *map);
+void	init_map(t_data *map);
+int		create_map(char *file, t_data *map, int fd);
+bool	search_map(char *line);
 void	count_row(char *file, t_data *map);
 void	count_col(char *file, t_data *map);
+int		check_map(t_data *map);
+int		check_wall(t_data *map, int pos);
 
 
 /*----[ GAME ]----*/
@@ -40,7 +41,7 @@ void	game_start(t_data *data);
 int		launch_menu(t_data *data);
 /*KEY*/
 int key_drop(int keycode, t_data *tmp);
-int key_press(int keycode, t_data *tmp); 
+int key_press(int keycode, t_data *tmp);
 void ft_key(t_data *data);
 int escape(t_data *data);
 void vision_left(t_data *data);

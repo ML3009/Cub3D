@@ -22,6 +22,8 @@ SRCS	= $(addprefix $(SRCDIR), $(SRCFILE))
 SRCFILE	= 	main.c \
 			parsing/parsing.c \
 			parsing/parsing_utils.c \
+			parsing/create_map.c \
+			parsing/verif_map.c \
 			init/init.c \
 			init/game_init.c \
 			init/mlx_init.c \
@@ -30,7 +32,7 @@ SRCFILE	= 	main.c \
 			game/movement.c \
 			game/extra_key.c \
 			game/raycasting.c \
-			
+
 
 GREEN		=	\e[92;5;118m
 HGRN 		=	\e[1;92m
