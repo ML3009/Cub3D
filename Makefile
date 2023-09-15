@@ -2,7 +2,7 @@ NAME			=cub3d
 
 CC				= cc
 
-CFLAGS			= -Wall -Wextra -Werror -g3 -g
+CFLAGS			= -Wall -Wextra -Werror -g3
 
 MFLAGS 			= -L -lft -lXext -lX11 -lm -lbsd
 
@@ -28,7 +28,6 @@ SRCFILE	= 	main.c \
 			init/game_init.c \
 			init/mlx_init.c \
 			game/game.c \
-			game/menu.c \
 			game/key_utils.c \
 			game/movement.c \
 			game/extra_key.c \

@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/15 13:41:58 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/15 15:25:47 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../library/minilibx-linux/mlx.h"
 #include <X11/keysym.h>
 #include <X11/X.h>
+#include <math.h>
 #include "struct.h"
 #include "define.h"
 #include "color.h"

@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:20:34 by purple            #+#    #+#             */
-/*   Updated: 2023/09/13 16:39:43 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/14 11:09:21 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void raycasting(t_data *data)
 {
 	int len;
-
+	(void)data;
 	len = -1;
-	while (++len < data->mlx.size.x)
-	{
+	//while (++len < data->mlx.size.x)
+	//{
 		
-	}
+	//}
 }

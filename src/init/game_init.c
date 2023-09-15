@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:10:05 by purple            #+#    #+#             */
-/*   Updated: 2023/09/12 11:34:01 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/14 14:42:37 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 void init_orientation(t_data *data);
 void screen_size(t_data *data);
-void init_struct(t_data *data);
 
 int init_the_game(t_data *data)
 {
-	init_struct(data);
 	init_orientation(data);
 	if (!(data->mlx.mlx_id = mlx_init()))
 		return (MLX_ERROR);
@@ -51,26 +49,18 @@ void init_orientation(t_data *data)
 {
 	if (data->base_orient == 'S' || data->base_orient == 'N')
 	{
-		data->player.direction[0] = 0;
+		data->player.dir.x = 0;
 		if (data->base_orient == 'S')
-			data->player.direction[1] = -1;
+			data->player.dir.y = -1;
 		else
-			data->player.direction[1] = 1;
+			data->player.dir.y = 1;
 	}
 	else
 	{
-		data->player.direction[1] = 0;
+		data->player.dir.y = 0;
 		if (data->base_orient == 'E')
-			data->player.direction[0] = -1;
+			data->player.dir.x = -1;
 		else
-			data->player.direction[0] = 1;
+			data->player.dir.x = 1;
 	}
-}
-
-void init_struct(t_data *data)
-{
-	ft_memset(&data->mlx, 0, sizeof(data->mlx));
-	ft_memset(&data->key, 0, sizeof(t_key));
-	ft_memset(&data->mlx.size, 0, sizeof(t_vector));
-	ft_memset(&data->player, 0, sizeof(t_player));
 }
