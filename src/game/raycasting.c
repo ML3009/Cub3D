@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:20:34 by purple            #+#    #+#             */
-/*   Updated: 2023/09/15 15:33:31 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/15 15:45:31 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,9 @@ void raycasting(t_data *data)
 				data->player.map.y += data->player.step.y;
 				data->player.sside = 1;
 			}
+			for (int k = 0; data->map[k]; k++)
+				printf("map : %s\n", data->map[k]);
+			ft_printf("%d | %d\n",(int)data->player.map.x,(int)data->player.map.y );
 			if (data->map[(int)data->player.map.x][(int)data->player.map.y])
 			{
 				//set texture
