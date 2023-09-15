@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:10:05 by purple            #+#    #+#             */
-/*   Updated: 2023/09/14 14:42:37 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/14 17:05:41 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,6 @@ void init_orientation(t_data *data)
 		else
 			data->player.dir.x = 1;
 	}
+	data->player.plane.x = 0;
+	data->player.plane.y = 0.66;
 }

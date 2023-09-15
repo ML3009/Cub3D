@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/14 14:38:06 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/15 15:16:38 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,19 @@ typedef	struct s_key
 typedef struct s_player
 {
 	t_vector	pos;
+	t_vector	d;
 	t_vector	dir;
+	t_vector	cam;
 	t_vector	plane;
+	t_vector	raydir;
+	t_vector	map;
+	t_vector	step;
+	t_vector	side;
+	int			sside;
+	double		wall_dist;
+	int			line_height;
+	int 		draw_start;
+	int			draw_end;
 }	t_player;
 
 typedef struct s_mlx
@@ -65,6 +76,8 @@ typedef struct s_data
 	char		*C;
 	int			row;
 	int			col;
+	double		time;
+	double		oldtime;
 	t_player	player;
 	t_mlx		mlx;
 	t_key		key;
