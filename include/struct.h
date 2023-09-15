@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/15 15:16:38 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/15 15:37:07 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef	struct s_key
 	int vleft;
 	int right;
 	int vright;
-	int esc;	
+	int esc;
 }	t_key;
 
 typedef struct s_player
@@ -76,8 +76,6 @@ typedef struct s_data
 	char		*C;
 	int			row;
 	int			col;
-	double		time;
-	double		oldtime;
 	t_player	player;
 	t_mlx		mlx;
 	t_key		key;

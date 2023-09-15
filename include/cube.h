@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/14 14:43:34 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/15 15:25:47 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 
 
 /*----[ PARSING ]----*/
-
 int		parsing(int ac, char **av, t_data *map);
 int		file_extension(char *file);
 int		open_file(char *file, t_data *map);
@@ -32,14 +31,16 @@ bool	search_map(char *line);
 void	count_row(char *file, t_data *map);
 void	count_col(char *file, t_data *map);
 int		check_map(t_data *map);
-int		check_wall(t_data *map, int pos);
+char	**copy_map(t_data *map);
+int		check_wall(t_data *map, char **map_cp, int y, int x);
 
 
 /*----[ GAME ]----*/
 int		init_the_game(t_data *data);
 void	game_start(t_data *data);
 int		launch_menu(t_data *data);
-/*KEY*/
+
+/*----[key]----*/
 int key_drop(int keycode, t_data *tmp);
 int key_press(int keycode, t_data *tmp);
 void ft_key(t_data *data);
@@ -51,7 +52,7 @@ void go_bck(t_data *data);
 void go_left(t_data *data);
 void go_right(t_data *data);
 
-/*Raycasting*/
+/*----[raycasting]----*/
 void raycasting(t_data *data);
 
 int	draw_void(t_data *data);
