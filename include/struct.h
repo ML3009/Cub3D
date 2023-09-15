@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/15 15:37:07 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/15 15:38:04 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ typedef struct s_data
 	char		*C;
 	int			row;
 	int			col;
+	int			wallOk;
 	t_player	player;
 	t_mlx		mlx;
 	t_key		key;
