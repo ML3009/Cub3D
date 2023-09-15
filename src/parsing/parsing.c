@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:46:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/14 11:42:15 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/14 11:45:55 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,4 @@ int	open_file(char *file, t_data *map)
 	return (GOOD_ACCESS);
 }
 
-
-
-/*t_data	copy_map(t_data *map)
-{
-
-}*/
 

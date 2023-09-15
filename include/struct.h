@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/13 15:08:48 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/15 15:10:46 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef	struct s_key
 	int vleft;
 	int right;
 	int vright;
-	int esc;	
+	int esc;
 }	t_key;
 
 typedef struct s_player
@@ -64,6 +64,7 @@ typedef struct s_data
 	char		*C;
 	int			row;
 	int			col;
+	int			wallOk;
 	t_player	player;
 	t_mlx		mlx;
 	t_key		key;

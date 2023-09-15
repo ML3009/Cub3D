@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:36:36 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/14 11:40:06 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/15 10:39:16 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,28 @@ int	create_map(char *file, t_data *map, int fd)
 	char	*bf_line;
 	int	i;
 
-	i = 0;
+	i = -1;
 	line = NULL;
 	bf_line = NULL;
 
 	count_row(file, map); // y
 	count_col(file, map); // x
-	map->map = malloc(sizeof(char *) * (map->row + 2));
+	map->map = malloc(sizeof(char *) * (map->row + 1));
 	line = get_next_line(fd);
-	bf_line = ft_strdup(line);
+	bf_line = get_next_line(fd);
 	while (line)
 	{
 		if (search_map(bf_line) == true && search_map(line) == true)
-				map->map[i++] = ft_strdup(bf_line);
+				map->map[++i] = ft_strdup(bf_line);
 		free(bf_line);
 		bf_line = ft_strdup(line);
 		free(line);
 		line = get_next_line(fd);
 	}
 	if (search_map(bf_line) == true)
-		map->map[i++] = ft_strdup(bf_line);
+		map->map[++i] = ft_strdup(bf_line);
 	free(bf_line);
-	map->map[i] = NULL;
+	map->map[++i] = NULL;
 	close(fd);
 	return (0);
 
