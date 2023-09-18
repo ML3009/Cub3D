@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:39:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/18 13:08:53 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/18 13:13:01 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	check_map(t_data *map)
 	}
 	map->player.pos.x = x;
 	map->player.pos.y = y;
+	map->base_orient = map->map[(int)map->player.pos.y][(int)map->player.pos.x];
 //	printf ("map : %c\n", map->map[(int)map->player.pos.y][(int)map->player.pos.x]);
 	if (check_wall(map, map_cp, y, x) == ERROR_WALL)
 		return (printf("Wall does not ok.\n"), ERROR_WALL);
