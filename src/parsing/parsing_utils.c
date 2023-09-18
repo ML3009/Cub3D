@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 16:24:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/18 10:24:46 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/18 11:09:54 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,3 +73,4 @@ char	**copy_map(t_data *map)
 	map_cp[i] = NULL;
 	return (map_cp);
 }
+
