@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:14:04 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/15 15:32:17 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/18 11:56:52 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	init_map(t_data *map)
 	ft_memset(&map->player.plane, 0, sizeof(t_vector));
 	ft_memset(&map->player.map, 0, sizeof(t_vector));
 	ft_memset(&map->player.step, 0, sizeof(t_vector));
+	ft_memset(&map->player.texture, 0, sizeof(t_vector));
 	ft_memset(&map->player.side, 0, sizeof(t_vector));
 	ft_memset(&map->player.d, 0, sizeof(t_vector));
 	ft_memset(&map->player.dir, 0, sizeof(t_vector));
