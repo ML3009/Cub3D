@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 16:24:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/15 10:37:23 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/15 15:43:27 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	**copy_map(t_data *map)
 	i = -1;
 	map_cp = malloc(sizeof(char *) * map->col + 1);
 	while (map->map[++i])
-		map_cp[i] = map->map[i];
+		map_cp[i] = ft_strdup(map->map[i]);
 	map_cp[i] = NULL;
 	return (map_cp);
 }
