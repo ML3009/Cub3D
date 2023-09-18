@@ -6,15 +6,14 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:20:34 by purple            #+#    #+#             */
-/*   Updated: 2023/09/18 10:51:12 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/18 13:06:53 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
-#include <math.h>
-
 void raycasting(t_data *data)
 {
+	
 	int len;
 
 	len = -1;
@@ -105,7 +104,30 @@ void raycasting(t_data *data)
 			data->player.wall_x = data->player.pos.y + data->player.wall_dist * data->player.raydir.y;
 		else
 			data->player.wall_x = data->player.pos.x + data->player.wall_dist * data->player.raydir.x;
-		data->player.wall_x = floor(data->player.wall_x);
-		data->player.texture_x = data->player.wall_x * (double)TEXTURE;
+		data->player.wall_x -= floor(data->player.wall_x);
+		data->player.texture.x = data->player.wall_x * (double)TEXTURE;
+		if (data->player.sside == 0 && data->player.raydir.x > 0)
+			data->player.texture.x = TEXTURE - data->player.texture.x - 1;
+		if (data->player.sside == 1 && data->player.raydir.y < 0)
+			data->player.texture.x = TEXTURE - data->player.texture.x - 1;
+		// start drawing
+		double step = 0;
+		double tex_pos = 0;
+		int y = 0;
+
+		step = 1 * TEXTURE / data->player.line_height;
+		tex_pos = (data->player.draw_start - data->mlx.size.y / 2 + data->player.line_height / 2 ) * step;	
+		y = data->player.draw_start;
+		while (y < data->player.draw_end)
+		{
+			data->player.texture.y = (int)tex_pos & (TEXTURE - 1);
+			tex_pos += step;
+			data->player.color = 0xd50054;
+			if (data->player.sside == 1)
+			data->player.color = (data->player.color >> 1) & 8355711;
+			printf("[X] = %d | [Y] = %d\n", len, y);
+			mlx_pixel_put(data->mlx.mlx_id,data->mlx.mlx_window,len, y, data->player.color);
+			y++;
+		}
 	}
 }

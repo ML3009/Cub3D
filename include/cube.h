@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/18 12:08:21 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/18 13:10:07 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
 #include "../library/libft/include/libft.h"
 #include "../library/minilibx-linux/mlx.h"
 #include <X11/keysym.h>
 #include <X11/X.h>
-#include <math.h>
 #include "struct.h"
 #include "define.h"
 #include "color.h"

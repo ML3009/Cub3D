@@ -4,7 +4,7 @@ CC				= cc
 
 CFLAGS			= -Wall -Wextra -Werror -g3
 
-MFLAGS 			=  -lm -L -lft -lXext -lX11 -lbsd
+MFLAGS 			=  -L -lft -lXext -lX11 -lbsd -lm
 
 PATH_MLX 		= library/minilibx-linux
 LIBX 			= -L library/minilibx-linux -lmlx_Linux
@@ -55,7 +55,7 @@ $(NAME) : $(OBJS)
 	@make -s -C $(PATH_LIBFT)
 	@printf "$(CURSIVE)$(GREEN)\t\t done\n$(RESET)"
 	@printf "$(CURSIVE)$(GRAY) 	- [Compiling] $(NAME) object ... $(RESET)"
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBX) $(LIBXFLAGS) -o $(NAME) -g
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBX) $(LIBXFLAGS) -o $(NAME) -g $(MFLAGS) 
 	@printf "$(CURSIVE)$(GREEN)\t\t done\n$(RESET)"
 	@$(USAGE)
 
