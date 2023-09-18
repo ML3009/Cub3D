@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/18 10:49:22 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/18 12:08:21 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,18 @@
 /*----[ PARSING ]----*/
 int		parsing(int ac, char **av, t_data *map);
 int		file_extension(char *file);
-int		open_file(char *file, t_data *map);
+int		open_file(char *file);
 void	init_map(t_data *map);
-int		create_map(char *file, t_data *map, int fd);
+int		create_map(char *file, t_data *map);
 bool	search_map(char *line);
+bool	search_wall(char *line);
 void	count_row(char *file, t_data *map);
 void	count_col(char *file, t_data *map);
 int		check_map(t_data *map);
 char	**copy_map(t_data *map);
 int		check_wall(t_data *map, char **map_cp, int y, int x);
+int		search_pos(t_data *map, char *line);
+int		search_texture(t_data *map, char *line);
 
 
 /*----[ GAME ]----*/
