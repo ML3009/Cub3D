@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   verif_map.c                                        :+:      :+:    :+:   */
+/*   wall_verif.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:39:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/15 15:18:38 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/18 13:08:53 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	check_map(t_data *map)
 	printf ("col : %i\n", map->col);
 	for (int k = 0; map->map[k]; k++)
 		printf("map : %s\n", map->map[k]);
+	printf ("SO : %s \n NO : %s\nEA : %s\nWE : %s\n", map->SO, map->NO, map->EA, map->WE);
+	printf ("F : %s\nC : %s\n", map->F, map->C);
 
 	map_cp = NULL;
 	y = -1;
@@ -32,15 +34,17 @@ int	check_map(t_data *map)
 	{
 		x = -1;
 		while (map->map[y][++x])
-			if (map->map[y][x] == 'N' || map->map[y][x] == 'S' || map->map[y][x] == 'E' || map->map[y][x] == 'O')
+			if (map->map[y][x] == 'N' || map->map[y][x] == 'S' || map->map[y][x] == 'E' || map->map[y][x] == 'W')
 				break;
-		if (map->map[y][x] == 'N' || map->map[y][x] == 'S' || map->map[y][x] == 'E' || map->map[y][x] == 'O')
+		if (map->map[y][x] == 'N' || map->map[y][x] == 'S' || map->map[y][x] == 'E' || map->map[y][x] == 'W')
 				break;
 	}
-	printf ("map : %c\n", map->map[y][x]);
+	map->player.pos.x = x;
+	map->player.pos.y = y;
+//	printf ("map : %c\n", map->map[(int)map->player.pos.y][(int)map->player.pos.x]);
 	if (check_wall(map, map_cp, y, x) == ERROR_WALL)
 		return (printf("Wall does not ok.\n"), ERROR_WALL);
-
+	ft_free_tab(map_cp);
 	return (0);
 }
 

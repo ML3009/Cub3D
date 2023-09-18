@@ -1,49 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_map.c                                       :+:      :+:    :+:   */
+/*   map_search.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/14 11:36:36 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/15 10:39:16 by mvautrot         ###   ########.fr       */
+/*   Created: 2023/09/18 11:52:19 by mvautrot          #+#    #+#             */
+/*   Updated: 2023/09/18 12:13:26 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
 
-int	create_map(char *file, t_data *map, int fd)
-{
-	char	*line;
-	char	*bf_line;
-	int	i;
-
-	i = -1;
-	line = NULL;
-	bf_line = NULL;
-
-	count_row(file, map); // y
-	count_col(file, map); // x
-	map->map = malloc(sizeof(char *) * (map->row + 1));
-	line = get_next_line(fd);
-	bf_line = get_next_line(fd);
-	while (line)
-	{
-		if (search_map(bf_line) == true && search_map(line) == true)
-				map->map[++i] = ft_strdup(bf_line);
-		free(bf_line);
-		bf_line = ft_strdup(line);
-		free(line);
-		line = get_next_line(fd);
-	}
-	if (search_map(bf_line) == true)
-		map->map[++i] = ft_strdup(bf_line);
-	free(bf_line);
-	map->map[++i] = NULL;
-	close(fd);
-	return (0);
-
-}
 
 bool	search_map(char *line)
 {
@@ -74,7 +42,7 @@ bool	search_wall(char *line)
 	i = 0;
 	while (line && line[i] != '1' && line[i] != '\0')
 		i++;
-	if (line[i] == '1')
+	if (line && line[i] == '1')
 	{
 		while (line && line[i] != '\0')
 		{
@@ -85,4 +53,26 @@ bool	search_wall(char *line)
 		return (true);
 	}
 	return (false);
+}
+
+int	search_pos(t_data *map, char *line)
+{
+	if (!ft_strncmp(line, "SO", 2) && map->SO == NULL)
+		map->SO = ft_strdup(line);
+	if (!ft_strncmp(line, "NO", 2) && map->NO == NULL)
+		map->NO = ft_strdup(line);
+	if (!ft_strncmp(line, "EA", 2) && map->EA == NULL)
+		map->EA = ft_strdup(line);
+	if (!ft_strncmp(line, "WE", 2) && map->WE == NULL)
+		map->WE = ft_strdup(line);
+	return (0);
+}
+
+int	search_texture(t_data *map, char *line)
+{
+	if (!ft_strncmp(line, "F", 1) && map->F == NULL)
+		map->F = ft_strdup(line);
+	if (!ft_strncmp(line, "C", 1) && map->C == NULL)
+		map->C = ft_strdup(line);
+	return (0);
 }

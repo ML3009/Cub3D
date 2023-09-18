@@ -21,9 +21,11 @@ SRCS	= $(addprefix $(SRCDIR), $(SRCFILE))
 
 SRCFILE	= 	main.c \
 			parsing/parsing.c \
-			parsing/parsing_utils.c \
-			parsing/create_map.c \
-			parsing/verif_map.c \
+			parsing/map_utils.c \
+			parsing/map_create.c \
+			parsing/map_search.c \
+			parsing/wall_verif.c \
+			parsing/file_verif.c \
 			init/init.c \
 			init/game_init.c \
 			game/game.c \
