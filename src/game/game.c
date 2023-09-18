@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 10:47:04 by purple            #+#    #+#             */
-/*   Updated: 2023/09/13 16:38:08 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/15 15:49:06 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@ int loop_game(t_data *data);
 
 void game_start(t_data *data)
 {
+
 	if (init_the_game(data) < 0)
 		return ;
-	data->player.pos.x = data->mlx.size.x / 2;
-	data->player.pos.y = data->mlx.size.y / 2;
+	data->player.pos.x = 3;
+	data->player.pos.y = 2;
 	mlx_hook(data->mlx.mlx_window,2, KeyPressMask, &key_press, data);
 	mlx_hook(data->mlx.mlx_window,3, KeyReleaseMask, &key_drop, data);
 	mlx_loop_hook(data->mlx.mlx_id, loop_game, data);
@@ -61,7 +62,7 @@ int	draw_void(t_data *data)
 	for (int k = 0; k <= 10; k++)
 	{
 		for (int j = 0; j <= 10; j++)
-			mlx_pixel_put(data->mlx.mlx_id, data->mlx.mlx_window, (data->player.pos.x - 5) + k, (data->player.pos.y - 5) + j, grey);
+			mlx_pixel_put(data->mlx.mlx_id, data->mlx.mlx_window, (data->player.pos.x) + k, (data->player.pos.y) + j, grey);
 	}
 	return (0);
 }

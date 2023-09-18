@@ -26,7 +26,6 @@ SRCFILE	= 	main.c \
 			parsing/verif_map.c \
 			init/init.c \
 			init/game_init.c \
-			init/mlx_init.c \
 			game/game.c \
 			game/key_utils.c \
 			game/movement.c \
