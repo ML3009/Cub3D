@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 10:47:04 by purple            #+#    #+#             */
-/*   Updated: 2023/09/15 15:49:06 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/18 10:48:49 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	draw_void(t_data *data)
 {
 	int	x;
 	int	y;
-	int grey = 0xd901f9;
 	int black = 0x000000;
 	int white = 0x666699;
 	y = 0;
@@ -58,11 +57,6 @@ int	draw_void(t_data *data)
 			x++;
 		}
 		y++;
-	}
-	for (int k = 0; k <= 10; k++)
-	{
-		for (int j = 0; j <= 10; j++)
-			mlx_pixel_put(data->mlx.mlx_id, data->mlx.mlx_window, (data->player.pos.x) + k, (data->player.pos.y) + j, grey);
 	}
 	return (0);
 }

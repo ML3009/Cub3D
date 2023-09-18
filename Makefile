@@ -4,7 +4,7 @@ CC				= cc
 
 CFLAGS			= -Wall -Wextra -Werror -g3
 
-MFLAGS 			= -L -lft -lXext -lX11 -lm -lbsd
+MFLAGS 			=  -lm -L -lft -lXext -lX11 -lbsd
 
 PATH_MLX 		= library/minilibx-linux
 LIBX 			= -L library/minilibx-linux -lmlx_Linux

@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/15 15:38:04 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/18 10:43:08 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ typedef struct s_player
 	t_vector	map;
 	t_vector	step;
 	t_vector	side;
-	int			sside;
 	double		wall_dist;
+	double		wall_x;
+	double		texture_x;
+	int			sside;
 	int			line_height;
 	int 		draw_start;
 	int			draw_end;

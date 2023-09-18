@@ -6,11 +6,12 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:20:34 by purple            #+#    #+#             */
-/*   Updated: 2023/09/15 15:45:31 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/18 10:51:12 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
+#include <math.h>
 
 void raycasting(t_data *data)
 {
@@ -79,9 +80,6 @@ void raycasting(t_data *data)
 				data->player.map.y += data->player.step.y;
 				data->player.sside = 1;
 			}
-			for (int k = 0; data->map[k]; k++)
-				printf("map : %s\n", data->map[k]);
-			ft_printf("%d | %d\n",(int)data->player.map.x,(int)data->player.map.y );
 			if (data->map[(int)data->player.map.x][(int)data->player.map.y])
 			{
 				//set texture
@@ -100,7 +98,14 @@ void raycasting(t_data *data)
 		data->player.draw_end = data->player.line_height / 2 + data->mlx.size.x / 2;
 		if (data->player.draw_start < 0)
 			data->player.draw_start = 0;
-		if (data->player.draw_end <= data->mlx.size.y)
-			data->player.draw_end = data->mlx.size.y;
+		if (data->player.draw_end >= data->mlx.size.y)
+			data->player.draw_end = data->mlx.size.y - 1;
+		 //calculate value of wallX
+		if (data->player.sside == 0)
+			data->player.wall_x = data->player.pos.y + data->player.wall_dist * data->player.raydir.y;
+		else
+			data->player.wall_x = data->player.pos.x + data->player.wall_dist * data->player.raydir.x;
+		data->player.wall_x = floor(data->player.wall_x);
+		data->player.texture_x = data->player.wall_x * (double)TEXTURE;
 	}
 }
