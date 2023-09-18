@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_map.c                                       :+:      :+:    :+:   */
+/*   map_create.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:36:36 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/18 11:29:53 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/18 11:59:37 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
-bool	search_wall(char *line);
 
-int	create_map(char *file, t_data *map, int fd)
+int	save_map(char *line, int fd, t_data *map);
+
+int	create_map(char *file, t_data *map)
 {
 	char	*line;
-	int	i;
+	int fd;
 
-	i = -1;
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		return (EMPTY_FILE);
 	line = NULL;
 	count_row(file, map); // y
 	count_col(file, map); // x
@@ -26,10 +29,24 @@ int	create_map(char *file, t_data *map, int fd)
 	line = get_next_line(fd);
 	while (line && search_wall(line) == false)
 	{
+		if (search_pos(map, line) < 0)
+			return (printf ("Texture error\n"), ERROR_TEXTURE);
+		if (search_texture(map, line) < 0)
+			return (printf("Color error\n"), ERROR_COLOR);
 		free(line);
 		line = get_next_line(fd);
 	}
-	if (search_wall(line) == true)
+	if (save_map(line, fd, map) < 0)
+		return (printf ("Map error\n"), ERROR_WALL);
+	return (0);
+}
+
+int	save_map(char *line, int fd, t_data *map)
+{
+	int	i;
+
+	i = -1;
+	if (line && search_wall(line) == true)
 	{
 		while (line && search_map(line) == true)
 		{
@@ -44,46 +61,4 @@ int	create_map(char *file, t_data *map, int fd)
 		return (printf("Wall does not ok.\n"), ERROR_WALL);
 	close(fd);
 	return (0);
-}
-
-bool	search_map(char *line)
-{
-	int	i;
-
-	i = 0;
-	while (line && line[i] != '1' && line[i] != '\0')
-		i++;
-	if (line[i] == '1')
-	{
-		while (line[i])
-		{
-			if (line[i] != '1' && line[i] != '0'&& line[i] != 'N'
-			&& line[i] != 'E' && line[i] != 'S' && line[i] != 'W'
-			&& line[i] != '\n' && line[i] != ' ')
-				return (false);
-			i++;
-		}
-		return (true);
-	}
-	return (false);
-}
-
-bool	search_wall(char *line)
-{
-	int	i;
-
-	i = 0;
-	while (line && line[i] != '1' && line[i] != '\0')
-		i++;
-	if (line && line[i] == '1')
-	{
-		while (line && line[i] != '\0')
-		{
-			if (line[i] != '1' && line[i] != '\n' && line[i] != ' ')
-				return (false);
-			i++;
-		}
-		return (true);
-	}
-	return (false);
 }
