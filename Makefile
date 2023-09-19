@@ -26,6 +26,8 @@ SRCFILE	= 	main.c \
 			parsing/map_search.c \
 			parsing/wall_verif.c \
 			parsing/file_verif.c \
+			parsing/color.c \
+			parsing/texture.c \
 			init/init.c \
 			init/game_init.c \
 			game/game.c \
@@ -55,7 +57,7 @@ $(NAME) : $(OBJS)
 	@make -s -C $(PATH_LIBFT)
 	@printf "$(CURSIVE)$(GREEN)\t\t done\n$(RESET)"
 	@printf "$(CURSIVE)$(GRAY) 	- [Compiling] $(NAME) object ... $(RESET)"
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBX) $(LIBXFLAGS) -o $(NAME) -g $(MFLAGS) 
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBX) $(LIBXFLAGS) -o $(NAME) -g $(MFLAGS)
 	@printf "$(CURSIVE)$(GREEN)\t\t done\n$(RESET)"
 	@$(USAGE)
 
