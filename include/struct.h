@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/18 13:10:15 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/19 11:25:25 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,24 +62,32 @@ typedef struct s_ray
 	size_t old_time;
 }	t_ray;
 
+typedef	struct s_img
+{
+	void		*image; // xpm to imh
+	char		*adress; // img to adress
+	int			bpp; // nb de bits par pixel sur img
+	int			endian; // maniere dont les bits sont organises
+	int			line_lenght; // taille de la ligne
+}	t_img;
+
+
 typedef struct s_data
 {
 	char		base_orient;
-	void		*image;
-	char		*adress;
-	int			bpp;
-	int			endian;
-	int			line_lenght;
 	char		**map;
-	char		*SO;
-	char		*NO;
-	char		*EA;
-	char		*WE;
+	char		**texture;
+	void		*image; // xpm to imh
+	char		*adress; // img to adress
+	int			bpp; // nb de bits par pixel sur img
+	int			endian; // maniere dont les bits sont organises
+	int			line_lenght;
 	char		*F;
 	char		*C;
 	int			row;
 	int			col;
 	int			wallOk;
+	t_img		**img;
 	t_player	player;
 	t_mlx		mlx;
 	t_key		key;
