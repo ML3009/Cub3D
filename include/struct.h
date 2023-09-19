@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/19 11:25:25 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:58:13 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,16 +77,12 @@ typedef struct s_data
 	char		base_orient;
 	char		**map;
 	char		**texture;
-	void		*image; // xpm to imh
-	char		*adress; // img to adress
-	int			bpp; // nb de bits par pixel sur img
-	int			endian; // maniere dont les bits sont organises
-	int			line_lenght;
 	char		*F;
 	char		*C;
 	int			row;
 	int			col;
 	int			wallOk;
+	t_img		*base_img[2];
 	t_img		**img;
 	t_player	player;
 	t_mlx		mlx;

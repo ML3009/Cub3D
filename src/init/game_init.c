@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:10:05 by purple            #+#    #+#             */
-/*   Updated: 2023/09/19 12:53:55 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/19 13:26:26 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int init_the_game(t_data *data)
 	screen_size(data);
 	if (!(data->mlx.mlx_window = mlx_new_window(data->mlx.mlx_id, data->mlx.size.x,  data->mlx.size.y, "Cub3D")))
 		return (MLX_ERROR);
-	data->image = mlx_new_image(data->mlx.mlx_id,data->mlx.size.x, data->mlx.size.y);
-	data->adress = mlx_get_data_addr(data->image, &data->bpp, &data->line_lenght, &data->endian);
+	data->base_img[0]->image = mlx_new_image(data->mlx.mlx_id,data->mlx.size.x, data->mlx.size.y);
+	data->base_img[0]->adress = mlx_get_data_addr(data->base_img[0]->image , &data->base_img[0]->bpp, &data->base_img[0]->line_lenght, &data->base_img[0]->endian);
 	return (0);
 		
 }
