@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmessmer <wmessmer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:53:00 by wmessmer          #+#    #+#             */
-/*   Updated: 2022/11/24 15:40:13 by wmessmer         ###   ########.fr       */
+/*   Updated: 2023/09/19 13:40:18 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isdigit(int a)
 {
-	return (a >= '0' && a <= '9');
+	if (a >= '0' && a <= '9')
+		return (1);
+	else
+		return (0);
 }
