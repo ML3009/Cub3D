@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/18 13:10:07 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/19 12:55:36 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	count_col(char *file, t_data *map);
 int		check_map(t_data *map);
 char	**copy_map(t_data *map);
 int		check_wall(t_data *map, char **map_cp, int y, int x);
-int		search_pos(t_data *map, char *line);
 int		search_texture(t_data *map, char *line);
+int		search_color(t_data *map, char *line);
 
 
 /*----[ GAME ]----*/

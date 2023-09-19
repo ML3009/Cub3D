@@ -6,12 +6,13 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:52:19 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/19 11:42:44 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/19 13:17:11 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
 
+int	check_color(t_data *map);
 
 bool	search_map(char *line)
 {
@@ -55,7 +56,7 @@ bool	search_wall(char *line)
 	return (false);
 }
 
-int	search_pos(t_data *map, char *line)
+int	search_texture(t_data *map, char *line)
 {
 	if (!ft_strncmp(line, "SO", 2) && map->texture[SOUTH] == NULL)
 		map->texture[SOUTH] = ft_strdup(line);
@@ -70,20 +71,34 @@ int	search_pos(t_data *map, char *line)
 	return (0);
 }
 
-int	search_texture(t_data *map, char *line)
+int	search_color(t_data *map, char *line)
 {
 	if (!ft_strncmp(line, "F", 1) && map->F == NULL)
-		map->F = ft_strdup(line); 
+		map->F = ft_strdup(line);
 	if (!ft_strncmp(line, "C", 1) && map->C == NULL)
 		map->C = ft_strdup(line);
+	if (map->C != NULL && map->F != NULL)
+		return (check_color(map));
 	return (0);
 }
 
-/*int	path_ok(t_data *map)
+int	check_color(t_data *map)
 {
+	char	**color_c;
+	char	**color_f;
+
+	//printf(" MAP C : %s\n", map->C);
+
+	color_c = ft_split(map->C, ',');
+
+	color_f = ft_split(map->F, ',');
+
+	return (0);
+	//check color :  F 140,139,139
+			//C 154,209,230
 
 
 
 
 
-}*/
+}

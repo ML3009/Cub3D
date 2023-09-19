@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_create.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:36:36 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/18 13:29:52 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:09:34 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,14 @@ int	create_map(char *file, t_data *map)
 	count_row(file, map); // y
 	count_col(file, map); // x
 	map->map = malloc(sizeof(char *) * (map->row + 1));
+	if (!map->map)
+		return (printf("MALLOC MAP"), -1);
 	line = get_next_line(fd);
 	while (line && search_wall(line) == false)
 	{
-		if (search_pos(map, line) < 0)
-			return (printf ("Texture error\n"), ERROR_TEXTURE);
 		if (search_texture(map, line) < 0)
+			return (printf ("Texture error\n"), ERROR_TEXTURE);
+		if (search_color(map, line) < 0)
 			return (printf("Color error\n"), ERROR_COLOR);
 		free(line);
 		line = get_next_line(fd);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_limited_strdup.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 13:28:26 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/07/22 13:28:46 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:04:11 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	*ft_limited_strdup(char *str, int begin, int end)
 	if (end == ft_strlen(str) && begin == 0)
 		return (str);
 	new_str = ft_malloc(end - begin + 1, "char");
+	if (!new_str)
+		return (NULL);
 	while (begin <= end)
 	{
 		new_str[i] = str[begin];

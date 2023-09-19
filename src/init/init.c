@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:14:04 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/19 13:27:32 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/19 16:10:56 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 void	init_map(t_data *map)
 {
 	ft_memset(map, 0, sizeof(t_data));
+	map->texture = malloc(sizeof(char *) * 4);
+	if (!map->texture)
+		printf("MALLOC TEXTURE");
+	ft_memset(map->texture, 0, sizeof(char *) * 4);
 	ft_memset(&map->player, 0, sizeof(t_player));
 	ft_memset(&map->player.plane, 0, sizeof(t_vector));
 	ft_memset(&map->player.map, 0, sizeof(t_vector));
@@ -29,4 +33,7 @@ void	init_map(t_data *map)
 	ft_memset(&map->mlx, 0, sizeof(t_mlx));
 	ft_memset(&map->key, 0, sizeof(t_key));
 	ft_memset(&map->mlx.size, 0, sizeof(t_vector));
+	ft_memset(&map->base_img, 0, sizeof(t_img));
+	ft_memset(&map->img, 0, sizeof(t_img));
+
 }
