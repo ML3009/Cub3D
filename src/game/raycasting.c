@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:20:34 by purple            #+#    #+#             */
-/*   Updated: 2023/09/18 13:06:53 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/19 12:53:07 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void raycasting(t_data *data)
 	while (++len < data->mlx.size.x)
 	{
 		// ray pos and dir
-		data->player.cam.x = 2 * len / (double)data->mlx.size.x - 1;
+		data->player.cam.x = 2 * len / data->mlx.size.x - 1;
 		data->player.raydir.x = data->player.dir.x + data->player.plane.x * data->player.cam.x;
 		data->player.raydir.y = data->player.dir.y + data->player.plane.y * data->player.cam.x;
 
 		// whitch square of the map
-		data->player.map.x = data->player.pos.x;
-		data->player.map.y = data->player.pos.y;
+		data->player.map.x = (int)data->player.pos.x;
+		data->player.map.y = (int)data->player.pos.y;
 
 		// delta distance
 		if (data->player.raydir.x == 0)
@@ -49,7 +49,7 @@ void raycasting(t_data *data)
 		else
 		{
 			data->player.step.x = 1;
-			data->player.side.x = (data->player.pos.x - data->player.map.x + 1) * data->player.d.x;		
+			data->player.side.x = (data->player.map.x + 1 - data->player.pos.x) * data->player.d.x;		
 		}
 
 		if (data->player.raydir.y < 0)
@@ -60,7 +60,7 @@ void raycasting(t_data *data)
 		else
 		{
 			data->player.step.y = 1;
-			data->player.side.y = (data->player.pos.y - data->player.map.y + 1) * data->player.d.y;		
+			data->player.side.y = (data->player.map.y + 1 - data->player.pos.y) * data->player.d.y;		
 		}
 
 		// DDA
@@ -79,11 +79,14 @@ void raycasting(t_data *data)
 				data->player.map.y += data->player.step.y;
 				data->player.sside = 1;
 			}
-			if (data->map[(int)data->player.map.x][(int)data->player.map.y])
+			//printf("[%d] [%d] == %c \n",(int)data->player.map.x, (int)data->player.map.y, data->map[(int)data->player.map.x][(int)data->player.map.y]);
+			if (data->map[(int)data->player.map.x][(int)data->player.map.y] == '1')
 			{
 				//set texture
+				//printf("[%d] [%d] == %c \n",(int)data->player.map.x, (int)data->player.map.y, data->map[(int)data->player.map.x][(int)data->player.map.y]);
 				break;
 			}
+
 		}
 		// distance perpendicular ray
 		if (data->player.sside == 0)
@@ -93,8 +96,8 @@ void raycasting(t_data *data)
 		// line height
 		data->player.line_height = data->mlx.size.y / data->player.wall_dist;
 		//calculate lowest and highest pixel to fill in current stripe
-		data->player.draw_start = (data->player.line_height * (-1)) / 2 + data->mlx.size.x / 2;
-		data->player.draw_end = data->player.line_height / 2 + data->mlx.size.x / 2;
+		data->player.draw_start = (data->player.line_height * (-1)) / 2 + data->mlx.size.y / 2;
+		data->player.draw_end = data->player.line_height / 2 + data->mlx.size.y / 2;
 		if (data->player.draw_start < 0)
 			data->player.draw_start = 0;
 		if (data->player.draw_end >= data->mlx.size.y)
@@ -125,7 +128,7 @@ void raycasting(t_data *data)
 			data->player.color = 0xd50054;
 			if (data->player.sside == 1)
 			data->player.color = (data->player.color >> 1) & 8355711;
-			printf("[X] = %d | [Y] = %d\n", len, y);
+			//printf("[X] = %d | [Y] = %d\n", len, y);
 			mlx_pixel_put(data->mlx.mlx_id,data->mlx.mlx_window,len, y, data->player.color);
 			y++;
 		}

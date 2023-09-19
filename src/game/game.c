@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 10:47:04 by purple            #+#    #+#             */
-/*   Updated: 2023/09/18 13:08:11 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/18 15:47:44 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@ int loop_game(t_data *data);
 
 void game_start(t_data *data)
 {
-	printf("%f %f\n", data->player.pos.x,data->player.pos.y );
 	if (init_the_game(data) < 0)
 		return ;
 	mlx_hook(data->mlx.mlx_window,2, KeyPressMask, &key_press, data);
