@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:36:36 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/18 13:29:52 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:56:27 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	create_map(char *file, t_data *map)
 	line = get_next_line(fd);
 	while (line && search_wall(line) == false)
 	{
-		if (search_pos(map, line) < 0)
-			return (printf ("Texture error\n"), ERROR_TEXTURE);
 		if (search_texture(map, line) < 0)
+			return (printf ("Texture error\n"), ERROR_TEXTURE);
+		if (search_color(map, line) < 0)
 			return (printf("Color error\n"), ERROR_COLOR);
 		free(line);
 		line = get_next_line(fd);
