@@ -1,7 +1,7 @@
-SO textures/map2/SO.xpm
-WE textures/map2/WE.xpm
-NO textures/map2/NO.xpm
-EA textures/map2/EA.xpm
+SO asset/SO.xpm
+WE asset/WE.xpm
+NO asset/NO.xpm
+EA asset/EA.xpm
 F 140,139,139
 C 154,209,230
 11111111111111111          11111111111111111

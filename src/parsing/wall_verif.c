@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:39:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/18 13:13:01 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/19 11:12:08 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	check_map(t_data *map)
 	printf ("col : %i\n", map->col);
 	for (int k = 0; map->map[k]; k++)
 		printf("map : %s\n", map->map[k]);
-	printf ("SO : %s \n NO : %s\nEA : %s\nWE : %s\n", map->SO, map->NO, map->EA, map->WE);
+	printf ("SO : %s\nNO : %s\nEA : %s\nWE : %s\n", map->texture[SOUTH], map->texture[NORTH], map->texture[EAST], map->texture[WEST]);
 	printf ("F : %s\nC : %s\n", map->F, map->C);
 
 	map_cp = NULL;
@@ -42,9 +42,10 @@ int	check_map(t_data *map)
 	map->player.pos.x = x;
 	map->player.pos.y = y;
 	map->base_orient = map->map[(int)map->player.pos.y][(int)map->player.pos.x];
+	//printf ("%c\n", 	map->base_orient );
 //	printf ("map : %c\n", map->map[(int)map->player.pos.y][(int)map->player.pos.x]);
 	if (check_wall(map, map_cp, y, x) == ERROR_WALL)
-		return (printf("Wall does not ok.\n"), ERROR_WALL);
+		return (ft_free_tab(map_cp), printf("Wall does not ok.\n"), ERROR_WALL);
 	ft_free_tab(map_cp);
 	return (0);
 }
