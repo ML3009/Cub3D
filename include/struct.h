@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/20 14:15:21 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/20 14:35:03 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ typedef struct s_player
 
 typedef struct s_mlx
 {
-	void *mlx_id;
-	void *mlx_window;
+	void *mlx_id; // mlx_init
+	void *mlx_window; // mlx_new_wind
 	t_vector size;
 }	t_mlx;
 
@@ -73,14 +73,17 @@ typedef	struct s_img
 	int			line_lenght; // taille de la ligne
 }	t_img;
 
+typedef struct s_rgb
+{
+	int	rgb[3];
+} t_rgb;
+
 
 typedef struct s_data
 {
 	char		base_orient;
 	char		**map;
 	char		**texture;
-	char		*F;
-	char		*C;
 	int			row;
 	int			col;
 	int			wallOk;
@@ -89,6 +92,7 @@ typedef struct s_data
 	t_player	player;
 	t_mlx		mlx;
 	t_key		key;
+	t_rgb		rgb[2];
 
 }	t_data;
 

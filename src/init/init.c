@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:14:04 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/19 16:10:56 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/20 12:10:19 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ void	init_map(t_data *map)
 	ft_memset(&map->mlx.size, 0, sizeof(t_vector));
 	ft_memset(&map->base_img, 0, sizeof(t_img));
 	ft_memset(&map->img, 0, sizeof(t_img));
-
+	ft_memset(&map->rgb, 0, sizeof(t_rgb));
 }
