@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall_verif.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:39:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/19 16:12:09 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/20 11:27:30 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	check_map(t_data *map)
 	y = -1;
 	map_cp = copy_map(map);
 	if (!map_cp)
-		return (printf("MALLOC CPY"), -1);
+		return (printf("Map : malloc error.\n"), -1);
 	while (map->map[++y])
 	{
 		x = -1;
@@ -45,7 +45,7 @@ int	check_map(t_data *map)
 	map->player.pos.y = y;
 	map->base_orient = map->map[(int)map->player.pos.y][(int)map->player.pos.x];
 	if (check_wall(map, map_cp, y, x) == ERROR_WALL)
-		return (ft_free_tab(map_cp), printf("Wall does not ok.\n"), ERROR_WALL);
+		return (ft_free_tab(map_cp), printf("Map : error wall.\n"), ERROR_WALL);
 	ft_free_tab(map_cp);
 	return (0);
 }

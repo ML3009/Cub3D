@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:50:21 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/18 11:50:37 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/20 11:26:54 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	file_extension(char *file)
 	while (file[++i]);
 	if ((file[i - 1] != 'b' && file[i - 2] != 'u'
 		&& file[i - 3] != 'c' && file[i - 4] != '.') || ft_strlen(file) < 4)
-		return (printf("Wrong file extension.\n"), WRONG_FILE_NAME);
+		return (printf("Map : wrong file extension.\n"), WRONG_FILE_NAME);
 	return (0);
 }
 
@@ -32,7 +32,7 @@ int	open_file(char *file)
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		return (printf("File does not exist.\n"), EMPTY_FILE);
+		return (printf("Map : file does not exist.\n"), EMPTY_FILE);
 	close (fd);
 	return (GOOD_ACCESS);
 }

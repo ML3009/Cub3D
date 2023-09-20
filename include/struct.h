@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/19 15:55:37 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/20 11:11:02 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ typedef struct s_player
 
 typedef struct s_mlx
 {
-	void *mlx_id;
-	void *mlx_window;
+	void *mlx_id; // mlx_init
+	void *mlx_window; // mlx_new_wind
 	t_vector size;
 }	t_mlx;
 

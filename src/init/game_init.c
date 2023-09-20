@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:10:05 by purple            #+#    #+#             */
-/*   Updated: 2023/09/19 14:30:38 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/20 12:02:19 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void init_orientation(t_data *data);
 void screen_size(t_data *data);
+static int	path_texture(t_data *map);
 
 int init_the_game(t_data *data)
 {
@@ -23,10 +24,13 @@ int init_the_game(t_data *data)
 	screen_size(data);
 	if (!(data->mlx.mlx_window = mlx_new_window(data->mlx.mlx_id, data->mlx.size.x,  data->mlx.size.y, "Cub3D")))
 		return (MLX_ERROR);
+	if (path_texture(data) < 0)
+		return (printf("Map : path error.\n"), -1);
 	data->base_img[0].image = mlx_new_image(data->mlx.mlx_id,data->mlx.size.x, data->mlx.size.y);
 	data->base_img[0].adress = mlx_get_data_addr(data->base_img[0].image , &data->base_img[0].bpp, &data->base_img[0].line_lenght, &data->base_img[0].endian);
+
 	return (0);
-		
+
 }
 
 void screen_size(t_data *data)
@@ -65,4 +69,27 @@ void init_orientation(t_data *data)
 	}
 	data->player.plane.x = 0;
 	data->player.plane.y = 0.66;
+}
+
+static int	path_texture(t_data *map)
+{
+	int width = (int)map->mlx.size.x;
+	int height = (int)map->mlx.size.y;
+	map->img[NORTH].image = mlx_xpm_file_to_image (map->mlx.mlx_id, map->texture[NORTH], &width, &height);
+	if (!map->img[NORTH].image)
+		return (printf ("Texture : north\n"),-1);
+	map->img[NORTH].adress = mlx_get_data_addr(map->img[NORTH].image, &map->img[NORTH].bpp, &map->img[NORTH].line_lenght, &map->img[NORTH].endian);
+	map->img[SOUTH].image = mlx_xpm_file_to_image (map->mlx.mlx_id, map->texture[SOUTH], &width, &height);
+	if (!map->img[SOUTH].image)
+		return (printf ("Texture : south\n"), -1);
+	map->img[SOUTH].adress = mlx_get_data_addr(map->img[SOUTH].image, &map->img[SOUTH].bpp, &map->img[SOUTH].line_lenght, &map->img[SOUTH].endian);
+	map->img[EAST].image = mlx_xpm_file_to_image (map->mlx.mlx_id, map->texture[EAST], &width, &height);
+	if (!map->img[EAST].image)
+		return (printf ("Texture : east\n"), -1);
+	map->img[EAST].adress = mlx_get_data_addr(map->img[EAST].image, &map->img[EAST].bpp, &map->img[EAST].line_lenght, &map->img[EAST].endian);
+	map->img[WEST].image = mlx_xpm_file_to_image (map->mlx.mlx_id, map->texture[WEST], &width, &height);
+	if (!map->img[WEST].image)
+		return (printf ("Texture : west\n"), -1);
+	map->img[WEST].adress = mlx_get_data_addr(map->img[WEST].image, &map->img[WEST].bpp, &map->img[WEST].line_lenght, &map->img[WEST].endian);
+	return (0);
 }
