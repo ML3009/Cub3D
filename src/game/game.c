@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 10:47:04 by purple            #+#    #+#             */
-/*   Updated: 2023/09/19 14:22:30 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/20 13:54:56 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void game_start(t_data *data)
 
 int loop_game(t_data *data)
 {
-	draw_void(data);
+	//draw_void(data);
 	ft_key(data);
 	raycasting(data);
 	return (0);

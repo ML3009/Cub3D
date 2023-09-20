@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:49:58 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/19 11:09:22 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:33:55 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,6 @@
 #define SOUTH 1
 #define WEST 2
 #define EAST 3
+
+
+// https://github.com/Armandase/cub3D/tree/main

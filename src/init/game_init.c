@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:10:05 by purple            #+#    #+#             */
-/*   Updated: 2023/09/19 14:30:38 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/20 13:59:37 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,20 +49,20 @@ void init_orientation(t_data *data)
 {
 	if (data->base_orient == 'S' || data->base_orient == 'N')
 	{
-		data->player.dir.y = 0;
+		data->player.dir.x = 1;
 		if (data->base_orient == 'S')
-			data->player.dir.x = 1;
+			data->player.dir.y = 1;
 		else
-			data->player.dir.x = -1;
+			data->player.dir.y = -1;
 	}
 	else
 	{
-		data->player.dir.x = 0;
+		data->player.dir.y = 1;
 		if (data->base_orient == 'E')
 			data->player.dir.y = 1;
 		else
 			data->player.dir.y = -1;
 	}
-	data->player.plane.x = 0;
-	data->player.plane.y = 0.66;
+	data->player.plane.x = -(data->player.dir.y) *0.66;
+	data->player.plane.y = data->player.dir.y * 0.66;
 }

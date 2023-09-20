@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/19 15:55:37 by purple           ###   ########.fr       */
+/*   Updated: 2023/09/20 14:15:21 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ typedef struct s_player
 	t_vector	texture;
 	unsigned int color;
 	double		wall_dist;
-	double		wall_x;
+	double		sstep;
+	double		text_pos;
+	int			orientation;
 	int			sside;
 	int			line_height;
 	int 		draw_start;
