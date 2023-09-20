@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:39:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/20 11:27:30 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:36:49 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	check_map(t_data *map)
 	for (int k = 0; map->map[k]; k++)
 		printf("map : %s\n", map->map[k]);
 	printf ("SO : %s\nNO : %s\nEA : %s\nWE : %s\n", map->texture[SOUTH], map->texture[NORTH], map->texture[EAST], map->texture[WEST]);
-	printf ("F : %s\nC : %s\n", map->F, map->C);
-
+	printf ("R : %i || G : %i || B : %i\n", map->rgb[CEIL].rgb[0], map->rgb[CEIL].rgb[1], map->rgb[CEIL].rgb[2]);
+	printf ("R : %i || G : %i || B : %i\n", map->rgb[FLOOR].rgb[0], map->rgb[FLOOR].rgb[1], map->rgb[FLOOR].rgb[2]);
 	map_cp = NULL;
 	y = -1;
 	map_cp = copy_map(map);

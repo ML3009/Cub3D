@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:49:58 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/19 11:09:22 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:14:34 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,8 @@
 #define SOUTH 1
 #define WEST 2
 #define EAST 3
+
+#define FLOOR 0
+#define CEIL 1
+
+

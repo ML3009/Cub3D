@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/20 11:11:02 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:21:28 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,17 @@ typedef	struct s_img
 	int			line_lenght; // taille de la ligne
 }	t_img;
 
+typedef struct s_rgb
+{
+	int	rgb[3];
+} t_rgb;
+
 
 typedef struct s_data
 {
 	char		base_orient;
 	char		**map;
 	char		**texture;
-	char		*F;
-	char		*C;
 	int			row;
 	int			col;
 	int			wallOk;
@@ -87,6 +90,7 @@ typedef struct s_data
 	t_player	player;
 	t_mlx		mlx;
 	t_key		key;
+	t_rgb		rgb[2];
 
 }	t_data;
 
