@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:10:05 by purple            #+#    #+#             */
-/*   Updated: 2023/09/20 13:43:13 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/02 13:55:59 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,15 @@ void init_orientation(t_data *data)
 {
 	if (data->base_orient == 'S' || data->base_orient == 'N')
 	{
-		data->player.dir.y = 0;
+		data->player.dir.x = 1;
 		if (data->base_orient == 'S')
-			data->player.dir.x = 1;
+			data->player.dir.y = 1;
 		else
-			data->player.dir.x = -1;
+			data->player.dir.y = -1;
 	}
 	else
 	{
-		data->player.dir.x = 0;
+		data->player.dir.y = 1;
 		if (data->base_orient == 'E')
 			data->player.dir.y = 1;
 		else

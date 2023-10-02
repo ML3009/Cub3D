@@ -35,6 +35,8 @@ SRCFILE	= 	main.c \
 			game/movement.c \
 			game/extra_key.c \
 			game/raycasting.c \
+			game/raycasting_utils.c \
+			game/draw_sprite.c \
 
 
 GREEN		=	\e[92;5;118m
