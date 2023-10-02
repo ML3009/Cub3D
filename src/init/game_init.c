@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:10:05 by purple            #+#    #+#             */
-/*   Updated: 2023/09/20 12:02:19 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/09/20 13:43:13 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int init_the_game(t_data *data)
 	if (!(data->mlx.mlx_window = mlx_new_window(data->mlx.mlx_id, data->mlx.size.x,  data->mlx.size.y, "Cub3D")))
 		return (MLX_ERROR);
 	if (path_texture(data) < 0)
-		return (printf("Map : path error.\n"), -1);
+		return (printf("Map : texture error.\n"), -1);
 	data->base_img[0].image = mlx_new_image(data->mlx.mlx_id,data->mlx.size.x, data->mlx.size.y);
 	data->base_img[0].adress = mlx_get_data_addr(data->base_img[0].image , &data->base_img[0].bpp, &data->base_img[0].line_lenght, &data->base_img[0].endian);
 
