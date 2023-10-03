@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:39:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/20 12:36:49 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/03 12:25:21 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void atypic_wall(t_data *data, char **map, int y, int x);
 static int	check_again(t_data *data, char **map, int y, int x);
+static int	check_player(char **map);
 
 int	check_map(t_data *map)
 {
@@ -39,14 +40,36 @@ int	check_map(t_data *map)
 			if (map->map[y][x] == 'N' || map->map[y][x] == 'S' || map->map[y][x] == 'E' || map->map[y][x] == 'W')
 				break;
 		if (map->map[y][x] == 'N' || map->map[y][x] == 'S' || map->map[y][x] == 'E' || map->map[y][x] == 'W')
-				break;
+			break;
 	}
+	if (check_player(map_cp) == ERROR_PLAYER)
+		return (ft_free_tab(map_cp), printf("Map : error player\n"), ERROR_PLAYER);
 	map->player.pos.x = x;
 	map->player.pos.y = y;
 	map->base_orient = map->map[(int)map->player.pos.y][(int)map->player.pos.x];
 	if (check_wall(map, map_cp, y, x) == ERROR_WALL)
 		return (ft_free_tab(map_cp), printf("Map : error wall.\n"), ERROR_WALL);
 	ft_free_tab(map_cp);
+	return (0);
+}
+
+static int	check_player(char **map)
+{
+	int	y;
+	int	x;
+	int	player;
+
+	y = -1;
+	player = 0;
+	while(map[++y])
+	{
+		x = -1;
+		while(map[y][++x])
+			if (map[y][x] == 'N' || map[y][x] == 'S' || map[y][x] == 'E' || map[y][x] == 'W')
+				player++;
+	}
+	if (player > 1 || player < 1)
+		return (ERROR_PLAYER);
 	return (0);
 }
 

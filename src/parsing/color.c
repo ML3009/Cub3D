@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:02:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/20 13:02:35 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/03 10:40:00 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static int	check_color(t_data *map, char *F, char *C);
 static int	valid_color(char **color, int i);
+static int full_texture(t_data *map);
 
 int	search_color(t_data *map, char *line)
 {
@@ -22,6 +23,8 @@ int	search_color(t_data *map, char *line)
 	static char	*C;
 
 	i = -1;
+	if ((!ft_strncmp(line, "F", 1) && F == NULL && !full_texture(map)) || (!ft_strncmp(line, "C", 1) && C == NULL && !full_texture(map)) )
+		return (-1);
 	if (!ft_strncmp(line, "F", 1) && F == NULL)
 	{
 		while (line && !ft_isdigit(line[++i]));
@@ -71,6 +74,13 @@ static	int	valid_color(char **color, int i)
 {
 	if (ft_atoi(color[i]) < 0 || ft_atoi(color[i]) > 255 || ft_strlen(color[i]) <= 0
 		|| ft_strlen(color[i]) > 4 || !(color[i][0] >= '0' && color[i][0] <= '9'))
+		return (1);
+	return (0);
+}
+
+static int full_texture(t_data *map)
+{
+	if (map->texture && map->texture[SOUTH] && map->texture[NORTH] && map->texture[EAST] && map->texture[WEST])
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:03:29 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/20 11:55:01 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/03 10:38:57 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static char	*add_texture(char *line)
 	texture = NULL;
 	start = -1;
 	end = ft_strlen(line);
-	while (line && line[++start] != 'a');
-	while (line && line[end--] != 'm');
+	while (line && start < (int)ft_strlen(line) && line[++start] != 'a');
+	while (line && end > 0 && line[end--] != 'm');
 	texture = ft_limited_strdup(line, start, end + 1);
 	if (!texture)
 		return (NULL);
