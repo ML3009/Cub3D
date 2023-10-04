@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 12:37:09 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/04 15:59:46 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:02:37 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int	check_map(t_data *map)
 	}
 	if (check_player(map_cp) == ERROR_PLAYER)
 		return (ft_free_tab(map_cp), printf("Map : error player\n"), ERROR_PLAYER);
-	map->player.pos.x = x;
-	map->player.pos.y = y;
-	map->base_orient = map->map[(int)map->player.pos.y][(int)map->player.pos.x];
+	map->bpose.x = x;
+	map->bpose.y = y;
+	map->base_orient = map->map[(int)map->bpose.y][(int)map->bpose.x];
 	if (check_wall(map, map_cp, y, x) == ERROR_WALL)
 		return (ft_free_tab(map_cp), printf("Map : error wall.\n"), ERROR_WALL);
 	ft_free_tab(map_cp);

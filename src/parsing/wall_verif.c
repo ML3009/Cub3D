@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall_verif.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:39:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/04 15:38:25 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/04 16:03:03 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,6 @@
 
 static void atypic_wall(t_data *data, char **map, int y, int x);
 static int	check_again(t_data *data, char **map, int y, int x);
-
-int	check_map(t_data *map)
-{
-	char	**map_cp;
-	int	y;
-	int	x;
-	printf ("row : %i\n", map->row);
-	printf ("col : %i\n", map->col);
-	for (int k = 0; map->map[k]; k++)
-		printf("map : %s\n", map->map[k]);
-	printf ("SO : %s\nNO : %s\nEA : %s\nWE : %s\n", map->texture[SOUTH], map->texture[NORTH], map->texture[EAST], map->texture[WEST]);
-	printf ("R : %i || G : %i || B : %i\n", map->rgb[CEIL].rgb[0], map->rgb[CEIL].rgb[1], map->rgb[CEIL].rgb[2]);
-	printf ("R : %i || G : %i || B : %i\n", map->rgb[FLOOR].rgb[0], map->rgb[FLOOR].rgb[1], map->rgb[FLOOR].rgb[2]);
-	map_cp = NULL;
-	y = -1;
-	map_cp = copy_map(map);
-	if (!map_cp)
-		return (printf("Map : malloc error.\n"), -1);
-	while (map->map[++y])
-	{
-		x = -1;
-		while (map->map[y][++x])
-			if (map->map[y][x] == 'N' || map->map[y][x] == 'S' || map->map[y][x] == 'E' || map->map[y][x] == 'W')
-				break;
-		if (map->map[y][x] == 'N' || map->map[y][x] == 'S' || map->map[y][x] == 'E' || map->map[y][x] == 'W')
-				break;
-	}
-	map->player.pos.x = x;
-	map->player.pos.y = y;
-	map->base_orient = map->map[(int)map->player.pos.y][(int)map->player.pos.x];
-	if (check_wall(map, map_cp, y, x) == ERROR_WALL)
-		return (ft_free_tab(map_cp), printf("Map : error wall.\n"), ERROR_WALL);
-	ft_free_tab(map_cp);
-	return (0);
-}
 
 int	check_wall(t_data *map, char **map_cp, int y, int x)
 {
