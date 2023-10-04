@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 10:47:04 by purple            #+#    #+#             */
-/*   Updated: 2023/09/20 13:54:56 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/03 14:26:41 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,33 +27,7 @@ void game_start(t_data *data)
 
 int loop_game(t_data *data)
 {
-	//draw_void(data);
-	ft_key(data);
+ 	ft_key(data);
 	raycasting(data);
-	return (0);
-}
-
-int	draw_void(t_data *data)
-{
-	int	x;
-	int	y;
-	int black = 0x000000;
-	int white = 0x666699;
-	y = 0;
-	while (y <= data->mlx.size.y)
-	{
-		x = 0;
-		while (y <= data->mlx.size.y / 2 && x < data->mlx.size.x)
-		{
-			mlx_pixel_put( data->mlx.mlx_id, data->mlx.mlx_window, x, y, white);
-			x++;
-		}
-		while (y <= data->mlx.size.y && y > data->mlx.size.y / 2 && x < data->mlx.size.x)
-		{
-			mlx_pixel_put( data->mlx.mlx_id, data->mlx.mlx_window, x, y, black);
-			x++;
-		}
-		y++;
-	}
 	return (0);
 }

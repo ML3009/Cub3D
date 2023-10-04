@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:49:58 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/03 15:28:55 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:37:57 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,8 @@
 #define CEIL 1
 
 
-// https://github.com/Armandase/cub3D/tree/main
+
+#define RSPEEED 0.66
+#define MSPEED	1
+
 

@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/04 15:52:31 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:00:39 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,28 +28,25 @@ typedef	struct s_key
 	int esc;
 }	t_key;
 
-typedef struct s_player
+typedef struct s_ray
 {
-	t_vector	pos;
-	t_vector	d;
-	t_vector	dir;
-	t_vector	cam;
-	t_vector	plane;
-	t_vector	raydir;
-	t_vector	map;
-	t_vector	step;
-	t_vector	side;
-	t_vector	texture;
-	unsigned int color;
-	double		wall_dist;
-	double		sstep;
-	double		text_pos;
-	int			orientation;
-	int			sside;
+	t_vector 	pos;
+	t_vector 	dir;
+	t_vector 	plane;
+	t_vector 	rdir;
+	t_vector 	map;
+	t_vector 	sdist;
+	t_vector 	ddist;
+	t_vector 	step;
+	double		camx;
+	double		dwall;
+	int			hit;
+	int			side;
 	int			line_height;
-	int 		draw_start;
-	int			draw_end;
-}	t_player;
+	int			dstart;
+	int			dend;
+
+}	t_ray;
 
 typedef struct s_mlx
 {
@@ -58,11 +55,11 @@ typedef struct s_mlx
 	t_vector size;
 }	t_mlx;
 
-typedef struct s_ray
+typedef struct s_time
 {
 	size_t time;
 	size_t old_time;
-}	t_ray;
+}	t_time;
 
 typedef	struct s_img
 {
@@ -91,10 +88,11 @@ typedef struct s_data
 	int			textOk;
 	t_img		base_img[2];
 	t_img		img[4];
-	t_player	player;
+	t_ray		ray;
 	t_mlx		mlx;
 	t_key		key;
 	t_rgb		rgb[2];
+	t_vector	bpose;
 
 }	t_data;
 

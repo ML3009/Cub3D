@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:43:44 by purple            #+#    #+#             */
-/*   Updated: 2023/09/13 15:57:26 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/02 14:18:42 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int key_press(int keycode, t_data *tmp)
 		tmp->key.vleft = 1;
 	if (keycode == XK_d)
 		tmp->key.right = 1;
-	if (keycode == XK_Left)
+	if (keycode == XK_Right)
 		tmp->key.vright = 1;
 	if (keycode == XK_Escape)
 		tmp->key.esc = 1;
@@ -44,7 +44,7 @@ int key_drop(int keycode, t_data *tmp)
 		tmp->key.vleft = 0;
 	if (keycode == XK_d)
 		tmp->key.right = 0;
-	if (keycode == XK_Left)
+	if (keycode == XK_Right)
 		tmp->key.vright = 0;
 	if (keycode == XK_Escape)
 		tmp->key.esc = 0;
