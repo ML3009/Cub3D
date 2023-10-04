@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   file_verif.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:50:21 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/20 11:26:54 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/04 10:29:13 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ int	open_file(char *file)
 {
 	int	fd;
 
+	fd = open(file, O_DIRECTORY);
+	if (fd >= 0)
+		return (printf("Map : file is a directory.\n"), EMPTY_FILE);
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return (printf("Map : file does not exist.\n"), EMPTY_FILE);

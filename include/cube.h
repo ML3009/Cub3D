@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/20 14:32:17 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/03 14:23:29 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,12 @@ void go_right(t_data *data);
 /*----[raycasting]----*/
 void raycasting(t_data *data);
 void init_dda(t_data *data);
+void wall_coo(t_data *data);
+void dda(t_data *data);
+void init_step(t_data *data);
+void draw(t_data *data, int i);
+
+
 void check_orientation(t_data *data);
 void draw_sprite(t_data *data, int x);
 int	draw_void(t_data *data);

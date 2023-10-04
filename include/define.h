@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:49:58 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/20 14:34:42 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/03 12:23:32 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@
 #define FLOOR 0
 #define CEIL 1
 
-// https://github.com/Armandase/cub3D/tree/main
+#define RSPEEED 0.66
+#define MSPEED	1
+
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall_verif.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:39:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/20 12:36:49 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/03 12:25:23 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ int	check_map(t_data *map)
 		if (map->map[y][x] == 'N' || map->map[y][x] == 'S' || map->map[y][x] == 'E' || map->map[y][x] == 'W')
 				break;
 	}
-	map->player.pos.x = x;
-	map->player.pos.y = y;
-	map->base_orient = map->map[(int)map->player.pos.y][(int)map->player.pos.x];
+	map->bpose.x = x;
+	map->bpose.y = y;
+	map->base_orient = map->map[(int)map->bpose.y][(int)map->bpose.x];
 	if (check_wall(map, map_cp, y, x) == ERROR_WALL)
 		return (ft_free_tab(map_cp), printf("Map : error wall.\n"), ERROR_WALL);
 	ft_free_tab(map_cp);

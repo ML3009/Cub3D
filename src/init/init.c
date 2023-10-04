@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:14:04 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/20 12:10:19 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/03 12:27:31 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,14 @@ void	init_map(t_data *map)
 	map->texture = malloc(sizeof(char *) * 4);
 	if (!map->texture)
 		printf("MALLOC TEXTURE");
-	ft_memset(map->texture, 0, sizeof(char *) * 4);
-	ft_memset(&map->player, 0, sizeof(t_player));
-	ft_memset(&map->player.plane, 0, sizeof(t_vector));
-	ft_memset(&map->player.map, 0, sizeof(t_vector));
-	ft_memset(&map->player.step, 0, sizeof(t_vector));
-	ft_memset(&map->player.texture, 0, sizeof(t_vector));
-	ft_memset(&map->player.side, 0, sizeof(t_vector));
-	ft_memset(&map->player.d, 0, sizeof(t_vector));
-	ft_memset(&map->player.dir, 0, sizeof(t_vector));
-	ft_memset(&map->player.cam, 0, sizeof(t_vector));
-	ft_memset(&map->player.raydir, 0, sizeof(t_vector));
-	ft_memset(&map->player.pos, 0, sizeof(t_vector));
+	ft_memset(map->texture, 0, sizeof(char *) * 4);	
+	ft_memset(&map->ray.pos,0, sizeof(t_vector));
+	ft_memset(&map->ray.dir,0, sizeof(t_vector));
+	ft_memset(&map->ray.plane,0, sizeof(t_vector));
+	ft_memset(&map->ray.map,0, sizeof(t_vector));
+	ft_memset(&map->ray.sdist,0, sizeof(t_vector));
+	ft_memset(&map->ray.ddist,0, sizeof(t_vector));
+	ft_memset(&map->ray.step,0, sizeof(t_vector));	
 	ft_memset(&map->mlx, 0, sizeof(t_mlx));
 	ft_memset(&map->key, 0, sizeof(t_key));
 	ft_memset(&map->mlx.size, 0, sizeof(t_vector));

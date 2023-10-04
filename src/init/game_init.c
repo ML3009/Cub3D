@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:10:05 by purple            #+#    #+#             */
-/*   Updated: 2023/09/20 14:35:49 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/04 14:21:12 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,24 +51,36 @@ void screen_size(t_data *data)
 
 void init_orientation(t_data *data)
 {
-	if (data->base_orient == 'S' || data->base_orient == 'N')
+	data->ray.pos.x = data->bpose.x + 0.1;
+	data->ray.pos.y = data->bpose.y + 0.1;
+	if (data->base_orient == 78)
 	{
-		data->player.dir.x = 1;
-		if (data->base_orient == 'S')
-			data->player.dir.y = 1;
-		else
-			data->player.dir.y = -1;
+		data->ray.dir.x = -1;
+		data->ray.dir.y = 0;
+		data->ray.plane.x = 0;
+		data->ray.plane.y = 0.66;
 	}
-	else
+	if (data->base_orient == 83)
 	{
-		data->player.dir.y = 1;
-		if (data->base_orient == 'E')
-			data->player.dir.y = 1;
-		else
-			data->player.dir.y = -1;
+		data->ray.dir.x = 1;
+		data->ray.dir.y = 0;
+		data->ray.plane.x = 0;
+		data->ray.plane.y = -0.66;
 	}
-	data->player.plane.x = 0;
-	data->player.plane.y = 0.66;
+	if (data->base_orient == 69)
+	{
+		data->ray.dir.x = 0;
+		data->ray.dir.y = 1;
+		data->ray.plane.x = 0.66;
+		data->ray.plane.y = 0;
+	}
+	if (data->base_orient == 87)
+	{
+		data->ray.dir.x = 0;
+		data->ray.dir.y = -1;
+		data->ray.plane.x = -0.66;
+		data->ray.plane.y = 0;
+	}
 }
 
 static int	path_texture(t_data *map)
