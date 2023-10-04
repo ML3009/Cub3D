@@ -24,7 +24,9 @@ SRCFILE	= 	main.c \
 			parsing/map_utils.c \
 			parsing/map_create.c \
 			parsing/map_search.c \
+			parsing/map_verif.c \
 			parsing/wall_verif.c \
+			parsing/player_verif.c \
 			parsing/file_verif.c \
 			parsing/color.c \
 			parsing/texture.c \

@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:49:58 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/03 10:52:11 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:28:55 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@
 #define WEST 2
 #define EAST 3
 
-
 #define FLOOR 0
 #define CEIL 1
+
 
 // https://github.com/Armandase/cub3D/tree/main
 
