@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:02:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/20 13:02:35 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:25:46 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,19 @@ int	search_color(t_data *map, char *line)
 	i = -1;
 	if (!ft_strncmp(line, "F", 1) && F == NULL)
 	{
+		map->rgb->full_rgb++;
 		while (line && !ft_isdigit(line[++i]));
+		if (line[i - 1] == '-')
+			i--;
 		F = ft_limited_strdup(line, i, ft_strlen(line));
 	}
 	i = -1;
 	if (!ft_strncmp(line, "C", 1) && C == NULL)
 	{
+		map->rgb->full_rgb++;
 		while (line && !ft_isdigit(line[++i]));
+		if (line[i - 1] == '-')
+			i--;
 		C = ft_limited_strdup(line, i, ft_strlen(line));
 	}
 	if (C != NULL && F != NULL)
@@ -74,3 +80,5 @@ static	int	valid_color(char **color, int i)
 		return (1);
 	return (0);
 }
+
+

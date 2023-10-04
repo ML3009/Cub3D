@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:03:29 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/20 11:55:01 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:20:22 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int	search_texture(t_data *map, char *line)
 		map->texture[EAST] = add_texture(line);
 	if (!ft_strncmp(line, "WE", 2) && map->texture[WEST] == NULL)
 		map->texture[WEST] = add_texture(line);
+	//if (map->texture[NORTH] && map->texture[SOUTH] && map->texture[EAST] && map->texture[WEST])
+	//	if (search_color(map, line) < 0)
+	//		return (ERROR_COLOR);
 	return (0);
 }
 
@@ -36,10 +39,17 @@ static char	*add_texture(char *line)
 	texture = NULL;
 	start = -1;
 	end = ft_strlen(line);
-	while (line && line[++start] != 'a');
-	while (line && line[end--] != 'm');
+	while (line && start < (int)ft_strlen(line) && line[++start] != ' ');
+	while (line && start < (int)ft_strlen(line) && line[++start] == ' ');
+	while (line && end > 0 && line[end--] == ' ');
+	end--;
+	if (line [end - 2] && (line[end] != 'm' || line[end - 1] != 'p' || line[end - 2] != 'x'))
+		return (NULL);
 	texture = ft_limited_strdup(line, start, end + 1);
 	if (!texture)
+		return (NULL);
+	while (line && end > 0 && line[end--] != ' ');
+	if (end != 1)
 		return (NULL);
 	return (texture);
 }

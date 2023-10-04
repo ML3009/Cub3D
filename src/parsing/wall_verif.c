@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:39:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/03 12:25:23 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/04 15:38:25 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ int	check_map(t_data *map)
 		if (map->map[y][x] == 'N' || map->map[y][x] == 'S' || map->map[y][x] == 'E' || map->map[y][x] == 'W')
 				break;
 	}
-	map->bpose.x = x;
-	map->bpose.y = y;
-	map->base_orient = map->map[(int)map->bpose.y][(int)map->bpose.x];
+	map->player.pos.x = x;
+	map->player.pos.y = y;
+	map->base_orient = map->map[(int)map->player.pos.y][(int)map->player.pos.x];
 	if (check_wall(map, map_cp, y, x) == ERROR_WALL)
 		return (ft_free_tab(map_cp), printf("Map : error wall.\n"), ERROR_WALL);
 	ft_free_tab(map_cp);
@@ -53,11 +53,18 @@ int	check_map(t_data *map)
 int	check_wall(t_data *map, char **map_cp, int y, int x)
 {
 	atypic_wall(map, map_cp, y, x);
+	y = -1;
+	while (map_cp[++y])
+	{
+		x = -1;
+		while (map_cp[y][++x])
+			if (map_cp[y][x] == '0')
+				check_wall(map, map_cp, y, x);
+	}
 	if (map->wallOk > 0)
 		return (ERROR_WALL);
 	return (0);
 }
-
 
 static void	atypic_wall(t_data *data, char **map, int y, int x)
 {

@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/03 14:23:29 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/04 15:37:25 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char	**copy_map(t_data *map);
 int		check_wall(t_data *map, char **map_cp, int y, int x);
 int		search_texture(t_data *map, char *line);
 int		search_color(t_data *map, char *line);
+int		check_player(char **map);
 
 
 /*----[ GAME ]----*/

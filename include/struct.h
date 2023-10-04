@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/03 12:43:50 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/04 15:38:14 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ typedef	struct s_img
 
 typedef struct s_rgb
 {
+	int	full_rgb;
 	int	rgb[3];
 } t_rgb;
 
