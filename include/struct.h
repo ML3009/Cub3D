@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/03 15:31:35 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:52:31 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct s_data
 	int			row;
 	int			col;
 	int			wallOk;
+	int			textOk;
 	t_img		base_img[2];
 	t_img		img[4];
 	t_player	player;

@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:02:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/04 15:25:46 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:38:29 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	search_color(t_data *map, char *line)
 	static char	*C;
 
 	i = -1;
+	if ((!ft_strncmp(line, "F", 1) && F != NULL) || (!ft_strncmp(line, "C", 1) && C != NULL))
+		map->rgb->full_rgb++;
 	if (!ft_strncmp(line, "F", 1) && F == NULL)
 	{
 		map->rgb->full_rgb++;

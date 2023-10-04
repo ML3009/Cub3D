@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:03:29 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/04 15:20:22 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:59:07 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static char	*add_texture(char *line);
 
 int	search_texture(t_data *map, char *line)
 {
+	if (!ft_strncmp(line, "SO", 2) || !ft_strncmp(line, "NO", 2) || !ft_strncmp(line, "EA", 2) || !ft_strncmp(line, "WE", 2))
+		map->textOk++;
 	if (!ft_strncmp(line, "SO", 2) && map->texture[SOUTH] == NULL)
 		map->texture[SOUTH] = add_texture(line);
 	if (!ft_strncmp(line, "NO", 2) && map->texture[NORTH] == NULL)
@@ -24,9 +26,6 @@ int	search_texture(t_data *map, char *line)
 		map->texture[EAST] = add_texture(line);
 	if (!ft_strncmp(line, "WE", 2) && map->texture[WEST] == NULL)
 		map->texture[WEST] = add_texture(line);
-	//if (map->texture[NORTH] && map->texture[SOUTH] && map->texture[EAST] && map->texture[WEST])
-	//	if (search_color(map, line) < 0)
-	//		return (ERROR_COLOR);
 	return (0);
 }
 
@@ -45,7 +44,7 @@ static char	*add_texture(char *line)
 	end--;
 	if (line [end - 2] && (line[end] != 'm' || line[end - 1] != 'p' || line[end - 2] != 'x'))
 		return (NULL);
-	texture = ft_limited_strdup(line, start, end + 1);
+	texture = ft_limited_strdup(line, start, end);
 	if (!texture)
 		return (NULL);
 	while (line && end > 0 && line[end--] != ' ');

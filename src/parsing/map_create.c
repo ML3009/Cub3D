@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:36:36 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/04 15:27:09 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:56:35 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,11 @@ int	create_map(char *file, t_data *map)
 	{
 		if (search_color(map, line) < 0)
 			return (printf("Map: error: color.\n"), ERROR_COLOR);
-		if (search_texture(map, line) < 0)
-			return (printf("Map: error: texture.\n"), ERROR_COLOR);
+		search_texture(map, line);
 		free(line);
 		line = get_next_line(fd);
 	}
-	printf ("RGB : %i", map->rgb->full_rgb);
-	if (map->texture[SOUTH] == NULL || map->texture[NORTH] == NULL
-		|| map->texture[EAST] == NULL || map->texture[WEST] == NULL || map->rgb->full_rgb != 2)
+	if (map->textOk != 4 || map->rgb->full_rgb != 2)
 		return (printf ("Map: error: texture.\n"), ERROR_TEXTURE);
 	if (save_map(line, fd, map) < 0)
 		return (printf ("Map: error: save map.\n"), ERROR_WALL);
