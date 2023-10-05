@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:14:04 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/04 17:09:05 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/05 16:28:10 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	init_map(t_data *map)
 	ft_memset(map, 0, sizeof(t_data));
 	map->texture = malloc(sizeof(char *) * 4);
 	if (!map->texture)
-		printf("MALLOC TEXTURE");
+		printf(MALLOC);
 	ft_memset(map->texture, 0, sizeof(char *) * 4);
 	ft_memset(&map->ray.pos, 0, sizeof(t_vector));
 	ft_memset(&map->ray.dir, 0, sizeof(t_vector));

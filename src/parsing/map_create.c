@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_create.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:36:36 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/05 10:34:12 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/05 16:41:48 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,20 @@ int	create_map(char *file, t_data *map)
 	count_col(file, map); // x
 	map->map = malloc(sizeof(char *) * (map->row + 1));
 	if (!map->map)
-		return (printf("Map: error: malloc.\n"), -1);
+		return (printf(MALLOC), -1);
 	line = get_next_line(fd);
 	while (line && search_map(line) == false)
 	{
 		if (search_color(map, line) < 0)
-			return (printf("Map: error: color.\n"), ERROR_COLOR);
+			return (printf(COLOR), ERROR_COLOR);
 		search_texture(map, line);
 		free(line);
 		line = get_next_line(fd);
 	}
 	if (map->textOk != 4 || map->rgb->full_rgb != 2)
-		return (printf ("Map: error: texture.\n"), ERROR_TEXTURE);
+		return (free(line), printf(TEXT), ERROR_TEXTURE);
 	if (save_map(line, fd, map) < 0)
-		return (printf ("Map: error: save map.\n"), ERROR_WALL);
+		return (printf(SAVE), ERROR_WALL);
 	return (0);
 }
 
@@ -58,11 +58,11 @@ int	save_map(char *line, int fd, t_data *map)
 		}
 	}
 	else
-		return(ERROR_WALL);
+		return(free(line),ERROR_WALL);
 	free(line);
 	map->map[++i] = NULL;
 	if (search_wall(map->map[i - 1]) == false)
-		return (ERROR_WALL);
+		return (free(line),ERROR_WALL);
 	line = get_next_line(fd);
 	if (line != NULL)
 		return (close(fd), free(line), ERROR_WALL);

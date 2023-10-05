@@ -14,7 +14,7 @@
 NAME = libft.a
 HEADER = libft.h \
 CC 	= cc
-FLAGS	= -Wall -Werror -Wextra -g3
+CFLAGS	= -Wall -Werror -Wextra -g3
 OBJ_DIR = objs/
 
 GREEN	= \033[1;32

@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:02:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/04 15:38:29 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/05 16:52:35 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,30 +18,34 @@ static int	valid_color(char **color, int i);
 int	search_color(t_data *map, char *line)
 {
 	int	i;
-	static char	*F;
-	static char	*C;
+	int j = 0;
+	static char	F[20];
+	static char	C[20];
 
 	i = -1;
-	if ((!ft_strncmp(line, "F", 1) && F != NULL) || (!ft_strncmp(line, "C", 1) && C != NULL))
+	if ((!ft_strncmp(line, "F", 1) && ft_strlen(F) > 1) || (!ft_strncmp(line, "C", 1) && ft_strlen(C) > 1))
 		map->rgb->full_rgb++;
-	if (!ft_strncmp(line, "F", 1) && F == NULL)
+	if (!ft_strncmp(line, "F", 1) && ft_strlen(F) < 1)
 	{
 		map->rgb->full_rgb++;
 		while (line && !ft_isdigit(line[++i]));
 		if (line[i - 1] == '-')
 			i--;
-		F = ft_limited_strdup(line, i, ft_strlen(line));
+		while (i < (int)ft_strlen(line))
+			F[j++] = line[i++];
 	}
 	i = -1;
-	if (!ft_strncmp(line, "C", 1) && C == NULL)
+	j = 0;
+	if (!ft_strncmp(line, "C", 1) && ft_strlen(C) < 1)
 	{
 		map->rgb->full_rgb++;
 		while (line && !ft_isdigit(line[++i]));
 		if (line[i - 1] == '-')
 			i--;
-		C = ft_limited_strdup(line, i, ft_strlen(line));
+		while (i < (int)ft_strlen(line))
+			C[j++] = line[i++];
 	}
-	if (C != NULL && F != NULL)
+	if (ft_strlen(F) > 1 && ft_strlen(C) > 1)
 		return (check_color(map, F, C));
 	return (0);
 }
@@ -72,7 +76,7 @@ static int	check_color(t_data *map, char *F, char *C)
 	}
 	if (i != 3)
 		return (ERROR_COLOR);
-	return (0);
+	return (ft_free_tab(color_c), ft_free_tab(color_f), 0);
 }
 
 static	int	valid_color(char **color, int i)

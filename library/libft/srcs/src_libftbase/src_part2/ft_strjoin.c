@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 17:15:36 by wmessmer          #+#    #+#             */
-/*   Updated: 2023/09/19 16:03:53 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/05 15:37:40 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char	*tab;
 	char	*new;
 	int		size;
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:39:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/05 11:14:34 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/05 14:16:53 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	atypic_wall(t_data *data, char **map, int y, int x);
 static int	check_again(t_data *data, char **map, int y, int x);
-//static int	find_way(char **map_cp);
+static void	find_way(t_data *data, char **map, int y, int x);
 
 int	check_wall(t_data *map, char **map_cp, int y, int x)
 {
@@ -27,34 +27,33 @@ int	check_wall(t_data *map, char **map_cp, int y, int x)
 			if (map_cp[y][x] == '0')
 				check_wall(map, map_cp, y, x);
 	}
-	/*if (find_way(map_cp) < 0)
-		return (ERROR_WALL);*/
 	if (map->wallOk > 0)
 		return (ERROR_WALL);
+	find_way(map, map_cp, map->bpose.y, map->bpose.x);
+	y = -1;
+	while (map_cp[++y])
+	{
+		x = -1;
+		while (map_cp[y][++x])
+			if (map_cp[y][x] == '0' || map_cp[y][x] == '1')
+				return (ERROR_WALL);
+	}
 	return (0);
 }
 
-/*static int	find_way(char **map_cp)
+static void	find_way(t_data *data, char **map, int y, int x)
 {
-	int x;
-	int	y;
-	int	save_pos;
-
-	y = 0;
-	x = -1;
-	while (map_cp[y][++x])
-	{
-		if (map_cp[y][x] == ' ')
-		{
-			save_pos = -1;
-			while (map_cp[++save_pos][x] == ' ' && )
-
-		}
-	}
-	return (0);
-}*/
-
-
+	map[y][x] = 'Z';
+	if (y < data->row - 1 && map[y + 1][x] != 'Z' && map[y + 1] != NULL && map[y + 1][x] != ' ' && map[y + 1][x] != '\0' && map[y + 1][x] != '\t' && map[y + 1][x] != '\n')
+		find_way(data, map, y + 1, x);
+	if (y > 0 && map[y - 1][x] != 'Z' && map[y - 1] != NULL && map[y - 1][x] != ' ' && map[y - 1][x] != '\0' && map[y - 1][x] != '\t' && map[y - 1][x] != '\n')
+		find_way(data, map, y - 1, x);
+	if (x < data->col && map[y][x + 1] != 'Z' &&  map[y][x + 1] != ' ' && map[y][x + 1] != '\0' && map[y][x + 1] != '\t' && map[y][x + 1] != '\n')
+		find_way(data, map, y, x + 1);
+	if (x > 0 && map[y][x - 1] != 'Z' && map[y][x - 1] != ' ' && map[y][x - 1] != '\0' && map[y][x - 1] != '\t' && map[y][x - 1] != '\n')
+		find_way(data, map, y, x - 1);
+	return ;
+}
 
 static void	atypic_wall(t_data *data, char **map, int y, int x)
 {
