@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:39:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/05 14:16:53 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/05 17:29:55 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,13 @@ int	check_wall(t_data *map, char **map_cp, int y, int x)
 
 static void	find_way(t_data *data, char **map, int y, int x)
 {
+	printf("[%d][%d] %c\n", y,x,map[y][x]);
 	map[y][x] = 'Z';
-	if (y < data->row - 1 && map[y + 1][x] != 'Z' && map[y + 1] != NULL && map[y + 1][x] != ' ' && map[y + 1][x] != '\0' && map[y + 1][x] != '\t' && map[y + 1][x] != '\n')
+	if (y < data->row - 1 &&  x <= (int)ft_strlen(map[y + 1]) && map[y + 1][x] != 'Z' && map[y + 1] != NULL && map[y + 1][x] != ' ' && map[y + 1][x] != '\0' && map[y + 1][x] != '\t' && map[y + 1][x] != '\n')
 		find_way(data, map, y + 1, x);
-	if (y > 0 && map[y - 1][x] != 'Z' && map[y - 1] != NULL && map[y - 1][x] != ' ' && map[y - 1][x] != '\0' && map[y - 1][x] != '\t' && map[y - 1][x] != '\n')
+	if (y > 0 && x <= (int)ft_strlen(map[y - 1]) && map[y - 1][x] != 'Z' && map[y - 1] != NULL && map[y - 1][x] != ' ' && map[y - 1][x] != '\0' && map[y - 1][x] != '\t' && map[y - 1][x] != '\n')
 		find_way(data, map, y - 1, x);
-	if (x < data->col && map[y][x + 1] != 'Z' &&  map[y][x + 1] != ' ' && map[y][x + 1] != '\0' && map[y][x + 1] != '\t' && map[y][x + 1] != '\n')
+	if (x < ((int)ft_strlen(map[y])) && map[y][x + 1] != 'Z' &&  map[y][x + 1] != ' ' && map[y][x + 1] != '\0' && map[y][x + 1] != '\t' && map[y][x + 1] != '\n')
 		find_way(data, map, y, x + 1);
 	if (x > 0 && map[y][x - 1] != 'Z' && map[y][x - 1] != ' ' && map[y][x - 1] != '\0' && map[y][x - 1] != '\t' && map[y][x - 1] != '\n')
 		find_way(data, map, y, x - 1);
