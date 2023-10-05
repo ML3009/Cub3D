@@ -6,13 +6,13 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:43:44 by purple            #+#    #+#             */
-/*   Updated: 2023/10/02 14:18:42 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/04 16:46:08 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
 
-int key_press(int keycode, t_data *tmp) 
+int	key_press(int keycode, t_data *tmp)
 {
 	if (keycode == XK_Up || keycode == XK_w)
 		tmp->key.up = 1;
@@ -29,10 +29,9 @@ int key_press(int keycode, t_data *tmp)
 	if (keycode == XK_Escape)
 		tmp->key.esc = 1;
 	return (0);
-
 }
 
-int key_drop(int keycode, t_data *tmp) 
+int	key_drop(int keycode, t_data *tmp)
 {
 	if (keycode == XK_Up || keycode == XK_w)
 		tmp->key.up = 0;
@@ -49,10 +48,9 @@ int key_drop(int keycode, t_data *tmp)
 	if (keycode == XK_Escape)
 		tmp->key.esc = 0;
 	return (0);
-
 }
 
-void ft_key(t_data *data)
+void	ft_key(t_data *data)
 {
 	if (data->key.up == 1)
 		go_fwd(data);

@@ -6,14 +6,15 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 11:23:38 by purple            #+#    #+#             */
-/*   Updated: 2023/10/04 14:41:42 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/04 17:03:49 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
-double ft_abs(double i);
 
-void init_dda(t_data *data)
+double	ft_abs(double i);
+
+void	init_dda(t_data *data)
 {
 	if (data->ray.rdir.x == 0)
 		data->ray.ddist.x = 1e30;
@@ -25,32 +26,35 @@ void init_dda(t_data *data)
 		data->ray.ddist.y = ft_abs(1 / data->ray.rdir.y);
 }
 
-void init_step(t_data *data)
+void	init_step(t_data *data)
 {
 	if (data->ray.rdir.x < 0)
 	{
 		data->ray.step.x = -1;
-		data->ray.sdist.x = (data->ray.pos.x - data->ray.map.x) * data->ray.ddist.x;
+		data->ray.sdist.x = (data->ray.pos.x \
+		- data->ray.map.x) * data->ray.ddist.x;
 	}
 	else
 	{
 		data->ray.step.x = 1;
-		data->ray.sdist.x = (data->ray.map.x + 1.0 - data->ray.pos.x) * data->ray.ddist.x;
+		data->ray.sdist.x = (data->ray.map.x + 1.0 \
+		- data->ray.pos.x) * data->ray.ddist.x;
 	}
 	if (data->ray.rdir.y < 0)
 	{
 		data->ray.step.y = -1;
-		data->ray.sdist.y = (data->ray.pos.y - data->ray.map.y) * data->ray.ddist.y;
+		data->ray.sdist.y = (data->ray.pos.y \
+		- data->ray.map.y) * data->ray.ddist.y;
 	}
 	else
 	{
 		data->ray.step.y = 1;
-		data->ray.sdist.y = (data->ray.map.y + 1.0 - data->ray.pos.y) * data->ray.ddist.y;
+		data->ray.sdist.y = (data->ray.map.y + 1.0 \
+		- data->ray.pos.y) * data->ray.ddist.y;
 	}
-
 }
 
-void dda(t_data *data)
+void	dda(t_data *data)
 {
 	while (data->ray.hit == 0)
 	{
@@ -66,12 +70,14 @@ void dda(t_data *data)
 			data->ray.map.y += data->ray.step.y;
 			data->ray.side = 1;
 		}
-		if ((data->map[(int)data->ray.map.x][(int)data->ray.map.y]) > 48 && (data->map[(int)data->ray.map.x][(int)data->ray.map.y]) != data->base_orient)
+		if ((data->map[(int)data->ray.map.x][(int)data->ray.map.y]) > 48 \
+		&& (data->map[(int)data->ray.map.x][(int)data->ray.map.y]) \
+		!= data->base_orient)
 			data->ray.hit = 1;
 	}
 }
 
-void wall_coo(t_data *data)
+void	wall_coo(t_data *data)
 {
 	if (data->ray.side == 0)
 		data->ray.dwall = (data->ray.sdist.x - data->ray.ddist.x);
@@ -86,7 +92,7 @@ void wall_coo(t_data *data)
 		data->ray.dend = data->mlx.size.y - 1;
 }
 
-double ft_abs(double i)
+double	ft_abs(double i)
 {
 	if (i < 0)
 		i *= -1;

@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:14:04 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/03 12:27:31 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/04 17:09:05 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ void	init_map(t_data *map)
 	map->texture = malloc(sizeof(char *) * 4);
 	if (!map->texture)
 		printf("MALLOC TEXTURE");
-	ft_memset(map->texture, 0, sizeof(char *) * 4);	
-	ft_memset(&map->ray.pos,0, sizeof(t_vector));
-	ft_memset(&map->ray.dir,0, sizeof(t_vector));
-	ft_memset(&map->ray.plane,0, sizeof(t_vector));
-	ft_memset(&map->ray.map,0, sizeof(t_vector));
-	ft_memset(&map->ray.sdist,0, sizeof(t_vector));
-	ft_memset(&map->ray.ddist,0, sizeof(t_vector));
-	ft_memset(&map->ray.step,0, sizeof(t_vector));	
+	ft_memset(map->texture, 0, sizeof(char *) * 4);
+	ft_memset(&map->ray.pos, 0, sizeof(t_vector));
+	ft_memset(&map->ray.dir, 0, sizeof(t_vector));
+	ft_memset(&map->ray.plane, 0, sizeof(t_vector));
+	ft_memset(&map->ray.map, 0, sizeof(t_vector));
+	ft_memset(&map->ray.sdist, 0, sizeof(t_vector));
+	ft_memset(&map->ray.ddist, 0, sizeof(t_vector));
+	ft_memset(&map->ray.step, 0, sizeof(t_vector));
 	ft_memset(&map->mlx, 0, sizeof(t_mlx));
 	ft_memset(&map->key, 0, sizeof(t_key));
 	ft_memset(&map->mlx.size, 0, sizeof(t_vector));
