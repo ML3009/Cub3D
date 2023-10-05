@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 12:37:09 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/05 11:03:57 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/05 16:53:39 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ int	check_map(t_data *map)
 	for (int k = 0; map->map[k]; k++)
 		printf("map : %s\n", map->map[k]);
 	printf ("SO : [%s]\nNO : [%s]\nEA : [%s]\nWE : [%s]\n\n", map->texture[SOUTH], map->texture[NORTH], map->texture[EAST], map->texture[WEST]);
-	printf ("R CEIL: %i \n", map->rgb[CEIL].rgb[0]);
-	printf ("G CEIL : %i \n", map->rgb[CEIL].rgb[1]);
-	printf ("B CEIL : %i\n\n", map->rgb[CEIL].rgb[2]);
-	printf ("R FLOOR : %i \n", map->rgb[FLOOR].rgb[0]);
-	printf ("G FLOOR : %i\n", map->rgb[FLOOR].rgb[1]);
-	printf ("B FLOOR : %i\n", map->rgb[FLOOR].rgb[2]);*/
+	printf ("R CEIL: [%i] \n", map->rgb[CEIL].rgb[0]);
+	printf ("G CEIL : [%i] \n", map->rgb[CEIL].rgb[1]);
+	printf ("B CEIL : [%i]\n\n", map->rgb[CEIL].rgb[2]);
+	printf ("R FLOOR : [%i] \n", map->rgb[FLOOR].rgb[0]);
+	printf ("G FLOOR : [%i]\n", map->rgb[FLOOR].rgb[1]);
+	printf ("B FLOOR : [%i]\n", map->rgb[FLOOR].rgb[2]);*/
 	map_cp = NULL;
 	y = -1;
 	map_cp = copy_map(map);
 	if (!map_cp)
-		return (printf("Map : malloc error.\n"), -1);
+		return (printf(MALLOC), -1);
 	while (map->map[++y])
 	{
 		x = -1;
@@ -43,12 +43,15 @@ int	check_map(t_data *map)
 			break;
 	}
 	if (check_player(map_cp) == ERROR_PLAYER)
-		return (ft_free_tab(map_cp), printf("Map : error player\n"), ERROR_PLAYER);
+		return (ft_free_tab(map_cp), printf(PLAYER), ERROR_PLAYER);
 	map->bpose.x = x;
 	map->bpose.y = y;
 	map->base_orient = map->map[(int)map->bpose.y][(int)map->bpose.x];
 	if (check_wall(map, map_cp, y, x) == ERROR_WALL)
-		return (ft_free_tab(map_cp), printf("Map : error wall.\n"), ERROR_WALL);
+	{
+		printf(";)\n");
+		return (ft_free_tab(map_cp), printf(WALL), ERROR_WALL);
+	}
 	ft_free_tab(map_cp);
 	return (0);
 }

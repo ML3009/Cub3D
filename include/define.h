@@ -3,21 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:49:58 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/04 15:37:57 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/05 14:53:48 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define BAD_ACCESS -1
+
 #define WRONG_FILE -2
-#define WRONG_FILE_NAME -3
+
+#define FILE_NAME -3
+#define WFN "Error\nType: file extension\n"
+
 #define EMPTY_FILE -4
+#define EF "Error\nType: empty file\n"
+
+#define MALLOC "Error\nType: malloc\n"
+
 #define ERROR_WALL -5
+#define SAVE "Error\nType: save map\n"
+#define WALL "Error\nType: wall\n"
+
 #define ERROR_TEXTURE -6
+#define TEXT "Error\nType: texture\n"
+
 #define ERROR_COLOR -7
+#define COLOR "Error\nType: color\n"
+
 #define ERROR_PLAYER -8
+#define PLAYER "Error\nType: player\n"
+
 #define	WRONG_MAP -9
 #define GOOD_ACCESS 1
 #define MLX_ERROR -1
