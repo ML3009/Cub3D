@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_verif.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 12:37:09 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/05 10:38:22 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/05 11:03:57 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	check_map(t_data *map)
 	int	y;
 	int	x;
 	/*printf ("row : %i\n", map->row);
-	printf ("col : %i\n", map->col);*/
+	printf ("col : %i\n", map->col);
 	for (int k = 0; map->map[k]; k++)
 		printf("map : %s\n", map->map[k]);
-	/*printf ("SO : [%s]\nNO : [%s]\nEA : [%s]\nWE : [%s]\n\n", map->texture[SOUTH], map->texture[NORTH], map->texture[EAST], map->texture[WEST]);
+	printf ("SO : [%s]\nNO : [%s]\nEA : [%s]\nWE : [%s]\n\n", map->texture[SOUTH], map->texture[NORTH], map->texture[EAST], map->texture[WEST]);
 	printf ("R CEIL: %i \n", map->rgb[CEIL].rgb[0]);
 	printf ("G CEIL : %i \n", map->rgb[CEIL].rgb[1]);
 	printf ("B CEIL : %i\n\n", map->rgb[CEIL].rgb[2]);
@@ -48,11 +48,7 @@ int	check_map(t_data *map)
 	map->bpose.y = y;
 	map->base_orient = map->map[(int)map->bpose.y][(int)map->bpose.x];
 	if (check_wall(map, map_cp, y, x) == ERROR_WALL)
-	{
-		for (int k = 0; map_cp[k]; k++)
-			printf("map : %s\n", map_cp[k]);
 		return (ft_free_tab(map_cp), printf("Map : error wall.\n"), ERROR_WALL);
-	}
 	ft_free_tab(map_cp);
 	return (0);
 }

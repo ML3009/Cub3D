@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 11:23:38 by purple            #+#    #+#             */
-/*   Updated: 2023/10/04 17:03:49 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/05 11:21:29 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ void	dda(t_data *data)
 			data->ray.map.y += data->ray.step.y;
 			data->ray.side = 1;
 		}
-		if ((data->map[(int)data->ray.map.x][(int)data->ray.map.y]) > 48 \
-		&& (data->map[(int)data->ray.map.x][(int)data->ray.map.y]) \
+		if ((data->map[(int)data->ray.map.y][(int)data->ray.map.x]) > 48 \
+		&& (data->map[(int)data->ray.map.y][(int)data->ray.map.x]) \
 		!= data->base_orient)
 			data->ray.hit = 1;
 	}
