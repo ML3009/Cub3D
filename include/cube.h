@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/05 14:53:57 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/06 11:59:13 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,5 @@ void check_orientation(t_data *data);
 
 t_img select_text(t_data *data);
 double define_wx(t_data *data);
-t_texture 	*init_draw_wall(t_data *data);
+t_texture 	init_draw_wall(t_data *data);
 void draw_wall(t_data *data, int x);

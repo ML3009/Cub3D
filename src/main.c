@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:14 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/05 15:13:23 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/05 17:31:19 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(int ac, char **av)
 	if (check_map >= 0)
 	{
 		printf ("game start\n");
-		//game_start(&map);
+		game_start(&map);
 	}
 	free_all_map(&map);
 	return (0);

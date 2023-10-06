@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:49:58 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/05 14:53:48 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/06 13:06:35 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 #define MLX_ERROR -1
 
 #define MENU_SPRITE "asset/xpm/menu.xpm"
-#define TEXTURE	64
+#define TEXTURE	128
 
 #define NORTH 0
 #define SOUTH 1

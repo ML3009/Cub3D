@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/05 17:05:54 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/06 11:52:09 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ typedef struct s_data
 	int			col;
 	int			wallOk;
 	int			textOk;
-	t_img		base_img[2];
+	t_img		base_img;
 	t_img		img[4];
 	t_ray		ray;
 	t_mlx		mlx;

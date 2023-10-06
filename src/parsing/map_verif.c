@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_verif.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 12:37:09 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/05 16:53:39 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/06 11:24:27 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,7 @@ int	check_map(t_data *map)
 	map->bpose.y = y;
 	map->base_orient = map->map[(int)map->bpose.y][(int)map->bpose.x];
 	if (check_wall(map, map_cp, y, x) == ERROR_WALL)
-	{
-		printf(";)\n");
 		return (ft_free_tab(map_cp), printf(WALL), ERROR_WALL);
-	}
 	ft_free_tab(map_cp);
 	return (0);
 }
