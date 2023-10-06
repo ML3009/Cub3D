@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/04 15:37:25 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/06 11:59:13 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,10 @@ void init_dda(t_data *data);
 void wall_coo(t_data *data);
 void dda(t_data *data);
 void init_step(t_data *data);
-void draw(t_data *data, int i);
-
-
+void draw_void(t_data *data);
 void check_orientation(t_data *data);
-void draw_sprite(t_data *data, int x);
-int	draw_void(t_data *data);
+
+t_img select_text(t_data *data);
+double define_wx(t_data *data);
+t_texture 	init_draw_wall(t_data *data);
+void draw_wall(t_data *data, int x);

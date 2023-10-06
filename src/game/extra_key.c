@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:46:55 by purple            #+#    #+#             */
-/*   Updated: 2023/10/05 10:01:34 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/06 12:02:12 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	escape(t_data *data)
 {
 	(void)data;
-	if (data->base_img[0].image)
-		mlx_destroy_image(data->mlx.mlx_id, data->base_img[0].image);
+	if (data->base_img.image)
+		mlx_destroy_image(data->mlx.mlx_id, data->base_img.image);
 	mlx_destroy_window(data->mlx.mlx_id, data->mlx.mlx_window);
 	exit(0);
 	return (0);
