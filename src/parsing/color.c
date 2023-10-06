@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:02:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/05 16:52:35 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/06 11:41:15 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,20 +62,20 @@ static int	check_color(t_data *map, char *F, char *C)
 	while (color_c[++i])
 	{
 		if (valid_color(color_c, i))
-			return (ERROR_COLOR);
+			return (ft_free_tab(color_c), ft_free_tab(color_f), ERROR_COLOR);
 		map->rgb[CEIL].rgb[i] = ft_atoi(color_c[i]);
 	}
 	if (i != 3)
-		return (ERROR_COLOR);
+		return (ft_free_tab(color_c), ft_free_tab(color_f), ERROR_COLOR);
 	i = -1;
 	while (color_f[++i])
 	{
 		if (valid_color(color_f, i))
-			return (ERROR_COLOR);
+			return (ft_free_tab(color_c), ft_free_tab(color_f), ERROR_COLOR);
 		map->rgb[FLOOR].rgb[i] = ft_atoi(color_f[i]);
 	}
 	if (i != 3)
-		return (ERROR_COLOR);
+		return (ft_free_tab(color_c), ft_free_tab(color_f), ERROR_COLOR);
 	return (ft_free_tab(color_c), ft_free_tab(color_f), 0);
 }
 

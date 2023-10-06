@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:36:36 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/05 16:41:48 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/06 11:57:14 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,11 @@ int	create_map(char *file, t_data *map)
 		return (EMPTY_FILE);
 	count_row(file, map); // y
 	count_col(file, map); // x
-	map->map = malloc(sizeof(char *) * (map->row + 1));
-	if (!map->map)
-		return (printf(MALLOC), -1);
 	line = get_next_line(fd);
 	while (line && search_map(line) == false)
 	{
 		if (search_color(map, line) < 0)
-			return (printf(COLOR), ERROR_COLOR);
+			return (printf(COLOR), free(line), ERROR_COLOR);
 		search_texture(map, line);
 		free(line);
 		line = get_next_line(fd);
@@ -50,6 +47,9 @@ int	save_map(char *line, int fd, t_data *map)
 	i = -1;
 	if (line && search_wall(line) == true)
 	{
+		map->map = malloc(sizeof(char *) * (map->row + 1));
+		if (!map->map)
+			return (printf(MALLOC), -1);
 		while (line && search_map(line) == true)
 		{
 			map->map[++i] = ft_strdup(line);
@@ -58,11 +58,11 @@ int	save_map(char *line, int fd, t_data *map)
 		}
 	}
 	else
-		return(free(line),ERROR_WALL);
+		return(close(fd), free(line), ERROR_WALL);
 	free(line);
 	map->map[++i] = NULL;
 	if (search_wall(map->map[i - 1]) == false)
-		return (free(line),ERROR_WALL);
+		return (ERROR_WALL);
 	line = get_next_line(fd);
 	if (line != NULL)
 		return (close(fd), free(line), ERROR_WALL);

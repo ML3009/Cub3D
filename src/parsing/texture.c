@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:03:29 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/05 16:48:42 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/06 14:35:12 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static char	*add_texture(char *line)
 	if (line [end - 2] && (line[end] != 'm' || line[end - 1] != 'p' || line[end - 2] != 'x'))
 		return (NULL);
 	texture = ft_limited_strdup(line, start, end);
+	//gerer protection si double
 	if (!texture)
 		return (NULL);
 	while (line && end > 0 && line[end--] != ' ');
