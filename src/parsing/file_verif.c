@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:50:21 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/05 14:26:51 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:16:50 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ int	file_extension(char *file)
 	if (!file)
 		return (printf(EF), EMPTY_FILE);
 	i = -1;
-	while (file[++i]);
+	while (file[++i])
+		;
 	if ((file[i - 1] != 'b' && file[i - 2] != 'u'
-		&& file[i - 3] != 'c' && file[i - 4] != '.') || ft_strlen(file) < 4)
+			&& file[i - 3] != 'c' && file[i - 4] != '.') || ft_strlen(file) < 4)
 		return (printf(WFN), FILE_NAME);
 	return (0);
 }

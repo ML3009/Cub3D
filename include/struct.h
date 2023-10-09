@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/06 11:52:09 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/09 14:25:51 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 typedef struct s_vector
 {
@@ -102,7 +101,6 @@ typedef struct s_data
 	t_key		key;
 	t_rgb		rgb[2];
 	t_vector	bpose;
-
 }	t_data;
 
 

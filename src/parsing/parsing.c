@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:46:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/09/19 11:22:08 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:34:46 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,16 @@ int	parsing(int ac, char **av, t_data *map)
 
 static int	mapsing(char **av, t_data *map)
 {
+	char	*size;
+
+	size = NULL;
 	if (file_extension(av[1]) < 0)
 		return (WRONG_FILE);
 	if (open_file(av[1]) < 0)
 		return (BAD_ACCESS);
-	if (create_map(av[1], map) < 0)
+	if (create_map(av[1], map, size) < 0)
 		return (WRONG_MAP);
 	if (check_map(map) < 0)
 		return (WRONG_MAP);
 	return (0);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 12:38:26 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/04 13:25:37 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/09 14:13:55 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ int	check_player(char **map)
 
 	y = -1;
 	player = 0;
-	while(map[++y])
+	while (map[++y])
 	{
 		x = -1;
-		while(map[y][++x])
-			if (map[y][x] == 'N' || map[y][x] == 'S' || map[y][x] == 'E' || map[y][x] == 'W')
+		while (map[y][++x])
+			if (map[y][x] == 'N' || map[y][x] == 'S'
+				|| map[y][x] == 'E' || map[y][x] == 'W')
 				player++;
 	}
 	if (player > 1 || player < 1)

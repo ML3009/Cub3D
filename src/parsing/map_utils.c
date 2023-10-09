@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 16:24:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/05 17:08:05 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:35:37 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	count_row(char *file, t_data *map)
 {
-	int	fd;
+	int		fd;
 	char	*line;
-	int	i;
+	int		i;
 
 	i = 0;
 	fd = open(file, O_RDONLY);
@@ -36,15 +36,11 @@ void	count_row(char *file, t_data *map)
 	return ;
 }
 
-void	count_col(char *file, t_data *map)
+int	count_col(char *file, t_data *map, char *size)
 {
-	int	fd;
+	int		fd;
 	char	*line;
-	char	*size;
-	int	i;
 
-	i = 0;
-	size = NULL;
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		send_error(EF);
@@ -64,12 +60,8 @@ void	count_col(char *file, t_data *map)
 		free(line);
 		line = get_next_line(fd);
 	}
-	i = ft_strlen(size);
-	free(line);
-	free(size);
-	close(fd);
-	map->col = i;
-	return ;
+	map->col = ft_strlen(size);
+	return (free(line), free(size), close(fd), 0);
 }
 
 char	**copy_map(t_data *map)
