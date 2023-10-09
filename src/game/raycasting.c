@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: purple <medpurple@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:20:34 by purple            #+#    #+#             */
-/*   Updated: 2023/10/06 14:03:03 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/09 21:22:40 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
+
 void	img_pix_put(t_img *img, int x, int y, int color);
 
 void	raycasting(t_data *data)
@@ -32,7 +33,6 @@ void	raycasting(t_data *data)
 		dda(data);
 		wall_coo(data);
 		draw_wall(data, x);
-		//draw_void(data);
 	}
 	mlx_put_image_to_window(data->mlx.mlx_id, data->mlx.mlx_window, data->base_img.image, 0, 0);
 	
@@ -40,24 +40,17 @@ void	raycasting(t_data *data)
 
 void	draw_void(t_data *data)
 {
-	int	y;
-	int x;
+	int	i;
+	int	j;
 
-	x = -1;
-	while (++x < data->mlx.size.x)
+	i = -1;
+	while (++i < data->mlx.size.x)
 	{
-		y = -1;
-		while (++y < data->mlx.size.y)
-		{
-			if (y < data->mlx.size.y / 2)
-			{
-				mlx_pixel_put(data->mlx.mlx_id, data->mlx.mlx_window,x, y, 0x000000);
-			}
-			if (y > data->mlx.size.y / 2)
-			{
-				mlx_pixel_put(data->mlx.mlx_id, data->mlx.mlx_window,x, y, 0xFFFFFF);
-			}
-		}
+		j = -1;
+		while (++j < data->mlx.size.y / 2)
+			img_pix_put(&data->img, i, j, *(int *)data->rgb[0].rgb_hexa);
+		while (++j < data->mlx.size.y)
+			img_pix_put(&data->img, i, j, *(int *)data->rgb[1].rgb_hexa);
 	}
 }
 
@@ -66,7 +59,6 @@ void draw_wall(t_data *data, int x)
 	t_texture tmp;
 
 	tmp = init_draw_wall(data);
-	//data->base_img = tmp.texture;
 	while (data->ray.dstart < data->ray.dend)
 	{
 		tmp.tex.y = (int)tmp.tex_pos & (TEXTURE - 1);

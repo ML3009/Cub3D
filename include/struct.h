@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <medpurple@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/09 14:25:51 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/09 21:26:16 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ typedef struct s_rgb
 {
 	int	full_rgb;
 	int	rgb[3];
+	int rgb_hex;
 } t_rgb;
 
 typedef struct s_texture
