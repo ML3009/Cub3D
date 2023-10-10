@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:46:58 by purple            #+#    #+#             */
-/*   Updated: 2023/10/05 11:23:16 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/10 14:33:15 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,12 @@ void	go_right(t_data *data)
 		data->ray.pos.y += data->ray.plane.y * 0.045;
 		raycasting(data);
 	}
+}
+
+bool is_dir(char c)
+{
+    if (c == 'E' || c == 'W' \
+    || c == 'S' || c == 'N')
+        return (true);
+    return (false);
 }

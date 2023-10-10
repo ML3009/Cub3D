@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:20:34 by purple            #+#    #+#             */
-/*   Updated: 2023/10/10 09:56:37 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/10 14:12:07 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
-
-void	img_pix_put(t_img *img, int x, int y, int color);
 
 void	raycasting(t_data *data)
 {
@@ -34,8 +32,9 @@ void	raycasting(t_data *data)
 		wall_coo(data);
 		draw_wall(data, x);
 	}
+	draw_mini_map(data);
 	mlx_put_image_to_window(data->mlx.mlx_id, data->mlx.mlx_window, data->base_img.image, 0, 0);
-	
+
 }
 
 void	draw_void(t_data *data)
@@ -48,9 +47,9 @@ void	draw_void(t_data *data)
 	{
 		j = -1;
 		while (++j < data->mlx.size.y / 2)
-			img_pix_put(&data->base_img, i, j, data->rgb[0].rgb_hex);
+			img_pix_put(&data->base_img, i, j, data->rgb[CEIL].rgb_hex);
 		while (++j < data->mlx.size.y)
-			img_pix_put(&data->base_img, i, j, data->rgb[1].rgb_hex);
+			img_pix_put(&data->base_img, i, j, data->rgb[FLOOR].rgb_hex);
 	}
 }
 
@@ -65,7 +64,7 @@ void draw_wall(t_data *data, int x)
 		tmp.tex_pos += tmp.step;
 		tmp.color = tmp.texture.adress + (int)(tmp.tex.y *  tmp.texture.line_lenght + tmp.tex.x *( tmp.texture.bpp / 8));
 		img_pix_put(&data->base_img, x, data->ray.dstart, *(int *)tmp.color);
-		data->ray.dstart++;	
+		data->ray.dstart++;
 	}
 }
 

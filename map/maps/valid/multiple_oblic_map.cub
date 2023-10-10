@@ -1,12 +1,12 @@
-NO image/carpet.xpm
-SO image/carpet.xpm
-WE image/carpet.xpm
-EA image/carpet.xpm
+SO asset/xpm/SO.xpm
+WE asset/xpm/WE.xpm
+NO asset/xpm/NO.xpm
+EA asset/xpm/EA.xpm
 
-F 220,100,0
+F 0,0,0
 C 225,30,0
 
-1   11111111111111111
+111111111111111111111
 11   1000000000000001
 101   100000111000001
 1001   100000000E0001
