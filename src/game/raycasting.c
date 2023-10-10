@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <medpurple@student.42.fr>           +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:20:34 by purple            #+#    #+#             */
-/*   Updated: 2023/10/09 21:22:40 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/10 09:56:37 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	draw_void(t_data *data)
 	{
 		j = -1;
 		while (++j < data->mlx.size.y / 2)
-			img_pix_put(&data->img, i, j, *(int *)data->rgb[0].rgb_hexa);
+			img_pix_put(&data->base_img, i, j, data->rgb[0].rgb_hex);
 		while (++j < data->mlx.size.y)
-			img_pix_put(&data->img, i, j, *(int *)data->rgb[1].rgb_hexa);
+			img_pix_put(&data->base_img, i, j, data->rgb[1].rgb_hex);
 	}
 }
 
