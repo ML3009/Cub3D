@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/09 14:25:20 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/10 14:31:17 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <X11/X.h>
 #include "struct.h"
 #include "define.h"
-#include "color.h"
 
 /*----[ PARSING ]----*/
 int			parsing(int ac, char **av, t_data *map);
@@ -66,3 +65,4 @@ t_img		select_text(t_data *data);
 double		define_wx(t_data *data);
 t_texture	init_draw_wall(t_data *data);
 void		draw_wall(t_data *data, int x);
+bool		is_dir(char c);

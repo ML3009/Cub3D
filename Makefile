@@ -1,5 +1,6 @@
-NAME			=cub3d
+NAME			= cub3d
 
+BONUS			= bonus3d
 CC				= cc
 
 CFLAGS			= -Wall -Wextra -Werror -g3
@@ -18,6 +19,12 @@ OBJFILE = $(SRCFILE:.c=.o)
 OBJS	= $(addprefix $(OBJDIR), $(OBJFILE))
 SRCDIR	= src/
 SRCS	= $(addprefix $(SRCDIR), $(SRCFILE))
+
+OBJDIR_B	= obj_b/
+OBJFILE_B = $(SRCFILE_B:.c=.o)
+OBJS_B	= $(addprefix $(OBJDIR_B), $(OBJFILE_B))
+SRCDIR_B	= src/
+SRCS_B	= $(addprefix $(SRCDIR), $(SRCFILE))
 
 SRCFILE	= 	main.c \
 			parsing/parsing.c \
@@ -39,6 +46,27 @@ SRCFILE	= 	main.c \
 			game/raycasting.c \
 			game/raycasting_utils.c \
 			game/texture.c \
+
+SRCFILE_B	= 	main.c \
+				parsing/parsing.c \
+				parsing/map_utils.c \
+				parsing/map_create.c \
+				parsing/map_search.c \
+				parsing/map_verif.c \
+				parsing/wall_verif.c \
+				parsing/player_verif.c \
+				parsing/file_verif.c \
+				parsing/color.c \
+				parsing/texture.c \
+				init/init.c \
+				init/game_init.c \
+				game/game.c \
+				game/key_utils.c \
+				game/movement.c \
+				game/extra_key.c \
+				game/raycasting.c \
+				game/raycasting_utils.c \
+				game/texture.c \	
 
 
 GREEN		=	\e[92;5;118m
@@ -70,7 +98,23 @@ $(OBJDIR)%.o: $(SRCDIR)%.c
 	@$(CC) $(CFLAGS) -c $< -o $@ -I $(PATH_MLX)
 
 
+
+$(BONUS) : $(OBJS_B)
+	@printf "$(CURSIVE)$(GRAY) 	- [Compiling] minilibx object ... $(RESET)"
+	@make -s -C $(PATH_MLX)
+	@printf "$(CURSIVE)$(GREEN)\t done\n$(RESET)"
+	@printf "$(CURSIVE)$(GRAY) 	- [Compiling] libft object... $(RESET)"
+	@make -s -C $(PATH_LIBFT)
+	@printf "$(CURSIVE)$(GREEN)\t\t done\n$(RESET)"
+	@printf "$(CURSIVE)$(GRAY) 	- [Compiling] $(BONUS) object ... $(RESET)"
+	@$(CC) $(CFLAGS) $(OBJS_B) $(LIBFT) $(LIBX) $(LIBXFLAGS) -o $(BONUS) -g $(MFLAGS)
+	@printf "$(CURSIVE)$(GREEN)\t\t done\n$(RESET)"
+	@$(USAGE)
+
+
 all:  $(NAME)
+
+bonus:	$(BONUS)
 
 clean:
 	@printf "$(CURSIVE)$(GRAY) 	- [Removing] minilibx object ... $(RESET)"

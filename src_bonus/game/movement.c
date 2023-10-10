@@ -6,11 +6,12 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:46:58 by purple            #+#    #+#             */
-/*   Updated: 2023/10/10 14:32:26 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/10 12:45:50 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
+static bool is_dir(char c);
 
 void	go_fwd(t_data *data)
 {
@@ -71,7 +72,7 @@ void	go_right(t_data *data)
 }
 
 
-bool is_dir(char c)
+static bool is_dir(char c)
 {
 	if (c == 'E' || c == 'W' \
 	|| c == 'S' || c == 'N')
