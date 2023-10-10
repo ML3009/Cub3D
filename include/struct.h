@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <medpurple@student.42.fr>           +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/09 21:26:16 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/10 12:36:18 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef STRUCT_H
+# define STRUCT_H
 
 typedef struct s_vector
 {
@@ -16,7 +19,7 @@ typedef struct s_vector
 	double	y;
 }	t_vector;
 
-typedef	struct s_key
+typedef struct s_key
 {
 	int up;
 	int down;
@@ -104,5 +107,4 @@ typedef struct s_data
 	t_vector	bpose;
 }	t_data;
 
-
-
+#endif

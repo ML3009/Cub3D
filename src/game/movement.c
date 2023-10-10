@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:46:58 by purple            #+#    #+#             */
-/*   Updated: 2023/10/10 14:32:26 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/10 14:55:44 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,22 @@ void	go_right(t_data *data)
 		data->ray.pos.y += data->ray.plane.y * 0.045;
 		raycasting(data);
 	}
+}
+
+bool is_dir(char c)
+{
+    if (c == 'E' || c == 'W' \
+    || c == 'S' || c == 'N')
+        return (true);
+    return (false);
+}
+
+bool is_dir(char c)
+{
+    if (c == 'E' || c == 'W' \
+    || c == 'S' || c == 'N')
+        return (true);
+    return (false);
 }
 
 

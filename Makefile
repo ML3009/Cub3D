@@ -46,6 +46,7 @@ SRCFILE	= 	main.c \
 			game/raycasting.c \
 			game/raycasting_utils.c \
 			game/texture.c \
+			game/mini_map.c \
 
 SRCFILE_B	= 	main.c \
 				parsing/parsing.c \

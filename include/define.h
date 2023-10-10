@@ -6,53 +6,54 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:49:58 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/10 12:40:23 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/10 14:55:18 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define BAD_ACCESS -1
+#ifndef  DEFINE_H
+# define  DEFINE_H
 
-#define WRONG_FILE -2
+# define BAD_ACCESS -1
 
-#define FILE_NAME -3
-#define WFN "Error\nType: file extension\n"
+# define WRONG_FILE -2
 
-#define EMPTY_FILE -4
-#define EF "Error\nType: empty file\n"
+# define FILE_NAME -3
+# define WFN "Error\nType: file extension\n"
 
-#define MALLOC "Error\nType: malloc\n"
+# define EMPTY_FILE -4
+# define EF "Error\nType: empty file\n"
 
-#define ERROR_WALL -5
-#define SAVE "Error\nType: save map\n"
-#define WALL "Error\nType: wall\n"
+# define MALLOC "Error\nType: malloc\n"
 
-#define ERROR_TEXTURE -6
-#define TEXT "Error\nType: texture\n"
+# define ERROR_WALL -5
+# define SAVE "Error\nType: save map\n"
+# define WALL "Error\nType: wall\n"
 
-#define ERROR_COLOR -7
-#define COLOR "Error\nType: color\n"
+# define ERROR_TEXTURE -6
+# define TEXT "Error\nType: texture\n"
 
-#define ERROR_PLAYER -8
-#define PLAYER "Error\nType: player\n"
+# define ERROR_COLOR -7
+# define COLOR "Error\nType: color\n"
 
-#define	WRONG_MAP -9
-#define GOOD_ACCESS 1
-#define MLX_ERROR -1
+# define ERROR_PLAYER -8
+# define PLAYER "Error\nType: player\n"
 
-#define MENU_SPRITE "asset/xpm/menu.xpm"
-#define TEXTURE	64
+# define WRONG_MAP -9
+# define GOOD_ACCESS 1
+# define MLX_ERROR -1
 
-#define NORTH 0
-#define SOUTH 1
-#define WEST 2
-#define EAST 3
+# define MENU_SPRITE "asset/xpm/menu.xpm"
+# define TEXTURE	128
 
-#define FLOOR 0
-#define CEIL 1
+# define NORTH 0
+# define SOUTH 1
+# define WEST 2
+# define EAST 3
 
+# define FLOOR 0
+# define CEIL 1
 
+# define RSPEEED 0.66
+# define MSPEED	1
 
-#define RSPEEED 0.66
-#define MSPEED	1
-
-
+#endif
