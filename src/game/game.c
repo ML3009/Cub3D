@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 10:47:04 by purple            #+#    #+#             */
-/*   Updated: 2023/10/10 14:46:03 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:37:15 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	game_start(t_data *data)
 	data->rgb[CEIL].rgb_hex = rbg_hexa(data, CEIL);
 	if (init_the_game(data) < 0)
 		return ;
+	mouse_pov(data);
 	mlx_loop_hook(data->mlx.mlx_id, loop_game, data);
 	mlx_hook(data->mlx.mlx_window, 2, KeyPressMask, &key_press, data);
 	mlx_hook(data->mlx.mlx_window, 3, KeyReleaseMask, &key_drop, data);

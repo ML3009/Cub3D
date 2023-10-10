@@ -40,6 +40,7 @@ SRCFILE	= 	main.c \
 			game/raycasting_utils.c \
 			game/texture.c \
 			game/mini_map.c \
+			game/mouse.c \
 
 
 GREEN		=	\e[92;5;118m
