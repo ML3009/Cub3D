@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:46:58 by purple            #+#    #+#             */
-/*   Updated: 2023/10/10 14:56:06 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 18:30:38 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	go_fwd(t_data *data)
 {
 	if (data->map[(int)(data->ray.pos.y + data->ray.dir.y \
 	* 0.045)][(int)(data->ray.pos.x + data->ray.dir.x \
-	* 0.045)] == 48 || is_dir(data->map[(int)(data->ray.pos.y + data->ray.dir.y \
+	* 0.045)] == 48 || is_dir(data->map[(int)(data->ray.pos.y \
+	+ data->ray.dir.y \
 	* 0.045)][(int)(data->ray.pos.x + data->ray.dir.x \
 	* 0.045)]))
 	{
@@ -30,7 +31,8 @@ void	go_bck(t_data *data)
 {
 	if (data->map[(int)(data->ray.pos.y - data->ray.dir.y \
 	* 0.045)][(int)(data->ray.pos.x - data->ray.dir.x \
-	* 0.045)] == 48 || is_dir(data->map[(int)(data->ray.pos.y - data->ray.dir.y \
+	* 0.045)] == 48 || is_dir(data->map[(int)(data->ray.pos.y \
+	- data->ray.dir.y \
 	* 0.045)][(int)(data->ray.pos.x - data->ray.dir.x \
 	* 0.045)]))
 	{
@@ -44,7 +46,8 @@ void	go_left(t_data *data)
 {
 	if (data->map[(int)(data->ray.pos.y - data->ray.plane.y \
 	* 0.045)][(int)(data->ray.pos.x - data->ray.plane.x \
-	* 0.045)] == 48 || is_dir(data->map[(int)(data->ray.pos.y - data->ray.plane.y \
+	* 0.045)] == 48 || is_dir(data->map[(int)(data->ray.pos.y \
+	- data->ray.plane.y \
 	* 0.045)][(int)(data->ray.pos.x - data->ray.plane.x \
 	* 0.045)]))
 	{
@@ -70,10 +73,10 @@ void	go_right(t_data *data)
 	}
 }
 
-bool is_dir(char c)
+bool	is_dir(char c)
 {
-    if (c == 'E' || c == 'W' \
-    || c == 'S' || c == 'N')
-        return (true);
-    return (false);
+	if (c == 'E' || c == 'W' \
+	|| c == 'S' || c == 'N')
+		return (true);
+	return (false);
 }

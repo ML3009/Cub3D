@@ -6,13 +6,13 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:13:57 by purple            #+#    #+#             */
-/*   Updated: 2023/10/11 18:13:32 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 18:26:38 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
 
-void free_mlx(t_data *data)
+void	free_mlx(t_data *data)
 {
 	if (data->base_img.image != NULL)
 		mlx_destroy_image(data->mlx.mlx_id, data->base_img.image);
