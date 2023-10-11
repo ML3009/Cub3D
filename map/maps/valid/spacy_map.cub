@@ -1,10 +1,10 @@
-NO image/carpet.xpm
-SO image/carpet.xpm
-WE image/carpet.xpm
-EA image/carpet.xpm
+SO asset/xpm/SKY_BLACK.xpm
+WE asset/xpm/SKY_BLACK.xpm
+NO asset/xpm/SKY_BLACK.xpm
+EA asset/xpm/SKY_BLACK.xpm
 
-F 220,100,0
-C 225,30,0
+F 166,166,166
+C 23,22,40
 
 1111111111111111111111111111111
 1000000000000000000000000000001
