@@ -62,6 +62,7 @@ SRCFILE_BONUS =	main_bonus.c \
 				parsing_bonus/texture_bonus.c \
 				init_bonus/init_bonus.c \
 				init_bonus/game_init_bonus.c \
+				init_bonus/free_mlx_bonus.c \
 				game_bonus/game_bonus.c \
 				game_bonus/key_utils_bonus.c \
 				game_bonus/movement_bonus.c \

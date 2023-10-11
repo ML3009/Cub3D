@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 16:04:03 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 18:10:00 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,7 @@ bool		is_dir(char c);
 
 /*animation*/
 int init_anim(t_data *data);
+void free_mlx_b(t_data *data);
+void	free_all_map(t_data *map);
 
 #endif

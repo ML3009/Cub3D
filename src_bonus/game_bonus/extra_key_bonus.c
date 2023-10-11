@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extra_key_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:46:55 by purple            #+#    #+#             */
-/*   Updated: 2023/10/11 13:42:18 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 18:04:17 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 int	escape(t_data *data)
 {
-	(void)data;
-	if (data->base_img.image)
-		mlx_destroy_image(data->mlx.mlx_id, data->base_img.image);
-	mlx_destroy_window(data->mlx.mlx_id, data->mlx.mlx_window);
+	free_mlx_b(data);
 	exit(0);
 	return (0);
 }
