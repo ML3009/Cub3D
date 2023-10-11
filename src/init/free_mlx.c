@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:13:57 by purple            #+#    #+#             */
-/*   Updated: 2023/10/11 17:43:58 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 17:56:22 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void free_mlx(t_data *data)
 {
-	printf("TEST\n");
 	if (data->base_img.image != NULL)
 		mlx_destroy_image(data->mlx.mlx_id, data->base_img.image);
 	if (data->img[NORTH].image != NULL)

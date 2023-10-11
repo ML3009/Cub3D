@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:40:41 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 15:26:10 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 17:45:17 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,10 @@
 
 static void	draw_square(t_data *data, int y, int x, int color);
 
-void	draw_mini_map(t_data *data)
+void	draw_mini_map(t_data *data, int y, int x, int y_bis)
 {
-	int	y;
-	int x;
-	int y_bis;
-	int x_bis;
+	int	x_bis;
 
-	y = -1;
-	y_bis = 0;
-	if (data->key.map != 1)
-		return;
 	while (++y < data->mlx.size.y && y < data->row)
 	{
 		x = -1;
@@ -35,21 +28,23 @@ void	draw_mini_map(t_data *data)
 			{
 				if (data->map && data->map[y][x] && data->map[y][x] == '1')
 					draw_square(data, y_bis, x_bis, 0x1A6303);
-				else if (data->map && data->map[y][x] && (data->map[y][x] == '0' || is_dir(data->map[y][x])))
+				else if (data->map && data->map[y][x] && (data->map[y][x] == '0'
+					|| is_dir(data->map[y][x])))
 					draw_square(data, y_bis, x_bis, 0xF0D5F8);
 			}
-			x_bis+=5;
+			x_bis += 5;
 		}
-		y_bis+=5;
+		y_bis += 5;
 	}
-	draw_square(data, (int)data->ray.pos.y * 5, (int)data->ray.pos.x * 5, 0x00000000);
+	draw_square(data, (int)data->ray.pos.y * 5,
+		(int)data->ray.pos.x * 5, 0x00000000);
 }
 
 static void	draw_square(t_data *data, int y, int x, int color)
 {
 	int	y_temp;
 	int	x_temp;
-	int save_x;
+	int	save_x;
 
 	y_temp = y + 5;
 	x_temp = x + 5;
@@ -59,7 +54,7 @@ static void	draw_square(t_data *data, int y, int x, int color)
 		x = save_x;
 		while (x < x_temp)
 		{
-			img_pix_put(&data->base_img,x, y, color);
+			img_pix_put(&data->base_img, x, y, color);
 			x++;
 		}
 		y++;

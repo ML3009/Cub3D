@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 16:24:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/09 13:35:37 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:55:35 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,14 @@ char	**copy_map(t_data *map)
 		map_cp[i] = ft_strdup(map->map[i]);
 	map_cp[i] = NULL;
 	return (map_cp);
+}
+
+void	free_all_map(t_data *map)
+{
+	free(map->texture[NORTH]);
+	free(map->texture[SOUTH]);
+	free(map->texture[WEST]);
+	free(map->texture[EAST]);
+	free(map->texture);
+	ft_free_tab(map->map);
 }
