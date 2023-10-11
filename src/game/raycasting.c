@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:20:34 by purple            #+#    #+#             */
-/*   Updated: 2023/10/10 14:12:07 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/10 16:46:55 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void draw_wall(t_data *data, int x)
 	tmp = init_draw_wall(data);
 	while (data->ray.dstart < data->ray.dend)
 	{
-		tmp.tex.y = (int)tmp.tex_pos & (TEXTURE - 1);
+		tmp.tex.y = (int)tmp.tex_pos & (tmp.texture.height - 1);
 		tmp.tex_pos += tmp.step;
 		tmp.color = tmp.texture.adress + (int)(tmp.tex.y *  tmp.texture.line_lenght + tmp.tex.x *( tmp.texture.bpp / 8));
 		img_pix_put(&data->base_img, x, data->ray.dstart, *(int *)tmp.color);

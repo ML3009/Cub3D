@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:49:58 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/10 14:55:18 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/10 16:45:43 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define MLX_ERROR -1
 
 # define MENU_SPRITE "asset/xpm/menu.xpm"
-# define TEXTURE	128
+# define TEXTURE	64
 
 # define NORTH 0
 # define SOUTH 1

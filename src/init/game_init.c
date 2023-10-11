@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:10:05 by purple            #+#    #+#             */
-/*   Updated: 2023/10/06 13:23:00 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/10 16:32:03 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,9 @@ void	init_orientation(t_data *data)
 
 static int	path_texture(t_data *map)
 {
-	int	width;
-	int	height;
 
-	width = TEXTURE;
-	height = TEXTURE;
 	map->img[NORTH].image = mlx_xpm_file_to_image(map->mlx.mlx_id, \
-	map->texture[NORTH], &width, &height);
+	map->texture[NORTH], &map->img[NORTH].width, &map->img[NORTH].height);
 	if (!map->img[NORTH].image)
 		return (printf ("Texture : north\n"), -1);	
 		
@@ -110,7 +106,7 @@ static int	path_texture(t_data *map)
 		return (printf ("Texture : north\n"), -1);
 
 	map->img[SOUTH].image = mlx_xpm_file_to_image (map->mlx.mlx_id, \
-	map->texture[SOUTH], &width, &height);
+	map->texture[SOUTH],&map->img[SOUTH].width, &map->img[SOUTH].height);
 	if (!map->img[SOUTH].image)
 		return (printf ("Texture : south\n"), -1);
 		
@@ -121,7 +117,7 @@ static int	path_texture(t_data *map)
 		return (printf ("Texture : south\n"), -1);
 
 	map->img[EAST].image = mlx_xpm_file_to_image (map->mlx.mlx_id, \
-	map->texture[EAST], &width, &height);
+	map->texture[EAST], &map->img[EAST].width, &map->img[EAST].height);
 	if (!map->img[EAST].image)
 		return (printf ("Texture : east\n"), -1);
 
@@ -131,7 +127,7 @@ static int	path_texture(t_data *map)
 		return (printf ("Texture : east\n"), -1);
 		
 	map->img[WEST].image = mlx_xpm_file_to_image (map->mlx.mlx_id, \
-	map->texture[WEST], &width, &height);
+	map->texture[WEST], &map->img[WEST].width, &map->img[WEST].height);
 	if (!map->img[WEST].image)
 		return (printf ("Texture : west\n"), -1);
 		

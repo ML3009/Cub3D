@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 13:05:05 by purple            #+#    #+#             */
-/*   Updated: 2023/10/06 13:06:51 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/10 16:47:51 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ t_texture 	init_draw_wall(t_data *data)
 
 	texture.texture = select_text(data);
 	texture.wall_x = define_wx(data);
-	texture.tex.x = (int)(texture.wall_x * TEXTURE);
-	texture.step = 1.0 * TEXTURE / data->ray.line_height;
+	texture.tex.x = (int)(texture.wall_x * texture.texture.width);
+	texture.step = 1.0 * texture.texture.height / data->ray.line_height;
 	texture.tex_pos = (data->ray.dstart - data->mlx.size.x / 2 \
 	+ data->ray.line_height / 2) \
 	* texture.step;

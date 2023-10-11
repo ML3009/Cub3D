@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:46:58 by purple            #+#    #+#             */
-/*   Updated: 2023/10/10 14:55:44 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/10 14:56:06 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,21 +76,4 @@ bool is_dir(char c)
     || c == 'S' || c == 'N')
         return (true);
     return (false);
-}
-
-bool is_dir(char c)
-{
-    if (c == 'E' || c == 'W' \
-    || c == 'S' || c == 'N')
-        return (true);
-    return (false);
-}
-
-
-bool is_dir(char c)
-{
-	if (c == 'E' || c == 'W' \
-	|| c == 'S' || c == 'N')
-		return (true);
-	return (false); 
 }
