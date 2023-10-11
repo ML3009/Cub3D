@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube_bonus.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 13:46:04 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:04:03 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,9 @@ t_texture	init_draw_wall(t_data *data);
 void		draw_wall(t_data *data, int x);
 void		img_pix_put(t_img *img, int x, int y, int color);
 bool		is_dir(char c);
+
+
+/*animation*/
+int init_anim(t_data *data);
 
 #endif

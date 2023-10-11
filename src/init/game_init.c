@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:10:05 by purple            #+#    #+#             */
-/*   Updated: 2023/10/11 12:31:35 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 15:47:40 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,28 +61,28 @@ void	init_orientation(t_data *data)
 {
 	data->ray.pos.x = data->bpose.x + 0.1;
 	data->ray.pos.y = data->bpose.y + 0.1;
-	if (data->base_orient == 78)
+	if (data->base_orient == 87)
 	{
 		data->ray.dir.x = -1;
 		data->ray.dir.y = 0;
 		data->ray.plane.x = 0;
 		data->ray.plane.y = 0.66;
 	}
-	if (data->base_orient == 83)
+	if (data->base_orient == 69)
 	{
 		data->ray.dir.x = 1;
 		data->ray.dir.y = 0;
 		data->ray.plane.x = 0;
 		data->ray.plane.y = -0.66;
 	}
-	if (data->base_orient == 69)
+	if (data->base_orient == 83)
 	{
 		data->ray.dir.x = 0;
 		data->ray.dir.y = 1;
 		data->ray.plane.x = 0.66;
 		data->ray.plane.y = 0;
 	}
-	if (data->base_orient == 87)
+	if (data->base_orient == 78)
 	{
 		data->ray.dir.x = 0;
 		data->ray.dir.y = -1;

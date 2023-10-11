@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 11:23:38 by purple            #+#    #+#             */
-/*   Updated: 2023/10/11 15:36:20 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 16:57:26 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,17 @@ void	dda(t_data *data)
 		|| (data->map[(int)data->ray.map.y][(int)data->ray.map.x]) == '2') \
 		&& (data->map[(int)data->ray.map.y][(int)data->ray.map.x]) \
 		!= data->base_orient)
+		{
+			if ((data->map[(int)data->ray.map.y][(int)data->ray.map.x]) == '2')
+				data->ray.side = 2;
 			data->ray.hit = 1;
+		}
 	}
 }
 
 void	wall_coo(t_data *data)
 {
-	if (data->ray.side == 0)
+	if (data->ray.side == 0 || data->ray.side == 2)
 		data->ray.dwall = (data->ray.sdist.x - data->ray.ddist.x);
 	else
 		data->ray.dwall = (data->ray.sdist.y - data->ray.ddist.y);
