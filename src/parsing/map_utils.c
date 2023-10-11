@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 16:24:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 17:55:35 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 18:15:59 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,5 @@ void	free_all_map(t_data *map)
 	free(map->texture[EAST]);
 	free(map->texture);
 	ft_free_tab(map->map);
+	return ;
 }
