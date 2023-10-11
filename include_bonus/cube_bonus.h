@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 18:10:00 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 18:13:14 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int			check_player(char **map);
 int			init_the_game(t_data *data);
 void		game_start(t_data *data);
 int			launch_menu(t_data *data);
-void		draw_mini_map(t_data *data);
+void		draw_mini_map(t_data *data, int y, int x, int y_bis);
 void		mouse_pov(t_data *data);
 
 /*----[key]----*/

@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:46:50 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/09 13:34:46 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:52:01 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	parsing(int ac, char **av, t_data *map)
 	int	check_map;
 
 	if (ac > 2)
-		send_error("Too many arguments.\n");
+		send_error("Error\n Too many arguments.\n");
 	else if (ac < 2)
-		send_error("Too few arguments.\n");
+		send_error("Error\n Too few arguments.\n");
 	init_map(map);
 	check_map = mapsing(av, map);
 	return (check_map);

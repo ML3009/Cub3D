@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 17:20:28 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 17:54:59 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ int			check_player(char **map);
 int			init_the_game(t_data *data);
 void		game_start(t_data *data);
 int			launch_menu(t_data *data);
-//void		draw_mini_map(t_data *data);
-//void		mouse_pov(t_data *data);
 
 /*----[key]----*/
 int			key_drop(int keycode, t_data *tmp);
@@ -74,5 +72,6 @@ void		img_pix_put(t_img *img, int x, int y, int color);
 bool		is_dir(char c);
 
 void		free_mlx(t_data *data);
+void		free_all_map(t_data *map);
 
 #endif

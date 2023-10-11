@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:14 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 17:21:32 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 17:55:42 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cube.h"
-
-void	free_all_map(t_data *map);
 
 int main(int ac, char **av)
 {
@@ -23,30 +21,8 @@ int main(int ac, char **av)
 	check_map = 0;
 	check_map = parsing(ac, av, &map);
 	if (check_map >= 0)
-	{
-		printf ("game start\n");
 		game_start(&map);
-	}
 	free_all_map(&map);
 	free_mlx(&map);
 	return (0);
-}
-
-void	free_all_map(t_data *map)
-{
-
-	//free(map.SO);
-	//free(map.NO);
-	//free(map.WE);
-	//free(map.EA);
-	//free(map.F);
-	//free(map.C);
-	free(map->texture[NORTH]);
-	free(map->texture[SOUTH]);
-	free(map->texture[WEST]);
-	free(map->texture[EAST]);
-	free(map->texture);
-	ft_free_tab(map->map);
-	(void)map;
-
 }

@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:49:58 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 13:46:15 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:53:04 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@
 
 # define ERROR_PLAYER -8
 # define PLAYER "Error\nType: player\n"
+
+# define INIT "Error\nType: init\n"
 
 # define WRONG_MAP -9
 # define GOOD_ACCESS 1

@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:52:19 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 14:30:37 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:29:53 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ bool	search_map(char *line)
 	{
 		while (line[i])
 		{
-			if (line[i] != '1' && line[i] != '0' && line[i] != '2' && line[i] != 'N'
-				&& line[i] != 'E' && line[i] != 'S' && line[i] != 'W'
-				&& line[i] != '\n' && line[i] != ' ' && line[i] != '\t')
+			if (line[i] != '1' && line[i] != '0' && line[i] != '2'
+				&& line[i] != 'N' && line[i] != 'E' && line[i] != 'S'
+				&& line[i] != 'W' && line[i] != '\n' && line[i] != ' '
+				&& line[i] != '\t')
 				return (false);
 			i++;
 		}
