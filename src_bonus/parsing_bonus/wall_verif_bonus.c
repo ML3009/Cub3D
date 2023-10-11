@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:39:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 13:43:52 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 14:33:30 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	check_wall(t_data *map, char **map_cp, int y, int x)
 	{
 		x = -1;
 		while (map_cp[y][++x])
-			if (map_cp[y][x] == '0')
+			if (map_cp[y][x] == '0' || map_cp[y][x] == '2')
 				check_wall(map, map_cp, y, x);
 	}
 	if (map->wallOk > 0)
@@ -35,7 +35,7 @@ int	check_wall(t_data *map, char **map_cp, int y, int x)
 	{
 		x = -1;
 		while (map_cp[y][++x])
-			if (map_cp[y][x] == '0' || map_cp[y][x] == '1')
+			if (map_cp[y][x] == '0' || map_cp[y][x] == '1' || map_cp[y][x] == '2')
 				return (ERROR_WALL);
 	}
 	return (0);
@@ -68,13 +68,13 @@ static void	find_way(t_data *data, char **map, int y, int x)
 static void	atypic_wall(t_data *data, char **map, int y, int x)
 {
 	map[y][x] = 'Y';
-	if (!check_again(data, map, y, x) && map[y][x] && map[y + 1][x] == '0')
+	if (!check_again(data, map, y, x) && map[y][x] && (map[y + 1][x] == '0' || map[y + 1][x] == '2'))
 		atypic_wall(data, map, y + 1, x);
-	if (!check_again(data, map, y, x) && map[y][x] && map[y - 1][x] == '0')
+	if (!check_again(data, map, y, x) && map[y][x] && (map[y - 1][x] == '0' || map[y - 1][x] == '2'))
 		atypic_wall(data, map, y - 1, x);
-	if (!check_again(data, map, y, x) && map[y][x] && map[y][x + 1] == '0')
+	if (!check_again(data, map, y, x) && map[y][x] && (map[y][x + 1] == '0' || map[y][x + 1] == '2'))
 		atypic_wall(data, map, y, x + 1);
-	if (!check_again(data, map, y, x) && map[y][x] && map[y][x - 1] == '0')
+	if (!check_again(data, map, y, x) && map[y][x] && (map[y][x - 1] == '0' || map[y][x - 1] == '2'))
 		atypic_wall(data, map, y, x - 1);
 	return ;
 }

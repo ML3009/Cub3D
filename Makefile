@@ -50,28 +50,28 @@ SRCFILE	= 	main.c \
 #			game/mini_map.c \
 #			game/mouse.c \
 
-SRCFILE_BONUS = main_bonus.c \
-			parsing_bonus/parsing_bonus.c \
-			parsing_bonus/map_utils_bonus.c \
-			parsing_bonus/map_create_bonus.c \
-			parsing_bonus/map_search_bonus.c \
-			parsing_bonus/map_verif_bonus.c \
-			parsing_bonus/wall_verif_bonus.c \
-			parsing_bonus/player_verif_bonus.c \
-			parsing_bonus/file_verif_bonus.c \
-			parsing_bonus/color_bonus.c \
-			parsing_bonus/texture_bonus.c \
-			init_bonus/init_bonus.c \
-			init_bonus/game_init_bonus.c \
-			game_bonus/game_bonus.c \
-			game_bonus/key_utils_bonus.c \
-			game_bonus/movement_bonus.c \
-			game_bonus/extra_key_bonus.c \
-			game_bonus/raycasting_bonus.c \
-			game_bonus/raycasting_utils_bonus.c \
-			game_bonus/texture_bonus.c \
-			game_bonus/mini_map_bonus.c \
-			game_bonus/mouse_bonus.c\
+SRCFILE_BONUS =	main_bonus.c \
+				parsing_bonus/parsing_bonus.c \
+				parsing_bonus/map_utils_bonus.c \
+				parsing_bonus/map_create_bonus.c \
+				parsing_bonus/map_search_bonus.c \
+				parsing_bonus/map_verif_bonus.c \
+				parsing_bonus/wall_verif_bonus.c \
+				parsing_bonus/player_verif_bonus.c \
+				parsing_bonus/file_verif_bonus.c \
+				parsing_bonus/color_bonus.c \
+				parsing_bonus/texture_bonus.c \
+				init_bonus/init_bonus.c \
+				init_bonus/game_init_bonus.c \
+				game_bonus/game_bonus.c \
+				game_bonus/key_utils_bonus.c \
+				game_bonus/movement_bonus.c \
+				game_bonus/extra_key_bonus.c \
+				game_bonus/raycasting_bonus.c \
+				game_bonus/raycasting_utils_bonus.c \
+				game_bonus/texture_bonus.c \
+				game_bonus/mini_map_bonus.c \
+				game_bonus/mouse_bonus.c\
 
 GREEN		=	\e[92;5;118m
 HGRN 		=	\e[1;92m
