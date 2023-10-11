@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:03:29 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 13:43:48 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 18:31:54 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,6 @@ static void	count_texture(t_data *map, char *line)
 {
 	if (!ft_strncmp(line, "SO ", 3) || !ft_strncmp(line, "NO ", 3)
 		|| !ft_strncmp(line, "EA ", 3) || !ft_strncmp(line, "WE ", 3))
-		map->textOk++;
+		map->textok++;
 	return ;
 }

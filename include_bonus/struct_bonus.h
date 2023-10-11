@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 16:19:23 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 18:32:12 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,8 @@ typedef struct s_data
 	char		**texture;
 	int			row;
 	int			col;
-	int			wallOk;
-	int			textOk;
+	int			wallok;
+	int			textok;
 	t_img		base_img;
 	t_img		img[4];
 	t_img		anim[15];

@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:36:36 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/09 14:05:58 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 18:30:13 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	create_map(char *file, t_data *map, char *size)
 		free(line);
 		line = get_next_line(fd);
 	}
-	if (map->textOk != 4 || map->rgb->full_rgb != 2)
+	if (map->textok != 4 || map->rgb->full_rgb != 2)
 		return (free(line), printf(TEXT), ERROR_TEXTURE);
 	if (save_map(line, fd, map) < 0)
 		return (printf(SAVE), ERROR_WALL);

@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:39:43 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/09 14:19:54 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 18:30:25 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	check_wall(t_data *map, char **map_cp, int y, int x)
 			if (map_cp[y][x] == '0')
 				check_wall(map, map_cp, y, x);
 	}
-	if (map->wallOk > 0)
+	if (map->wallok > 0)
 		return (ERROR_WALL);
 	find_way(map, map_cp, map->bpose.y, map->bpose.x);
 	y = -1;
@@ -83,16 +83,16 @@ static int	check_again(t_data *data, char **map, int y, int x)
 {
 	if (map[y + 1] == NULL || map[y + 1][x] == ' ' || map[y + 1][x] == '\0'
 		|| map[y + 1][x] == '\t' || map[y + 1][x] == '\n')
-		return (data->wallOk++, -1);
+		return (data->wallok++, -1);
 	else if (map[y - 1] == NULL || map[y - 1][x] == ' ' || map[y - 1][x] == '\0'
 		|| map[y - 1][x] == '\t' || map[y - 1][x] == '\n')
-		return (data->wallOk++, -1);
+		return (data->wallok++, -1);
 	else if (map[y][x + 1] == ' ' || map[y][x + 1] == '\0'
 		|| map[y][x + 1] == '\t' || map[y][x + 1] == '\n')
-		return (data->wallOk++, -1);
+		return (data->wallok++, -1);
 	else if (x <= 0 || map[y][x - 1] == ' ' || map[y][x - 1] == '\0'
 		|| map[y][x - 1] == '\t' || map[y][x - 1] == '\n')
-		return (data->wallOk++, -1);
+		return (data->wallok++, -1);
 	else
 		return (0);
 }
