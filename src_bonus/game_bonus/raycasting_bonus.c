@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycasting.c                                       :+:      :+:    :+:   */
+/*   raycasting_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:20:34 by purple            #+#    #+#             */
-/*   Updated: 2023/10/11 13:45:10 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 13:42:42 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cube.h"
+#include "../../include_bonus/cube_bonus.h"
 
 void	raycasting(t_data *data)
 {
@@ -32,7 +32,7 @@ void	raycasting(t_data *data)
 		wall_coo(data);
 		draw_wall(data, x);
 	}
-	//draw_mini_map(data);
+	draw_mini_map(data);
 	mlx_put_image_to_window(data->mlx.mlx_id, data->mlx.mlx_window, data->base_img.image, 0, 0);
 
 }

@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube.h                                             :+:      :+:    :+:   */
+/*   cube_bonus.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 13:45:01 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 13:46:04 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUBE_H
-# define CUBE_H
+#ifndef CUBE_BONUS_H
+# define CUBE_BONUS_H
 
 # include <math.h>
 # include "../library/libft/include/libft.h"
 # include "../library/minilibx-linux/mlx.h"
 # include <X11/keysym.h>
 # include <X11/X.h>
-# include "struct.h"
-# include "define.h"
+# include "struct_bonus.h"
+# include "define_bonus.h"
 
 /*----[ PARSING ]----*/
 int			parsing(int ac, char **av, t_data *map);
@@ -42,8 +42,8 @@ int			check_player(char **map);
 int			init_the_game(t_data *data);
 void		game_start(t_data *data);
 int			launch_menu(t_data *data);
-//void		draw_mini_map(t_data *data);
-//void		mouse_pov(t_data *data);
+void		draw_mini_map(t_data *data);
+void		mouse_pov(t_data *data);
 
 /*----[key]----*/
 int			key_drop(int keycode, t_data *tmp);
