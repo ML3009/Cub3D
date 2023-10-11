@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_utils_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:43:44 by purple            #+#    #+#             */
-/*   Updated: 2023/10/11 13:42:08 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:28:01 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ int	key_press(int keycode, t_data *tmp)
 		tmp->key.vright = 1;
 	if (keycode == XK_Escape)
 		tmp->key.esc = 1;
+	if (keycode == XK_e)
+		tmp->key.odoor = 1;
+	if (keycode == XK_r)
+		tmp->key.cdoor = 1;
+	if (keycode == XK_m)
+		tmp->key.map = 1;
 	return (0);
 }
 
@@ -47,6 +53,12 @@ int	key_drop(int keycode, t_data *tmp)
 		tmp->key.vright = 0;
 	if (keycode == XK_Escape)
 		tmp->key.esc = 0;
+	if (keycode == XK_e)
+		tmp->key.odoor = 0;
+	if (keycode == XK_r)
+		tmp->key.cdoor = 0;
+	if (keycode == XK_m)
+		tmp->key.map = 0;
 	return (0);
 }
 
@@ -66,4 +78,8 @@ void	ft_key(t_data *data)
 		vision_left(data);
 	if (data->key.vright == 1)
 		vision_right(data);
+	if (data->map[(int)(data->ray.pos.y + data->ray.dir.y)][(int)(data->ray.pos.x + data->ray.dir.x)] == '2' && data->key.odoor == 1)
+		data->map[(int)(data->ray.pos.y + data->ray.dir.y)][(int)(data->ray.pos.x + data->ray.dir.x)] = '3';
+	if (data->map[(int)(data->ray.pos.y + data->ray.dir.y)][(int)(data->ray.pos.x + data->ray.dir.x)] == '3' && data->key.cdoor == 1)
+		data->map[(int)(data->ray.pos.y + data->ray.dir.y)][(int)(data->ray.pos.x + data->ray.dir.x)] = '2';
 }

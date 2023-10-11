@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:46:58 by purple            #+#    #+#             */
-/*   Updated: 2023/10/11 13:42:38 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:34:47 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ void	go_right(t_data *data)
 bool is_dir(char c)
 {
     if (c == 'E' || c == 'W' \
-    || c == 'S' || c == 'N')
+    || c == 'S' || c == 'N' \
+	|| c == '3')
         return (true);
     return (false);
 }

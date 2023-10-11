@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:40:41 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 13:42:29 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:26:10 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	draw_mini_map(t_data *data)
 
 	y = -1;
 	y_bis = 0;
+	if (data->key.map != 1)
+		return;
 	while (++y < data->mlx.size.y && y < data->row)
 	{
 		x = -1;
