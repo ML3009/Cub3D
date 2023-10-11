@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 13:05:05 by purple            #+#    #+#             */
-/*   Updated: 2023/10/11 16:58:03 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 17:28:35 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ t_img select_text(t_data *data)
 {
 	double wallx;
 
-	if (data->ray.side == 0 || data->ray.side == 2 )
+	if (data->ray.side == 0 || data->ray.side == 2)
 		wallx =  data->ray.pos.y + data->ray.dwall \
 		* data->ray.rdir.y;
 	else
 		wallx = data->ray.pos.x + data->ray.dwall \
 		* data->ray.rdir.x;
 	wallx -= floor(wallx);
-	if (((data->ray.side == 0 ||data->ray.side == 2 )&& data->ray.rdir.x < 0) || (data->ray.side == 1 && data->ray.rdir.y < 0))
+	if (((data->ray.side == 0 || data->ray.side == 2 ) && data->ray.rdir.x < 0) || ((data->ray.side == 1 || data->ray.side == 3 ) && data->ray.rdir.y < 0))
 		wallx = 1.0f - wallx;
 	return (wallx);
 }

@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 11:23:38 by purple            #+#    #+#             */
-/*   Updated: 2023/10/11 16:57:26 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 17:30:03 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,12 @@ void	dda(t_data *data)
 		!= data->base_orient)
 		{
 			if ((data->map[(int)data->ray.map.y][(int)data->ray.map.x]) == '2')
-				data->ray.side = 2;
+			{
+				if (data->ray.side == 0)
+					data->ray.side = 2;
+				else
+					data->ray.side = 3;
+			}
 			data->ray.hit = 1;
 		}
 	}

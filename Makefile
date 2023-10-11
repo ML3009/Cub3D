@@ -40,6 +40,7 @@ SRCFILE	= 	main.c \
 			parsing/texture.c \
 			init/init.c \
 			init/game_init.c \
+			init/free_mlx.c \
 			game/game.c \
 			game/key_utils.c \
 			game/movement.c \
@@ -47,8 +48,6 @@ SRCFILE	= 	main.c \
 			game/raycasting.c \
 			game/raycasting_utils.c \
 			game/texture.c \
-#			game/mini_map.c \
-#			game/mouse.c \
 
 SRCFILE_BONUS =	main_bonus.c \
 				parsing_bonus/parsing_bonus.c \

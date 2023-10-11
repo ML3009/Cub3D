@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 13:45:01 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:20:28 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,7 @@ t_texture	init_draw_wall(t_data *data);
 void		draw_wall(t_data *data, int x);
 void		img_pix_put(t_img *img, int x, int y, int color);
 bool		is_dir(char c);
+
+void		free_mlx(t_data *data);
 
 #endif

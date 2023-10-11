@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:14 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/05 17:31:19 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 17:21:32 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int main(int ac, char **av)
 		game_start(&map);
 	}
 	free_all_map(&map);
+	free_mlx(&map);
 	return (0);
 }
 
