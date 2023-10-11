@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:52:13 by wmessmer          #+#    #+#             */
-/*   Updated: 2023/09/07 16:57:30 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:09:45 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ char	*ft_read_line(int fd, char *line, char *buf)
 	int	ret;
 
 	ret = 1;
-	line = ft_strjoin(line, buf);
+	line = ft_strjoin(line, buf, 0);
 	while (ret > 0 && !ft_strchr(line, '\n'))
 	{
 		ret = read(fd, buf, BUFFER_SIZE);
 		buf[ret] = '\0';
-		line = ft_strjoin(line, buf);
+		line = ft_strjoin(line, buf, 0);
 		if (line == NULL)
 			return (NULL);
 	}

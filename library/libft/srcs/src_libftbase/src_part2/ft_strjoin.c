@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 17:15:36 by wmessmer          #+#    #+#             */
-/*   Updated: 2023/10/05 15:37:40 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:09:14 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/libft.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2, int j)
 {
 	char	*new;
 	int		size;
@@ -31,6 +31,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (*s2)
 		new[i++] = *s2++;
 	new[size] = '\0';
-	free (s1);
+	if (j == 0)
+		free (s1);
 	return (new);
 }

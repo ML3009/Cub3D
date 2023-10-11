@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:22:58 by wmessmer          #+#    #+#             */
-/*   Updated: 2023/10/09 14:26:25 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:08:22 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int			ft_memcmp(const void *p1, const void *p2, size_t size );
 void		*ft_calloc( size_t count, size_t size);
 char		*ft_strdup(const char *src);
 char		*ft_substr(char const *s, unsigned int start, size_t n);
-char		*ft_strjoin(char *s1, char *s2);
+char		*ft_strjoin(char *s1, char *s2, int j);
 char		*ft_strtrim(char const *s, char const *set);
 char		**ft_split(char const *s, char c);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));

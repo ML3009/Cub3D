@@ -72,6 +72,7 @@ SRCFILE_BONUS =	main_bonus.c \
 				game_bonus/texture_bonus.c \
 				game_bonus/mini_map_bonus.c \
 				game_bonus/mouse_bonus.c\
+				game_bonus/animation.c\
 
 GREEN		=	\e[92;5;118m
 HGRN 		=	\e[1;92m

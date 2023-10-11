@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 13:46:24 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:19:23 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ typedef struct s_key
 	int right;
 	int vright;
 	int esc;
+	int map;
+	int odoor;
+	int cdoor;
 }	t_key;
 
 typedef struct s_ray
@@ -102,6 +105,7 @@ typedef struct s_data
 	int			textOk;
 	t_img		base_img;
 	t_img		img[4];
+	t_img		anim[15];
 	t_ray		ray;
 	t_mlx		mlx;
 	t_key		key;
