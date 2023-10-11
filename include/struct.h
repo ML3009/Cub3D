@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/10 16:28:54 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 11:46:00 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ typedef struct s_texture
 	t_vector	tex;
 	double		wall_x;
 	double		step;
-	int			tex_pos;
+	double			tex_pos;
 	char 		*color;
 } t_texture;
 

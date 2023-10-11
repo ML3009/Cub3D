@@ -6,7 +6,7 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:10:05 by purple            #+#    #+#             */
-/*   Updated: 2023/10/10 16:32:03 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 12:31:35 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ void	screen_size(t_data *data)
 		data->mlx.size.y = 1080;
 	else
 		data->mlx.size.y = 480;
-}
+ }
 
 void	init_orientation(t_data *data)
 {
-	data->ray.pos.x = data->bpose.x - 0.1;
-	data->ray.pos.y = data->bpose.y - 0.1;
+	data->ray.pos.x = data->bpose.x + 0.1;
+	data->ray.pos.y = data->bpose.y + 0.1;
 	if (data->base_orient == 78)
 	{
 		data->ray.dir.x = -1;
