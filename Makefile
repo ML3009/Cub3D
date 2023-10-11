@@ -1,5 +1,6 @@
-NAME			=cub3d
+NAME			= cub3d
 
+BONUS			= bonus3d
 CC				= cc
 
 CFLAGS			= -Wall -Wextra -Werror -g3
@@ -42,7 +43,6 @@ SRCFILE	= 	main.c \
 			game/mini_map.c \
 			game/mouse.c \
 
-
 GREEN		=	\e[92;5;118m
 HGRN 		=	\e[1;92m
 GRAY		=	\e[33;2;37m
@@ -72,7 +72,9 @@ $(OBJDIR)%.o: $(SRCDIR)%.c
 	@$(CC) $(CFLAGS) -c $< -o $@ -I $(PATH_MLX)
 
 
+
 all:  $(NAME)
+
 
 clean:
 	@printf "$(CURSIVE)$(GRAY) 	- [Removing] minilibx object ... $(RESET)"

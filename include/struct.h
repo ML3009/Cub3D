@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/10 12:36:18 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/11 11:46:00 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ typedef	struct s_img
 	int			bpp; // nb de bits par pixel sur img
 	int			endian; // maniere dont les bits sont organises
 	int			line_lenght; // taille de la ligne
+	int			width;
+	int			height;
 }	t_img;
 
 typedef struct s_rgb
@@ -85,7 +87,7 @@ typedef struct s_texture
 	t_vector	tex;
 	double		wall_x;
 	double		step;
-	int			tex_pos;
+	double			tex_pos;
 	char 		*color;
 } t_texture;
 

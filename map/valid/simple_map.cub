@@ -1,15 +1,15 @@
-SO asset/xpm/W_WH_NO.xpm
-WE asset/xpm/W_WH_NO.xpm
-NO asset/xpm/W_WH_NO.xpm
-EA asset/xpm/W_WH_NO.xpm
-F 220,100,0
-C 225,30,0
+SO asset/xpm/planet.xpm
+WE asset/xpm/planet.xpm
+NO asset/xpm/planet.xpm
+EA asset/xpm/sky_black.xpm
+F 166,166,166
+C 23,22,40
 
 11111111111
 10000000001
 10000000001
 10001000001
-10001000W0111111
+10001000W01
 10001000001
 10001000001
 10000000001
