@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 11:46:00 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 18:26:46 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,25 @@ typedef struct s_vector
 
 typedef struct s_key
 {
-	int up;
-	int down;
-	int left;
-	int vleft;
-	int right;
-	int vright;
-	int esc;
+	int	up;
+	int	down;
+	int	left;
+	int	vleft;
+	int	right;
+	int	vright;
+	int	esc;
 }	t_key;
 
 typedef struct s_ray
 {
-	t_vector 	pos;
-	t_vector 	dir;
-	t_vector 	plane;
-	t_vector 	rdir;
-	t_vector 	map;
-	t_vector 	sdist;
-	t_vector 	ddist;
-	t_vector 	step;
+	t_vector	pos;
+	t_vector	dir;
+	t_vector	plane;
+	t_vector	rdir;
+	t_vector	map;
+	t_vector	sdist;
+	t_vector	ddist;
+	t_vector	step;
 	double		camx;
 	double		dwall;
 	int			hit;
@@ -52,24 +52,24 @@ typedef struct s_ray
 
 typedef struct s_mlx
 {
-	void *mlx_id; // mlx_init
-	void *mlx_window; // mlx_new_wind
-	t_vector size;
+	void		*mlx_id;
+	void		*mlx_window;
+	t_vector	size;
 }	t_mlx;
 
 typedef struct s_time
 {
-	size_t time;
-	size_t old_time;
+	size_t	time;
+	size_t	old_time;
 }	t_time;
 
-typedef	struct s_img
+typedef struct s_img
 {
-	void		*image; // xpm to imh
-	char		*adress; // img to adress
-	int			bpp; // nb de bits par pixel sur img
-	int			endian; // maniere dont les bits sont organises
-	int			line_lenght; // taille de la ligne
+	void		*image;
+	char		*adress;
+	int			bpp;
+	int			endian;
+	int			line_lenght;
 	int			width;
 	int			height;
 }	t_img;
@@ -78,8 +78,8 @@ typedef struct s_rgb
 {
 	int	full_rgb;
 	int	rgb[3];
-	int rgb_hex;
-} t_rgb;
+	int	rgb_hex;
+}	t_rgb;
 
 typedef struct s_texture
 {
@@ -87,9 +87,9 @@ typedef struct s_texture
 	t_vector	tex;
 	double		wall_x;
 	double		step;
-	double			tex_pos;
-	char 		*color;
-} t_texture;
+	double		tex_pos;
+	char		*color;
+}	t_texture;
 
 typedef struct s_data
 {
@@ -98,8 +98,8 @@ typedef struct s_data
 	char		**texture;
 	int			row;
 	int			col;
-	int			wallOk;
-	int			textOk;
+	int			wallok;
+	int			textok;
 	t_img		base_img;
 	t_img		img[4];
 	t_ray		ray;
