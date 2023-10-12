@@ -6,49 +6,50 @@
 /*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 13:05:05 by purple            #+#    #+#             */
-/*   Updated: 2023/10/11 12:34:53 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/11 18:36:36 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
 
-t_img select_text(t_data *data)
+t_img	select_text(t_data *data)
 {
 	if (data->ray.side == 0)
 	{
 		if (data->ray.rdir.x > 0.f)
-			return(data->img[NORTH]);
+			return (data->img[NORTH]);
 		else
-			return(data->img[SOUTH]);
+			return (data->img[SOUTH]);
 	}
 	else
 	{
 		if (data->ray.rdir.y > 0.f)
-			return(data->img[EAST]);
+			return (data->img[EAST]);
 		else
-			return(data->img[WEST]);
+			return (data->img[WEST]);
 	}
 }
 
-double define_wx(t_data *data)
+double	define_wx(t_data *data)
 {
-	double wallx;
+	double	wallx;
 
 	if (data->ray.side == 0)
-		wallx =  data->ray.pos.y + data->ray.dwall \
+		wallx = data->ray.pos.y + data->ray.dwall \
 		* data->ray.rdir.y;
 	else
 		wallx = data->ray.pos.x + data->ray.dwall \
 		* data->ray.rdir.x;
 	wallx -= floor(wallx);
-	if ((data->ray.side == 0 && data->ray.rdir.x < 0) || (data->ray.side == 1 && data->ray.rdir.y < 0))
+	if ((data->ray.side == 0 && data->ray.rdir.x < 0) \
+	|| (data->ray.side == 1 && data->ray.rdir.y < 0))
 		wallx = 1.0f - wallx;
 	return (wallx);
 }
 
-t_texture 	init_draw_wall(t_data *data)
+t_texture	init_draw_wall(t_data *data)
 {
-	t_texture texture;
+	t_texture	texture;
 
 	texture.texture = select_text(data);
 	texture.wall_x = define_wx(data);
