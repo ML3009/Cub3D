@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:20:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 17:54:59 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/12 10:48:07 by purple           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ bool		is_dir(char c);
 
 void		free_mlx(t_data *data);
 void		free_all_map(t_data *map);
+void		init_orient(t_data *data);
 
 #endif

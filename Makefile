@@ -39,6 +39,7 @@ SRCFILE	= 	main.c \
 			parsing/color.c \
 			parsing/texture.c \
 			init/init.c \
+			init/init_utils.c \
 			init/game_init.c \
 			init/free_mlx.c \
 			game/game.c \
