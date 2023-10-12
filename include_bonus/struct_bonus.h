@@ -6,14 +6,14 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:29:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 18:37:00 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/12 09:56:21 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_BONUS_H
 # define STRUCT_BONUS_H
 
-typedef struct	s_vector
+typedef struct s_vector
 {
 	double	x;
 	double	y;
@@ -66,7 +66,7 @@ typedef struct s_time
 	size_t	old_time;
 }	t_time;
 
-typedef	struct s_img
+typedef struct s_img
 {
 	void		*image;
 	char		*adress;
@@ -81,7 +81,7 @@ typedef struct s_rgb
 {
 	int	full_rgb;
 	int	rgb[3];
-	int rgb_hex;
+	int	rgb_hex;
 }	t_rgb;
 
 typedef struct s_texture
@@ -90,7 +90,7 @@ typedef struct s_texture
 	t_vector	tex;
 	double		wall_x;
 	double		step;
-	double			tex_pos;
+	double		tex_pos;
 	char		*color;
 }	t_texture;
 

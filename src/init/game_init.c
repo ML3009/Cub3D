@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:10:05 by purple            #+#    #+#             */
-/*   Updated: 2023/10/11 18:26:24 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/12 10:24:02 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void		init_orientation(t_data *data);
 void		screen_size(t_data *data);
 static int	path_texture(t_data *map);
+static int	path_texture_2(t_data *map);
 
 int	init_the_game(t_data *data)
 {
@@ -111,6 +112,13 @@ static int	path_texture(t_data *map)
 	&map->img[SOUTH].endian);
 	if (!(map->img[SOUTH].adress))
 		return (free_mlx(map), -1);
+	if (path_texture_2(map) < 0)
+		return (-1);
+	return (0);
+}
+
+static int	path_texture_2(t_data *map)
+{
 	map->img[EAST].image = mlx_xpm_file_to_image (map->mlx.mlx_id, \
 	map->texture[EAST], &map->img[EAST].width, &map->img[EAST].height);
 	if (!map->img[EAST].image)

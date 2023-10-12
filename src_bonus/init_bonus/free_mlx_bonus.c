@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   free_mlx_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:53:11 by purple            #+#    #+#             */
-/*   Updated: 2023/10/11 18:09:28 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/12 10:25:32 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include_bonus/cube_bonus.h"
-void mlx_free_anim(t_data *data);
 
-void free_mlx_b(t_data *data)
+void	mlx_free_anim(t_data *data);
+
+void	free_mlx_b(t_data *data)
 {
 	//mlx_mouse_show(data->mlx.mlx_id, data->mlx.mlx_window);
 	free_all_map(data);
@@ -35,10 +36,9 @@ void free_mlx_b(t_data *data)
 	free(data->mlx.mlx_id);
 }
 
-void mlx_free_anim(t_data *data)
+void	mlx_free_anim(t_data *data)
 {
-	int i;
-
+	int	i;
 
 	i = -1;
 	while (++i < 15)
@@ -46,4 +46,5 @@ void mlx_free_anim(t_data *data)
 		if (data->anim[i].image != NULL)
 			mlx_destroy_image(data->mlx.mlx_id, data->anim[i].image);
 	}
+	return ;
 }

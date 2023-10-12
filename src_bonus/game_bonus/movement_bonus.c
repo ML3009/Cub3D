@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:46:58 by purple            #+#    #+#             */
-/*   Updated: 2023/10/11 15:34:47 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/12 10:33:58 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,12 @@ void	go_bck(t_data *data)
 
 void	go_left(t_data *data)
 {
-	if (data->map[(int)(data->ray.pos.y - data->ray.plane.y \
-	* 0.045)][(int)(data->ray.pos.x - data->ray.plane.x \
-	* 0.045)] == 48 || is_dir(data->map[(int)(data->ray.pos.y - data->ray.plane.y \
-	* 0.045)][(int)(data->ray.pos.x - data->ray.plane.x \
-	* 0.045)]))
+	if (data->map[(int)(data->ray.pos.y - data->ray.plane.y
+			* 0.045)][(int)(data->ray.pos.x - data->ray.plane.x
+			* 0.045)] == 48 || is_dir(data->map[(int)(data->ray.pos.y
+			- data->ray.plane.y * 0.045)][(int)(data->ray.pos.x
+			- data->ray.plane.x
+			* 0.045)]))
 	{
 		data->ray.pos.x -= data->ray.plane.x * 0.045;
 		data->ray.pos.y -= data->ray.plane.y * 0.045;
@@ -70,11 +71,11 @@ void	go_right(t_data *data)
 	}
 }
 
-bool is_dir(char c)
+bool	is_dir(char c)
 {
-    if (c == 'E' || c == 'W' \
-    || c == 'S' || c == 'N' \
+	if (c == 'E' || c == 'W' \
+	|| c == 'S' || c == 'N' \
 	|| c == '3')
-        return (true);
-    return (false);
+		return (true);
+	return (false);
 }
