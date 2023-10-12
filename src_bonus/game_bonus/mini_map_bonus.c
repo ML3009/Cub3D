@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:40:41 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/10/11 17:45:17 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/12 11:05:48 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,19 @@ void	draw_mini_map(t_data *data, int y, int x, int y_bis)
 			if (x < data->col && y < data->row)
 			{
 				if (data->map && data->map[y][x] && data->map[y][x] == '1')
-					draw_square(data, y_bis, x_bis, 0x1A6303);
+					draw_square(data, y_bis, x_bis, 0xACAAA8);
 				else if (data->map && data->map[y][x] && (data->map[y][x] == '0'
 					|| is_dir(data->map[y][x])))
 					draw_square(data, y_bis, x_bis, 0xF0D5F8);
+				else if (data->map && data->map[y][x] && data->map[y][x] == '2')
+					draw_square(data, y_bis, x_bis, 0xB0650F);
 			}
 			x_bis += 5;
 		}
 		y_bis += 5;
 	}
 	draw_square(data, (int)data->ray.pos.y * 5,
-		(int)data->ray.pos.x * 5, 0x00000000);
+		(int)data->ray.pos.x * 5, 0xF11818);
 }
 
 static void	draw_square(t_data *data, int y, int x, int color)
