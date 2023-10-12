@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:20:34 by purple            #+#    #+#             */
-/*   Updated: 2023/10/11 17:44:58 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/12 10:43:50 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	raycasting(t_data *data)
 	int	x;
 
 	x = -1;
-	//mlx_clear_window(data->mlx.mlx_id, data->mlx.mlx_window);
 	while (++x < data->mlx.size.x)
 	{
 		data->ray.camx = 2 * x / (double)data->mlx.size.x - 1;
@@ -34,10 +33,8 @@ void	raycasting(t_data *data)
 	}
 	if (data->key.map == 1)
 		draw_mini_map(data, -1, -1, 0);
-
 	mlx_put_image_to_window(data->mlx.mlx_id, data->mlx.mlx_window, \
 	data->base_img.image, 0, 0);
-
 }
 
 void	draw_void(t_data *data)
@@ -56,17 +53,18 @@ void	draw_void(t_data *data)
 	}
 }
 
-void draw_wall(t_data *data, int x)
+void	draw_wall(t_data *data, int x)
 {
-	t_texture tmp;
+	t_texture	tmp;
 
 	tmp = init_draw_wall(data);
 	while (data->ray.dstart < data->ray.dend)
 	{
 		tmp.tex.y = (int)tmp.tex_pos & (tmp.texture.height - 1);
 		tmp.tex_pos += tmp.step;
-		tmp.color = tmp.texture.adress + (int)(tmp.tex.y *  tmp.texture.line_lenght + tmp.tex.x * ( tmp.texture.bpp / 8));
-		img_pix_put(&data->base_img, x, data->ray.dstart , *(int *)tmp.color);
+		tmp.color = tmp.texture.adress + (int)(tmp.tex.y
+				* tmp.texture.line_lenght + tmp.tex.x * (tmp.texture.bpp / 8));
+		img_pix_put(&data->base_img, x, data->ray.dstart, *(int *)tmp.color);
 		data->ray.dstart++;
 	}
 }

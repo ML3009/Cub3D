@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:53:11 by purple            #+#    #+#             */
-/*   Updated: 2023/10/12 10:25:32 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/10/12 10:41:36 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	mlx_free_anim(t_data *data);
 
 void	free_mlx_b(t_data *data)
 {
-	//mlx_mouse_show(data->mlx.mlx_id, data->mlx.mlx_window);
 	free_all_map(data);
 	if (data->base_img.image != NULL)
 		mlx_destroy_image(data->mlx.mlx_id, data->base_img.image);
