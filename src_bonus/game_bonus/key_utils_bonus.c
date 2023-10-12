@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_utils_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:43:44 by purple            #+#    #+#             */
-/*   Updated: 2023/10/11 15:28:01 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/12 10:49:12 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,14 @@ void	ft_key(t_data *data)
 		vision_left(data);
 	if (data->key.vright == 1)
 		vision_right(data);
-	if (data->map[(int)(data->ray.pos.y + data->ray.dir.y)][(int)(data->ray.pos.x + data->ray.dir.x)] == '2' && data->key.odoor == 1)
-		data->map[(int)(data->ray.pos.y + data->ray.dir.y)][(int)(data->ray.pos.x + data->ray.dir.x)] = '3';
-	if (data->map[(int)(data->ray.pos.y + data->ray.dir.y)][(int)(data->ray.pos.x + data->ray.dir.x)] == '3' && data->key.cdoor == 1)
-		data->map[(int)(data->ray.pos.y + data->ray.dir.y)][(int)(data->ray.pos.x + data->ray.dir.x)] = '2';
+	if (data->map[(int)(data->ray.pos.y + data->ray.dir.y)]
+		[(int)(data->ray.pos.x + data->ray.dir.x)] == '2'
+		&& data->key.odoor == 1)
+		data->map[(int)(data->ray.pos.y + data->ray.dir.y)]
+		[(int)(data->ray.pos.x + data->ray.dir.x)] = '3';
+	if (data->map[(int)(data->ray.pos.y + data->ray.dir.y)]
+		[(int)(data->ray.pos.x + data->ray.dir.x)] == '3'
+		&& data->key.cdoor == 1)
+		data->map[(int)(data->ray.pos.y + data->ray.dir.y)]
+		[(int)(data->ray.pos.x + data->ray.dir.x)] = '2';
 }

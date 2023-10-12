@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: purple <purple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 10:47:04 by purple            #+#    #+#             */
-/*   Updated: 2023/10/11 18:09:39 by purple           ###   ########.fr       */
+/*   Updated: 2023/10/12 10:45:15 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	loop_game(t_data *data);
 int	rbg_hexa(t_data *data, int texture);
+//mlx_mouse_hide(data->mlx.mlx_id, data->mlx.mlx_window);
 
 void	game_start(t_data *data)
 {
@@ -21,8 +22,8 @@ void	game_start(t_data *data)
 	data->rgb[CEIL].rgb_hex = rbg_hexa(data, CEIL);
 	if (init_the_game(data) < 0)
 		return ;
-	//mlx_mouse_hide(data->mlx.mlx_id, data->mlx.mlx_window);
-	//mlx_mouse_move(data->mlx.mlx_id, data->mlx.mlx_window, data->mlx.size.x / 2, data->mlx.size.y / 2);
+	mlx_mouse_move(data->mlx.mlx_id, data->mlx.mlx_window,
+		data->mlx.size.x / 2, data->mlx.size.y / 2);
 	mlx_loop_hook(data->mlx.mlx_id, loop_game, data);
 	mlx_hook(data->mlx.mlx_window, 2, KeyPressMask, &key_press, data);
 	mlx_hook(data->mlx.mlx_window, 3, KeyReleaseMask, &key_drop, data);
@@ -39,7 +40,6 @@ int	loop_game(t_data *data)
 	mouse_pov(data);
 	return (0);
 }
-
 
 int	rbg_hexa(t_data *data, int texture)
 {
